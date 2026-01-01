@@ -9,3 +9,11 @@ tsconfig.tsbuildinfo
 private/
 .replit
 replit.nix
+
+private/
+templates/
+.obsidian/
+\!documentation/
+quick-note.md
+linux/
+python/
