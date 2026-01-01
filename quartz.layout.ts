@@ -1,5 +1,6 @@
 import { PageLayout, SharedLayout } from "./quartz/cfg"
 import * as Component from "./quartz/components"
+const mapTitle = "Digital Garden"
 
 // components shared across all pages
 export const sharedPageComponents: SharedLayout = {
@@ -17,32 +18,28 @@ export const sharedPageComponents: SharedLayout = {
 // components for pages that display a single page (e.g. a single note)
 export const defaultContentPageLayout: PageLayout = {
   beforeBody: [
-    Component.ConditionalRender({
-      component: Component.Breadcrumbs(),
-      condition: (page) => page.fileData.slug !== "index",
-    }),
+    Component.Breadcrumbs(),
     Component.ArticleTitle(),
     Component.ContentMeta(),
     Component.TagList(),
+    Component.OnlyFor({titles: [mapTitle]}, Component.RecentNotes({limit: 10})),
   ],
   left: [
     Component.PageTitle(),
     Component.MobileOnly(Component.Spacer()),
-    Component.Flex({
-      components: [
-        {
-          Component: Component.Search(),
-          grow: true,
-        },
-        { Component: Component.Darkmode() },
-        { Component: Component.ReaderMode() },
-      ],
+    Component.Search(),
+    Component.Darkmode(),
+    Component.Explorer({
+      folderDefaultState: "open",
+      folderClickBehavior: "collapse",
+      useSavedState: false,
     }),
-    Component.Explorer(),
+    Component.MobileOnly(Component.Map()),
   ],
   right: [
     Component.Graph(),
     Component.DesktopOnly(Component.TableOfContents()),
+    Component.RecentNotes(),
     Component.Backlinks(),
   ],
 }
@@ -53,16 +50,14 @@ export const defaultListPageLayout: PageLayout = {
   left: [
     Component.PageTitle(),
     Component.MobileOnly(Component.Spacer()),
-    Component.Flex({
-      components: [
-        {
-          Component: Component.Search(),
-          grow: true,
-        },
-        { Component: Component.Darkmode() },
-      ],
-    }),
-    Component.Explorer(),
+    Component.Search(),
+    Component.Darkmode(),
+    Component.DesktopOnly(Component.Explorer({
+      folderDefaultState: "open",
+      folderClickBehavior: "collapse",
+      useSavedState: false,
+    })),
+    Component.MobileOnly(Component.Map()),
   ],
   right: [],
 }
