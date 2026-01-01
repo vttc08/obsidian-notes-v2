@@ -22,7 +22,7 @@ export const defaultContentPageLayout: PageLayout = {
     Component.ArticleTitle(),
     Component.ContentMeta(),
     Component.TagList(),
-    Component.OnlyFor({titles: [mapTitle]}, Component.RecentNotes({limit: 10})),
+    Component.OnlyFor({titles: [mapTitle]}, Component.RecentNotesFlex({limit: 10})),
   ],
   left: [
     Component.PageTitle(),
@@ -30,7 +30,7 @@ export const defaultContentPageLayout: PageLayout = {
     Component.Search(),
     Component.Darkmode(),
     Component.Explorer({
-      folderDefaultState: "open",
+      folderDefaultState: "collapsed",
       folderClickBehavior: "collapse",
       useSavedState: false,
     }),
@@ -52,11 +52,7 @@ export const defaultListPageLayout: PageLayout = {
     Component.MobileOnly(Component.Spacer()),
     Component.Search(),
     Component.Darkmode(),
-    Component.DesktopOnly(Component.Explorer({
-      folderDefaultState: "open",
-      folderClickBehavior: "collapse",
-      useSavedState: false,
-    })),
+    Component.DesktopOnly(Component.Explorer()),
     Component.MobileOnly(Component.Map()),
   ],
   right: [],

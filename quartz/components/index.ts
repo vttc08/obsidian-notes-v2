@@ -25,6 +25,7 @@ import Flex from "./Flex"
 import ConditionalRender from "./ConditionalRender"
 import OnlyFor from "./OnlyFor"
 import Map from "./Map"
+import RecentNotesFlex from "./RecentNotesFlex"
 
 export {
   ArticleTitle,
@@ -53,5 +54,6 @@ export {
   Flex,
   ConditionalRender,
   OnlyFor,
-  Map
+  Map,
+  RecentNotesFlex
 }

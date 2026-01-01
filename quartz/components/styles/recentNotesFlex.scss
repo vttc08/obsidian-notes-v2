@@ -1,0 +1,33 @@
+.recent-notes-flex {
+  & > h3 {
+    margin: 0.5rem 0 0 0;
+    font-size: 1rem;
+  }
+  
+  & > ul.recent-ul {
+    display: flex; 
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 0.5rem;
+    list-style: none;
+    margin-top: 1rem;
+    padding-left: 0;
+    & > li {
+      padding: 1rem;
+      box-sizing: border-box;
+      margin: 0.5rem 0;
+      .section > .desc > h3 > a {
+        background-color: transparent;
+      }
+      p {
+        font-size: 0.9rem;
+      }
+      
+
+      .section > .meta {
+        margin: 0 0 0.5rem 0;
+        opacity: 0.6;
+      }
+    }
+  }
+}
