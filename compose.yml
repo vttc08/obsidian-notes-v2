@@ -1,0 +1,43 @@
+services:
+  quartz: &quartz-service
+    image: ghcr.io/jackyzha0/quartz:latest
+    user: ${PUID}:${PGID}
+    volumes:
+      - ./:/usr/src/app
+    environment:
+      - QUARTZ_OUTPUT_DIR=/output
+      - QUARTZ_CONTENT_DIR=/content
+  quartz-builder:
+    <<: *quartz-service
+    container_name: quartz-builder
+    volumes:
+      - ./:/usr/src/app
+      - ./content:/content:ro
+      - ../quartz-web/site:/output
+    command:
+      - /bin/bash
+      - -c
+      - |
+        npx quartz build \
+        --directory $${QUARTZ_CONTENT_DIR:-/usr/src/app/content} \
+        --output $${QUARTZ_OUTPUT_DIR:-/usr/src/app/public}
+
+  quartz-dev:
+    <<: *quartz-service
+    container_name: quartz-dev
+    ports:
+      - "3100:3100" # Websocket, port 3000 likely used
+      - "8180:8080" # HTTP, can customize to anything
+    volumes:
+      - ./:/usr/src/app
+      - ~/Documents/notes:/content:ro
+      - ../preview:/output
+    command:
+      - /bin/bash
+      - -c
+      - |
+        npx quartz build \
+        --directory $${QUARTZ_CONTENT_DIR:-/usr/src/app/content} \
+        --output $${QUARTZ_OUTPUT_DIR:-/usr/src/app/public} \
+        --wsPort 3100 \
+        --serve
