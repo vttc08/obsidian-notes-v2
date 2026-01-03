@@ -1,0 +1,6 @@
+- [ ] Setup CIFS mount in Jellyfin
+- [ ] test transcoding of smaller files in both machines
+- [ ] perform standard tests and measure power consumption
+- [ ] get ffmpeg command from each transcode
+- [ ] modify ffmpeg command to produce small segment
+- [ ] analyze results

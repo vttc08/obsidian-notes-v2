@@ -1,0 +1,1 @@
+https://www.rtings.com/tv/learn/how-to-calibrate-your-tv
