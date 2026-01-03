@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+    <channel>
+      <title>🌳 My Digital Garden</title>
+      <link>https://quartz.jzhao.xyz</link>
+      <description>Last 10 notes on 🌳 My Digital Garden</description>
+      <generator>Quartz -- quartz.jzhao.xyz</generator>
+      <item>
+    <title>docs-template</title>
+    <link>https://quartz.jzhao.xyz/obsidian/docs-template</link>
+    <guid>https://quartz.jzhao.xyz/obsidian/docs-template</guid>
+    <description><![CDATA[  ]]></description>
+    <pubDate>Sat, 03 Jan 2026 05:19:53 GMT</pubDate>
+  </item><item>
+    <title>Obsidian Publish</title>
+    <link>https://quartz.jzhao.xyz/obsidian/obsidian-publish</link>
+    <guid>https://quartz.jzhao.xyz/obsidian/obsidian-publish</guid>
+    <description><![CDATA[ Digital Garden Explorer theme works well but options to selfhost is not working. ]]></description>
+    <pubDate>Sat, 03 Jan 2026 04:47:03 GMT</pubDate>
+  </item><item>
+    <title>dotfiles</title>
+    <link>https://quartz.jzhao.xyz/projects/dotfiles</link>
+    <guid>https://quartz.jzhao.xyz/projects/dotfiles</guid>
+    <description><![CDATA[ Tabby export PS1=&quot;$PS1\[\e]1337;CurrentDir=&quot;&#039;$(pwd)\a\]&#039; Vim The colorscheme habamax requires additional a new version of Vim. ]]></description>
+    <pubDate>Wed, 31 Dec 2025 18:37:31 GMT</pubDate>
+  </item><item>
+    <title>powershell</title>
+    <link>https://quartz.jzhao.xyz/windows/win-apps/powershell</link>
+    <guid>https://quartz.jzhao.xyz/windows/win-apps/powershell</guid>
+    <description><![CDATA[ Powershell winget install gnu.nano nano $profile Add these lines into PowerShell profile Set-PSReadlineKeyHandler -Key ctrl+d -Function ViExit Set-Alias -Name current_video &quot;$HOME\scripts\rmdir.ps1&quot; Set-Alias which where.exe Set-Alias kidm &quot;$HOME\scripts\kidm.ps1&quot; Import-Module &... ]]></description>
+    <pubDate>Wed, 17 Dec 2025 02:05:52 GMT</pubDate>
+  </item><item>
+    <title>!general</title>
+    <link>https://quartz.jzhao.xyz/windows/win-apps/!general</link>
+    <guid>https://quartz.jzhao.xyz/windows/win-apps/!general</guid>
+    <description><![CDATA[ General Windows Apps There will be notes to specific apps setup. ]]></description>
+    <pubDate>Wed, 17 Dec 2025 02:04:07 GMT</pubDate>
+  </item><item>
+    <title>net-connections</title>
+    <link>https://quartz.jzhao.xyz/windows/win-apps/net-connections</link>
+    <guid>https://quartz.jzhao.xyz/windows/win-apps/net-connections</guid>
+    <description><![CDATA[ For connecting to networked resources, eg. SMB, SSH, Wireguard SSH Remember to not use strict host checking for automating ssh login. ]]></description>
+    <pubDate>Wed, 17 Dec 2025 02:01:46 GMT</pubDate>
+  </item><item>
+    <title>Selfhost a Resilient Remote Access, Ditch Old VPN Protocols</title>
+    <link>https://quartz.jzhao.xyz/homeserver/Selfhost-a-Resilient-Remote-Access,-Ditch-Old-VPN-Protocols</link>
+    <guid>https://quartz.jzhao.xyz/homeserver/Selfhost-a-Resilient-Remote-Access,-Ditch-Old-VPN-Protocols</guid>
+    <description><![CDATA[ First I apologize the post is very long because it’s complex topic with many options. If your Wireguard/OpenVPN works great, you don’t need this. ]]></description>
+    <pubDate>Tue, 16 Dec 2025 22:36:54 GMT</pubDate>
+  </item><item>
+    <title>NAT-traversal</title>
+    <link>https://quartz.jzhao.xyz/programming/networking/NAT-traversal</link>
+    <guid>https://quartz.jzhao.xyz/programming/networking/NAT-traversal</guid>
+    <description><![CDATA[ STUN is only possible for full-cone NAT APD - address and port dependent AD - address dependent F - filtering; M - mapping Firewall By default, router firewall will allow only outgoing or incoming traffic that has established connection. ]]></description>
+    <pubDate>Tue, 16 Dec 2025 08:17:00 GMT</pubDate>
+  </item><item>
+    <title>string</title>
+    <link>https://quartz.jzhao.xyz/programming/nodejs/string</link>
+    <guid>https://quartz.jzhao.xyz/programming/nodejs/string</guid>
+    <description><![CDATA[ str=&quot;mynewstr123&quot; Indexing, includes and slicing strings is the same as array. ]]></description>
+    <pubDate>Fri, 12 Dec 2025 05:37:33 GMT</pubDate>
+  </item><item>
+    <title>array</title>
+    <link>https://quartz.jzhao.xyz/programming/nodejs/array</link>
+    <guid>https://quartz.jzhao.xyz/programming/nodejs/array</guid>
+    <description><![CDATA[ Declare an array:. ]]></description>
+    <pubDate>Fri, 12 Dec 2025 04:46:00 GMT</pubDate>
+  </item>
+    </channel>
+  </rss>
