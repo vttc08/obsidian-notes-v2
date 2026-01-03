@@ -197,4 +197,8 @@ rsync command
 rsync -avhP --delete content/ markdown/
 ```
 
-The websocket port must be defined by environment variable, not port mapping
+The WebSocket port must be defined by environment variable, not port mapping  
+
+The default way of deploying via Github pages doesn't preserve the date, as it's being tracked by filesystem. Therefore `ghp-import` was used to publish the raw HTML content directly to Github.
+
+Added new content.
