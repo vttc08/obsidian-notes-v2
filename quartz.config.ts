@@ -18,7 +18,7 @@ const config: QuartzConfig = {
     locale: "en-US",
     baseUrl: "quartz.jzhao.xyz",
     ignorePatterns: [
-      "private", "templates", ".obsidian", "(!documentation)", "quick-note.md", "linux", "python"
+      "private", "templates", ".obsidian", "(!documentation)", "quick-note.md", "linux", "python", ".stlfolder", ".trash"
     ],
     defaultDateType: "modified",
     theme: {

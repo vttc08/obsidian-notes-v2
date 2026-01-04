@@ -17,3 +17,7 @@ templates/
 quick-note.md
 linux/
 python/
+.stlfolder/
+.trash/
+.nomedia
+.stignore
