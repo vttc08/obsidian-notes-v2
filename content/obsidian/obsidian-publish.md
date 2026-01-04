@@ -173,9 +173,9 @@ Todos
 - it's no longer possible to have a explorer on the homepage
 - [x] recent notes by date
 - [x] upstream and own notes
-- [ ] rsync script
-- [ ] build and publish script
-- [ ] docker
+- [x] rsync script
+- [x] build and publish script
+- [x] docker
 - [ ] obsidian-shell (SSH)
 
 Download nodejs
