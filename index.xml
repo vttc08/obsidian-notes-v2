@@ -10,13 +10,25 @@
     <link>https://quartz.jzhao.xyz/obsidian/docs-template</link>
     <guid>https://quartz.jzhao.xyz/obsidian/docs-template</guid>
     <description><![CDATA[  ]]></description>
-    <pubDate>Sun, 04 Jan 2026 00:48:27 GMT</pubDate>
+    <pubDate>Mon, 05 Jan 2026 02:45:09 GMT</pubDate>
+  </item><item>
+    <title>Obsidian Publish V2</title>
+    <link>https://quartz.jzhao.xyz/obsidian/obsidian-publish-v2</link>
+    <guid>https://quartz.jzhao.xyz/obsidian/obsidian-publish-v2</guid>
+    <description><![CDATA[  Old: vttc08.github.io/obsidian-notes New: vttc08.github.io/obsidian-notes-v2 Repo: github.com/vttc08/obsidian-notes-v2 Also on Cloudflare Pages VPS Deployment Current Issues My previous obsidian-publish implementation has several limitations that need addressing: Publishing Constraints Single-devic... ]]></description>
+    <pubDate>Mon, 05 Jan 2026 02:44:36 GMT</pubDate>
+  </item><item>
+    <title>Selfhost a Resilient Remote Access, Ditch Old VPN Protocols</title>
+    <link>https://quartz.jzhao.xyz/homeserver/Selfhost-a-Resilient-Remote-Access,-Ditch-Old-VPN-Protocols</link>
+    <guid>https://quartz.jzhao.xyz/homeserver/Selfhost-a-Resilient-Remote-Access,-Ditch-Old-VPN-Protocols</guid>
+    <description><![CDATA[ First I apologize if the post is very long because it’s complex topic with many options. If your Wireguard/OpenVPN works great, you don’t need this. ]]></description>
+    <pubDate>Sun, 04 Jan 2026 06:25:35 GMT</pubDate>
   </item><item>
     <title>Obsidian Publish</title>
     <link>https://quartz.jzhao.xyz/obsidian/obsidian-publish</link>
     <guid>https://quartz.jzhao.xyz/obsidian/obsidian-publish</guid>
     <description><![CDATA[ Digital Garden Explorer theme works well but options to selfhost is not working. ]]></description>
-    <pubDate>Sun, 04 Jan 2026 00:47:08 GMT</pubDate>
+    <pubDate>Sun, 04 Jan 2026 06:06:10 GMT</pubDate>
   </item><item>
     <title>dotfiles</title>
     <link>https://quartz.jzhao.xyz/projects/dotfiles</link>
@@ -42,12 +54,6 @@
     <description><![CDATA[ For connecting to networked resources, eg. SMB, SSH, Wireguard SSH Remember to not use strict host checking for automating ssh login. ]]></description>
     <pubDate>Wed, 17 Dec 2025 02:01:46 GMT</pubDate>
   </item><item>
-    <title>Selfhost a Resilient Remote Access, Ditch Old VPN Protocols</title>
-    <link>https://quartz.jzhao.xyz/homeserver/Selfhost-a-Resilient-Remote-Access,-Ditch-Old-VPN-Protocols</link>
-    <guid>https://quartz.jzhao.xyz/homeserver/Selfhost-a-Resilient-Remote-Access,-Ditch-Old-VPN-Protocols</guid>
-    <description><![CDATA[ First I apologize the post is very long because it’s complex topic with many options. If your Wireguard/OpenVPN works great, you don’t need this. ]]></description>
-    <pubDate>Tue, 16 Dec 2025 22:36:54 GMT</pubDate>
-  </item><item>
     <title>NAT-traversal</title>
     <link>https://quartz.jzhao.xyz/programming/networking/NAT-traversal</link>
     <guid>https://quartz.jzhao.xyz/programming/networking/NAT-traversal</guid>
@@ -59,12 +65,6 @@
     <guid>https://quartz.jzhao.xyz/programming/nodejs/string</guid>
     <description><![CDATA[ str=&quot;mynewstr123&quot; Indexing, includes and slicing strings is the same as array. ]]></description>
     <pubDate>Fri, 12 Dec 2025 05:37:33 GMT</pubDate>
-  </item><item>
-    <title>array</title>
-    <link>https://quartz.jzhao.xyz/programming/nodejs/array</link>
-    <guid>https://quartz.jzhao.xyz/programming/nodejs/array</guid>
-    <description><![CDATA[ Declare an array:. ]]></description>
-    <pubDate>Fri, 12 Dec 2025 04:46:00 GMT</pubDate>
   </item>
     </channel>
   </rss>
