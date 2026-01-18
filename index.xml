@@ -10,13 +10,19 @@
     <link>https://quartz.jzhao.xyz/obsidian/docs-template</link>
     <guid>https://quartz.jzhao.xyz/obsidian/docs-template</guid>
     <description><![CDATA[  ]]></description>
-    <pubDate>Mon, 05 Jan 2026 02:45:09 GMT</pubDate>
+    <pubDate>Sun, 18 Jan 2026 05:28:07 GMT</pubDate>
+  </item><item>
+    <title>insta-v2ray</title>
+    <link>https://quartz.jzhao.xyz/projects/finished/insta-v2ray</link>
+    <guid>https://quartz.jzhao.xyz/projects/finished/insta-v2ray</guid>
+    <description><![CDATA[ Pinggy ssh -p 443 -R0:localhost:56789 -o StrictHostKeyChecking=no -o ServerAliveInterval=30 6Eyd7skanEB@free.pinggy.io Tailscale funnel set it to work without sudo sudo tailscale set --operator=$USER tailscale.com/kb/1223/funnel must be localhost sudo tailscale funnel localhost:port Devtunnel localh... ]]></description>
+    <pubDate>Wed, 14 Jan 2026 05:57:23 GMT</pubDate>
   </item><item>
     <title>Obsidian Publish V2</title>
     <link>https://quartz.jzhao.xyz/obsidian/obsidian-publish-v2</link>
     <guid>https://quartz.jzhao.xyz/obsidian/obsidian-publish-v2</guid>
     <description><![CDATA[  Old: vttc08.github.io/obsidian-notes New: vttc08.github.io/obsidian-notes-v2 Repo: github.com/vttc08/obsidian-notes-v2 Also on Cloudflare Pages VPS Deployment Current Issues My previous obsidian-publish implementation has several limitations that need addressing: Publishing Constraints Single-devic... ]]></description>
-    <pubDate>Mon, 05 Jan 2026 02:44:36 GMT</pubDate>
+    <pubDate>Fri, 09 Jan 2026 04:53:27 GMT</pubDate>
   </item><item>
     <title>Selfhost a Resilient Remote Access, Ditch Old VPN Protocols</title>
     <link>https://quartz.jzhao.xyz/homeserver/Selfhost-a-Resilient-Remote-Access,-Ditch-Old-VPN-Protocols</link>
@@ -59,12 +65,6 @@
     <guid>https://quartz.jzhao.xyz/programming/networking/NAT-traversal</guid>
     <description><![CDATA[ STUN is only possible for full-cone NAT APD - address and port dependent AD - address dependent F - filtering; M - mapping Firewall By default, router firewall will allow only outgoing or incoming traffic that has established connection. ]]></description>
     <pubDate>Tue, 16 Dec 2025 08:17:00 GMT</pubDate>
-  </item><item>
-    <title>string</title>
-    <link>https://quartz.jzhao.xyz/programming/nodejs/string</link>
-    <guid>https://quartz.jzhao.xyz/programming/nodejs/string</guid>
-    <description><![CDATA[ str=&quot;mynewstr123&quot; Indexing, includes and slicing strings is the same as array. ]]></description>
-    <pubDate>Fri, 12 Dec 2025 05:37:33 GMT</pubDate>
   </item>
     </channel>
   </rss>
