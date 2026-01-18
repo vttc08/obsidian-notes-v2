@@ -65,12 +65,12 @@ It is done via appending
 ```
 
 New Todos
-- enabled tunnels (disable if pre-req not met)
+~~- enabled tunnels (disable if pre-req not met)~~
 - serveo, devtunnel support
 - complex loclx support
-- auto respin tunnels (e.g. Pinggy)
+~~- auto respin tunnels (e.g. Pinggy)~~
 - custom frontend callback
-- QRCode
+~~- QRCode~~
 - explore docker
 
 English Promo
