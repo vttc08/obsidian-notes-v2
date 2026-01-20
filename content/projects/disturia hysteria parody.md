@@ -46,7 +46,7 @@ Your net’s in hysteria
 It’s like the firewalls all died
 Hysteria, no resets tonight
 Hysteria, cruising at the speed of light
-Hysteria… hysteria 🎶
+Hysteria… hysteria 
 
 Release me from this block I’m in
 Trying to maintain, but they’re throttling
@@ -62,4 +62,4 @@ Your net’s in hysteria
 It’s like the deep scan went blind
 Hysteria, UDP on the rise
 Hysteria, they can’t censor what’s disguised
-Hysteria… hysteria 🎶
+Hysteria… hysteria 
