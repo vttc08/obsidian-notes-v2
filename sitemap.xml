@@ -42,7 +42,7 @@
     <lastmod>2025-06-07T19:35:52.917Z</lastmod>
   </url><url>
     <loc>https://quartz.jzhao.xyz/docker/docker-networks</loc>
-    <lastmod>2024-08-31T04:37:58.421Z</lastmod>
+    <lastmod>2026-02-07T06:05:04.017Z</lastmod>
   </url><url>
     <loc>https://quartz.jzhao.xyz/docker/docker-socket</loc>
     <lastmod>2024-09-16T20:50:03.180Z</lastmod>
@@ -143,6 +143,9 @@
     <loc>https://quartz.jzhao.xyz/homeserver/jellyfin-hw-transcode-youtube</loc>
     <lastmod>2024-07-08T21:41:58.636Z</lastmod>
   </url><url>
+    <loc>https://quartz.jzhao.xyz/homeserver/proxmox/01-pve-todo</loc>
+    <lastmod>2026-02-10T03:33:13.633Z</lastmod>
+  </url><url>
     <loc>https://quartz.jzhao.xyz/homeserver/proxmox/backup-snapshot</loc>
     <lastmod>2023-09-03T23:59:05.281Z</lastmod>
   </url><url>
@@ -162,12 +165,9 @@
     <lastmod>2023-09-03T23:59:05.409Z</lastmod>
   </url><url>
     <loc>https://quartz.jzhao.xyz/homeserver/proxmox/pve-basic</loc>
-    <lastmod>2023-09-03T23:59:05.289Z</lastmod>
+    <lastmod>2026-02-10T03:21:38.683Z</lastmod>
   </url><url>
     <loc>https://quartz.jzhao.xyz/homeserver/proxmox/pve-passthrough</loc>
-    <lastmod>2023-09-03T23:59:05.289Z</lastmod>
-  </url><url>
-    <loc>https://quartz.jzhao.xyz/homeserver/proxmox/pve-todo</loc>
     <lastmod>2023-09-03T23:59:05.289Z</lastmod>
   </url><url>
     <loc>https://quartz.jzhao.xyz/homeserver/proxmox/spoto-pve-aio</loc>
@@ -243,7 +243,7 @@
     <lastmod>2024-10-24T20:01:38.497Z</lastmod>
   </url><url>
     <loc>https://quartz.jzhao.xyz/obsidian/docs-template</loc>
-    <lastmod>2026-01-20T04:33:54.932Z</lastmod>
+    <lastmod>2026-02-21T03:55:00.519Z</lastmod>
   </url><url>
     <loc>https://quartz.jzhao.xyz/obsidian/obsidian-basics</loc>
     <lastmod>2024-07-20T01:34:52.967Z</lastmod>
@@ -268,6 +268,9 @@
   </url><url>
     <loc>https://quartz.jzhao.xyz/obsidian/obsidian2tldr</loc>
     <lastmod>2025-06-13T04:00:28.203Z</lastmod>
+  </url><url>
+    <loc>https://quartz.jzhao.xyz/programming/api/API-Client</loc>
+    <lastmod>2026-02-17T01:07:33.900Z</lastmod>
   </url><url>
     <loc>https://quartz.jzhao.xyz/programming/css/CSS</loc>
     <lastmod>2024-10-16T05:00:43.475Z</lastmod>
@@ -405,7 +408,7 @@
     <lastmod>2025-12-12T05:37:33.279Z</lastmod>
   </url><url>
     <loc>https://quartz.jzhao.xyz/programming/powershell/01-Fundamentals</loc>
-    <lastmod>2024-12-12T18:07:40.489Z</lastmod>
+    <lastmod>2026-01-24T05:33:03.510Z</lastmod>
   </url><url>
     <loc>https://quartz.jzhao.xyz/programming/react/01-basic</loc>
     <lastmod>2025-05-04T04:27:55.321Z</lastmod>
@@ -434,17 +437,14 @@
     <loc>https://quartz.jzhao.xyz/projects/WARPStack</loc>
     <lastmod>2024-12-12T07:25:52.267Z</lastmod>
   </url><url>
+    <loc>https://quartz.jzhao.xyz/projects/adguard-home</loc>
+    <lastmod>2026-02-13T02:45:53.489Z</lastmod>
+  </url><url>
     <loc>https://quartz.jzhao.xyz/projects/ai/ai-shell</loc>
     <lastmod>2025-09-21T02:19:33.676Z</lastmod>
   </url><url>
     <loc>https://quartz.jzhao.xyz/projects/ai/sponsorblock-ai</loc>
     <lastmod>2024-11-12T18:14:43.590Z</lastmod>
-  </url><url>
-    <loc>https://quartz.jzhao.xyz/projects/disturia-hysteria-parody</loc>
-    <lastmod>2026-01-18T05:31:56.142Z</lastmod>
-  </url><url>
-    <loc>https://quartz.jzhao.xyz/projects/dotfiles</loc>
-    <lastmod>2025-12-31T18:37:31.540Z</lastmod>
   </url><url>
     <loc>https://quartz.jzhao.xyz/projects/finished/GPU-Passthrough</loc>
     <lastmod>2024-08-05T17:39:11.601Z</lastmod>
@@ -454,6 +454,12 @@
   </url><url>
     <loc>https://quartz.jzhao.xyz/projects/finished/church-soundboard</loc>
     <lastmod>2024-03-05T16:55:57.946Z</lastmod>
+  </url><url>
+    <loc>https://quartz.jzhao.xyz/projects/finished/disturia-hysteria-parody</loc>
+    <lastmod>2026-01-18T05:31:56.142Z</lastmod>
+  </url><url>
+    <loc>https://quartz.jzhao.xyz/projects/finished/dotfiles</loc>
+    <lastmod>2025-12-31T18:37:31.540Z</lastmod>
   </url><url>
     <loc>https://quartz.jzhao.xyz/projects/finished/htpc-troubleshooter</loc>
     <lastmod>2025-05-26T02:05:40.352Z</lastmod>
@@ -467,6 +473,9 @@
     <loc>https://quartz.jzhao.xyz/projects/finished/mkvtoolnix</loc>
     <lastmod>2025-10-23T04:22:17.718Z</lastmod>
   </url><url>
+    <loc>https://quartz.jzhao.xyz/projects/finished/newpipe-sponsorblock</loc>
+    <lastmod>2025-01-22T04:33:30.420Z</lastmod>
+  </url><url>
     <loc>https://quartz.jzhao.xyz/projects/finished/propresenter-remote-control</loc>
     <lastmod>2024-04-28T01:10:26.906Z</lastmod>
   </url><url>
@@ -476,8 +485,8 @@
     <loc>https://quartz.jzhao.xyz/projects/jellyfin-AMD-transcoding</loc>
     <lastmod>2024-11-20T00:28:41.821Z</lastmod>
   </url><url>
-    <loc>https://quartz.jzhao.xyz/projects/newpipe-sponsorblock</loc>
-    <lastmod>2025-01-22T04:33:30.420Z</lastmod>
+    <loc>https://quartz.jzhao.xyz/projects/movie-renamer</loc>
+    <lastmod>2026-02-20T21:29:43.130Z</lastmod>
   </url><url>
     <loc>https://quartz.jzhao.xyz/projects/npmplus</loc>
     <lastmod>2025-09-15T03:31:52.597Z</lastmod>
