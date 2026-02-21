@@ -10,7 +10,13 @@
     <link>https://quartz.jzhao.xyz/obsidian/docs-template</link>
     <guid>https://quartz.jzhao.xyz/obsidian/docs-template</guid>
     <description><![CDATA[  ]]></description>
-    <pubDate>Sat, 21 Feb 2026 03:55:00 GMT</pubDate>
+    <pubDate>Sat, 21 Feb 2026 03:58:00 GMT</pubDate>
+  </item><item>
+    <title>3910</title>
+    <link>https://quartz.jzhao.xyz/projects/finished/3910</link>
+    <guid>https://quartz.jzhao.xyz/projects/finished/3910</guid>
+    <description><![CDATA[ What do I need to know? The differences between InnoDB vs MyISAM table storage engines OperationsInnoDBMyISAMTransactionsyesnoLockingRowTableSpeedwriteconcurrent readFull Text IndexingYes after 5.6YesForeign KeyyesnoInnoDB is the new default engine used in MySQL, it’s ACID compliant with transaction... ]]></description>
+    <pubDate>Sat, 21 Feb 2026 03:53:01 GMT</pubDate>
   </item><item>
     <title>movie-renamer</title>
     <link>https://quartz.jzhao.xyz/projects/movie-renamer</link>
@@ -59,12 +65,6 @@
     <guid>https://quartz.jzhao.xyz/projects/finished/disturia-hysteria-parody</guid>
     <description><![CDATA[ Bum bum be-dum, bum bum be-dum bum (“Why’s my server down?”) Bum bum be-dum, bum bum be-dum bum (“Why’s my speed like this?”) Bum bum be-dum, bum bum be-dum bum (“Hysteria saves me now”) Bum bum be-dum, bum bum be-dum bum Immich down, in the red (can’t even get it syncing) Jellyfin marked as “blocke... ]]></description>
     <pubDate>Sun, 18 Jan 2026 05:31:56 GMT</pubDate>
-  </item><item>
-    <title>insta-v2ray</title>
-    <link>https://quartz.jzhao.xyz/projects/finished/insta-v2ray</link>
-    <guid>https://quartz.jzhao.xyz/projects/finished/insta-v2ray</guid>
-    <description><![CDATA[ Pinggy ssh -p 443 -R0:localhost:56789 -o StrictHostKeyChecking=no -o ServerAliveInterval=30 6Eyd7skanEB@free.pinggy.io Tailscale funnel set it to work without sudo sudo tailscale set --operator=$USER tailscale.com/kb/1223/funnel must be localhost sudo tailscale funnel localhost:port Devtunnel localh... ]]></description>
-    <pubDate>Wed, 14 Jan 2026 05:57:23 GMT</pubDate>
   </item>
     </channel>
   </rss>
