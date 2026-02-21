@@ -4,7 +4,7 @@ configure static IP address first, tutorial for using dhcp
 https://weblog.lkiesow.de/20220223-proxmox-test-machine-self-servic/proxmox-server-dhcp.html
 default username: root, use the password set before
 
-By default Proxmox will use enterprise repo and have nag screen, use these to remove it [[pve-todo]]
+By default Proxmox will use enterprise repo and have nag screen, use these to remove it [[01-pve-todo]]
 
 Containers use less resources compared to VM
 - container only use up to the amount of RAM (RAM limit)

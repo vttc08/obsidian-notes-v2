@@ -68,6 +68,7 @@ docker network create -d macvlan/ipvlan \
 	--subnet 10.10.120.0/24 \ # the subnet of the server
 	--gateway 10.10.120.1 \ # gateway, or IP addr of home router
 	-o parent=enp2s0 \ # the physical interface on the computer
+	network_name
 ```
 When creating the container, it is also possible to assign custom IP address, the address has to be outside of DHCP range
 ```bash
