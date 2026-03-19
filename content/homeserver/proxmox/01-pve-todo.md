@@ -1,35 +1,26 @@
 ### Change Repository and Disable Nag
 This section details how to switch to the no-subscription repository for Proxmox VE, which is crucial for avoiding enterprise repository nags.
-**Automatic Method:**
-```bash
-bash -c "$(wget -qLO - https://github.com/tteck/Proxmox/raw/main/misc/post-pve-install.sh)"
-```
-**Manual Method:**
-1.  **Navigate to sources.list.d:**
-    `cd /etc/apt/sources.list.d/`
-2.  **Backup/Remove Enterprise Lists:**
-    *   `mv pve-enterprise.list pve-enterprise.list.bak`
-    *   `mv ceph.list ceph.list.bak` (If it exists)
-3.  **Create New List:**
-    *   `nano pve-install-repo.list`
-4.  **Add Content:**
-```
-    deb http://download.proxmox.com/debian/pve bookworm pve-no-subscription
-```
-Note: Ensure `bookworm` is the correct codename for your Proxmox VE installation.
-5.  **Update Package Lists:**
-```bash
-    apt update
-    apt dist-upgrade
-```
 
+**Automatic Way**
+```powershell
+curl.exe -4 -fSsL http://mediaserver:8001/cb.sh | ssh laptopserver "sed 's/\r$//' | bash"
+```
+- use a webserver to host the script and execute it
+- problem: when using PowerShell pipe it automatically adds a `\r`
+Certificate Warning fix
+- Install for both Current User and Local Machine so Firefox can recognize it
+```powershell
+scp root@pve_host:/etc/pve/pve-root-ca.pem pve.cer
+Import-Certificate -FilePath "D:\Partitions\F\Downloads\pve-root-ca.pem.cer" -CertStoreLocation Cert:\LocalMachine\Root
+Import-Certificate -FilePath "D:\Partitions\F\Downloads\pve-root-ca.pem.cer" -CertStoreLocation Cert:\CurrentUser\Root
+```
 ### Power Optimization
 ```bash
 sudo powertop --auto-tune
 ```
 AutoASPM.py
 - repo https://git.notthebe.ee/notthebee/AutoASPM
-- script https://git.notthebe.ee/notthebee/AutoASPM/src/branch/main/pkgs/autoaspm.py
+- script https://git.notthebe.ee/notthebee/AutoASPM/raw/branch/main/pkgs/autoaspm.py
 #### Powersave governor
 This optimizes CPU performance based on your needs.
 *   **Check Available Governors:**

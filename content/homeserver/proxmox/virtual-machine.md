@@ -2,8 +2,10 @@
 quickshare-date: 2023-07-28 23:43:48
 quickshare-url: "https://noteshare.space/note/clknncgnn829401mwiktrflc6#HBHZB3XbqYU1N8YNYNHTrk49jkf/Rk8k523Xd83cZbk"
 ---
-VMID: a unique number between 100 - 999 (will be documented later)
+VMID: a unique number between 100 - 999999999 (3-9 digits)
 Name: hostname
+
+For todos after a VM has been created refer to [VM Todo](#VM%20Todo)
 
 **System**
 ![[Pasted image 20230722173056.png]]
@@ -58,6 +60,27 @@ Driver install (msi file located directly on the CD)
 Memory ballooning
 Qemu quest agent /quest-agent/{executable}
 
+## VM Todo
+### Linux
+**Install QEMU Quest Agent**
+Shutdown and restart the system
+```bash
+sudo apt update
+sudo apt install qemu-guest-agent
+```
+### Remote Access
+SSH or WebUI Shell for terminal. For GUI, the console might be insufficient. Although some distros comes with VNC/RDP clients, but that (including external SSH) requires internet connectivity. Here is how to setup Linux SPICE.
+**Client (Windows)**
+Download [Virt-Viewer](https://gitlab.com/virt-viewer/virt-viewer/-/releases/v11.0/downloads/virt-viewer-x64-11.0-1.0.msi), the installation is handled automatically
+**Guest VM**
+On Linux, the QXL driver is installed by default. Simply change the `Display` to `SPICE`
+- shutdown and start again
+- click the `Console` and it will download a `vv` file and double click to open it
+
+>[!error] Frozen Display on Ubuntu 24.04
+>To fix this issue, instead of `SPICE` as display, change it to `VirtIO-GPU`
+
+## Cloud-Init Templates
 **Template** (Linux Cloud-Init)
 1. Check if Cloud-Init is installed, if not install it
 2. `/etc/cloud/cloud.cfg`

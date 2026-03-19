@@ -6,7 +6,6 @@ install `firmware-linux` if on Ubuntu
 
 ```sh
 sudo mkdir -p /etc/modprobe.d
-pu
 ```
 reboot PVE host and check for error
 ```sh
