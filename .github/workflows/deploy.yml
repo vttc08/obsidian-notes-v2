@@ -20,12 +20,12 @@ jobs:
       runs-on: ubuntu-latest
       steps:
       - name: Checkout the current branch
-        uses: actions/checkout@v3 # checkout the repo
+        uses: actions/checkout@v6 # checkout the repo
         with:
           ref: gh-pages
 
       - name: Initialize the ssh-agent # configure ssh private key
-        uses: webfactory/ssh-agent@v0.4.1
+        uses: webfactory/ssh-agent@v0.10.0
         with:
           ssh-private-key: ${{ secrets.ORACLE_ARM_X_KEY }}
   
