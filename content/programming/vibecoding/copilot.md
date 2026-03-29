@@ -29,6 +29,8 @@ extra-keys = [['ESC','|','/','-','HOME','UP','END'],['TAB','CTRL','ALT','LEFT','
 - add this to `~/.termux/termux.properties`
 Use text/voice input in Termux https://www.reddit.com/r/termux/comments/f1kwof/enable_keyboard_auto_correct_in_termux/
 
+To enter another line use `Ctrl-J` as the default `Shift-Enter` doesn't work
+
 Ask/Execute (default) - simply ask prompt
 Plan - Copilot will come up with an implementation plan
 Autopilot - similar to agent, copilot will do everything until it thinks it's complete

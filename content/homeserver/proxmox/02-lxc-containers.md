@@ -24,7 +24,7 @@ Network
 - use /24 as its equivalent to 255.255.255.0
 
 **Template**
-Same as VM [[virtual-machine]], remove apt cache and package, delete ssh host keys, purge machine-id
+Same as VM [[03-virtual-machine]], remove apt cache and package, delete ssh host keys, purge machine-id
 After logging into the container, delete the ssh host keys
 `sudo dpkg-reconfigure openssh-server` this will reconfigure the ssh keys
 

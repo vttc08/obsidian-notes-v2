@@ -111,6 +111,7 @@ Splicing
 arr.splice(startIndex, deleteCount, itemToAdd,,) // Array: deleted items
 ```
 - start from the index, and delete n numbers from that position
+- if only start index is provided, it will remove everything
 - at that index add item(s)
 
 Array from string
