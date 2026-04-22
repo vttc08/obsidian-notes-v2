@@ -10,61 +10,61 @@
     <link>https://quartz.jzhao.xyz/obsidian/docs-template</link>
     <guid>https://quartz.jzhao.xyz/obsidian/docs-template</guid>
     <description><![CDATA[  ]]></description>
-    <pubDate>Sun, 29 Mar 2026 01:57:34 GMT</pubDate>
+    <pubDate>Wed, 22 Apr 2026 07:44:00 GMT</pubDate>
   </item><item>
-    <title>01-Fundamentals</title>
-    <link>https://quartz.jzhao.xyz/programming/powershell/01-Fundamentals</link>
-    <guid>https://quartz.jzhao.xyz/programming/powershell/01-Fundamentals</guid>
-    <description><![CDATA[ Installing Powershell 7 learn.microsoft.com/en-us/powershell/scripting/install/install-powershell-on-windows Warning: the profile location of PS5 and PS7 is difference Powershell use objects for input/output Get-Member get object properties of an object passed into it Get-Alias Get-Command check com... ]]></description>
-    <pubDate>Fri, 27 Mar 2026 06:58:43 GMT</pubDate>
+    <title>3910</title>
+    <link>https://quartz.jzhao.xyz/projects/finished/3910</link>
+    <guid>https://quartz.jzhao.xyz/projects/finished/3910</guid>
+    <description><![CDATA[ What do I need to know? The differences between InnoDB vs MyISAM table storage engines OperationsInnoDBMyISAMTransactionsyesnoLockingRowTableSpeedwriteconcurrent readFull Text IndexingYes after 5.6YesForeign Keyyesno InnoDB is the new default engine used in MySQL, it’s ACID compliant with transactio... ]]></description>
+    <pubDate>Wed, 22 Apr 2026 07:43:38 GMT</pubDate>
   </item><item>
-    <title>09-functions</title>
-    <link>https://quartz.jzhao.xyz/programming/powershell/09-functions</link>
-    <guid>https://quartz.jzhao.xyz/programming/powershell/09-functions</guid>
-    <description><![CDATA[ Powershell function syntax function name() { param( [string]$one, [int]$num ) return $something } function parameters are defined in param comma separated values Calling a function name $one $num name -one $one -num $num. ]]></description>
-    <pubDate>Fri, 27 Mar 2026 06:27:28 GMT</pubDate>
+    <title>Selfhost a Resilient Remote Access, Ditch Old VPN Protocols</title>
+    <link>https://quartz.jzhao.xyz/homeserver/Selfhost-a-Resilient-Remote-Access,-Ditch-Old-VPN-Protocols</link>
+    <guid>https://quartz.jzhao.xyz/homeserver/Selfhost-a-Resilient-Remote-Access,-Ditch-Old-VPN-Protocols</guid>
+    <description><![CDATA[ First I apologize if the post is very long because it’s complex topic with many options. If your Wireguard/OpenVPN works great, you don’t need this. ]]></description>
+    <pubDate>Wed, 22 Apr 2026 01:49:52 GMT</pubDate>
   </item><item>
-    <title>02-array</title>
-    <link>https://quartz.jzhao.xyz/programming/powershell/02-array</link>
-    <guid>https://quartz.jzhao.xyz/programming/powershell/02-array</guid>
-    <description><![CDATA[ learn.microsoft.com/en-us/powershell/scripting/learn/deep-dives/everything-about-arrays Array Array are fixed size Array stores the references, not the values, so when modifying items in a nested array, it will change everything Basic syntax $mylist=@() $mylist = 1,2,3,4,5 $mylist = echo 1 2 3 4 5 G... ]]></description>
-    <pubDate>Fri, 27 Mar 2026 06:23:30 GMT</pubDate>
+    <title>pve-fix</title>
+    <link>https://quartz.jzhao.xyz/projects/pve-fix</link>
+    <guid>https://quartz.jzhao.xyz/projects/pve-fix</guid>
+    <description><![CDATA[  not working solution completed but untested future todos Todos gso tso off Disable C-state in grub intel_idle (fixed) intel_idle.max_cstates=2 # try 2 if 1 works Disable ASPM in grub wiki.pulsedmedia.com/wiki/BKHD-1264-NAS_Intel_N100_NAS_Motherboard pcie_aspm=off nvme_core.default_ps_max_latency_us... ]]></description>
+    <pubDate>Sun, 19 Apr 2026 03:42:05 GMT</pubDate>
   </item><item>
-    <title>08-modules</title>
-    <link>https://quartz.jzhao.xyz/programming/powershell/08-modules</link>
-    <guid>https://quartz.jzhao.xyz/programming/powershell/08-modules</guid>
-    <description><![CDATA[ $env:PSModulePath directories where PS look for modules Get modules Get-Module $moduleName Import/Remove module Import-Module -Name $moduleName Remove-Module -Name $moduleName Install module (from other repositories) www.powershellgallery.com/ Install-Module $name. ]]></description>
-    <pubDate>Fri, 27 Mar 2026 03:54:43 GMT</pubDate>
+    <title>DNS poisoning</title>
+    <link>https://quartz.jzhao.xyz/projects/DNS-poisoning</link>
+    <guid>https://quartz.jzhao.xyz/projects/DNS-poisoning</guid>
+    <description><![CDATA[ Tldr: the determinism of DNS poisoned address can be utilized to automatically create routing rules which are pre-defined by the adversary, with a combination of proxy and route hijacking to achieve selective on demand proxying to restore from a DoS (denial of service) attack from T&amp;T Supermarke... ]]></description>
+    <pubDate>Sun, 19 Apr 2026 03:40:46 GMT</pubDate>
   </item><item>
-    <title>07-trycatch</title>
-    <link>https://quartz.jzhao.xyz/programming/powershell/07-trycatch</link>
-    <guid>https://quartz.jzhao.xyz/programming/powershell/07-trycatch</guid>
-    <description><![CDATA[ Try catch will only catch terminating error try{ failed } catch { echo failed } To adjust error types of some commands command -ErrorAction $ continue - will keep executing and show error ignore - continue and not show anything inquire - ask the user what to do silentlycontinue - store into error va... ]]></description>
-    <pubDate>Fri, 27 Mar 2026 03:26:22 GMT</pubDate>
+    <title>copilot</title>
+    <link>https://quartz.jzhao.xyz/programming/vibecoding/copilot</link>
+    <guid>https://quartz.jzhao.xyz/programming/vibecoding/copilot</guid>
+    <description><![CDATA[ Github Copilot CLI For Linux, install NodeJS 22 first with NVM npm install -g @github/copilot Auto-approve on my default copilot --yolo /models to select a model /init initialize the repository for Copilot Modes (use shift+tab to switch) extra-keys = [[&#039;ESC&#039;,&#039;|&#039;,&#039;/&#039;,&#0... ]]></description>
+    <pubDate>Thu, 16 Apr 2026 22:50:09 GMT</pubDate>
   </item><item>
-    <title>06-loops</title>
-    <link>https://quartz.jzhao.xyz/programming/powershell/06-loops</link>
-    <guid>https://quartz.jzhao.xyz/programming/powershell/06-loops</guid>
-    <description><![CDATA[ Iterate over an array (for i in arr) foreach($i in $mylist){ action $i } Range loop foreach ($i in 1..3) {$i} For loop piping when passing an item into an pipe, reference the current object using $_ $mylist | foreach { action $_ } # used for mapping a new array $mylist.forEach( { action $_} ) For lo... ]]></description>
-    <pubDate>Fri, 27 Mar 2026 03:12:18 GMT</pubDate>
+    <title>demucs-karaoke-vibe</title>
+    <link>https://quartz.jzhao.xyz/projects/demucs-karaoke-vibe</link>
+    <guid>https://quartz.jzhao.xyz/projects/demucs-karaoke-vibe</guid>
+    <description><![CDATA[ Demucs Windows Because of that, a stable, reproducible path on Windows is: Python 3.10 PyTorch 2.8.0 + cu126 TorchAudio 2.8.0 + cu126 TorchVision 0.23.0 + cu126 Demucs 4.0.1 Create and activate a virtual environment py -3.10 -m venv .venv .\.venv\Scripts\Activate.ps1 python -m pip install --upgrade ... ]]></description>
+    <pubDate>Wed, 15 Apr 2026 06:44:47 GMT</pubDate>
   </item><item>
-    <title>05-conditional</title>
-    <link>https://quartz.jzhao.xyz/programming/powershell/05-conditional</link>
-    <guid>https://quartz.jzhao.xyz/programming/powershell/05-conditional</guid>
-    <description><![CDATA[ Math &amp; Comparison Supported +, -, *, /, % Powershell do not use == or !=, &lt;= (1 -eq 2) -ge/le/gt/lt - common comparison, greater/less than or equal to by adding c into eq will make the search case sensitive File based operation with `Test-Path Test-Path $filePath whether a folder or file exis... ]]></description>
-    <pubDate>Thu, 26 Mar 2026 05:15:08 GMT</pubDate>
+    <title>docker-lxc</title>
+    <link>https://quartz.jzhao.xyz/homeserver/proxmox/pve-apps/docker-lxc</link>
+    <guid>https://quartz.jzhao.xyz/homeserver/proxmox/pve-apps/docker-lxc</guid>
+    <description><![CDATA[ Using Docker in LXC iGPU in LXC lxc.cgroup2.devices.allow: c 226:0 rwm lxc.cgroup2.devices.allow: c 226:128 rwm lxc.mount.entry: /dev/dri/renderD128 dev/dri/renderD128 none bind,optional,create=file Install docker from documentation Or use community script. ]]></description>
+    <pubDate>Tue, 07 Apr 2026 22:04:33 GMT</pubDate>
   </item><item>
-    <title>04-pipes</title>
-    <link>https://quartz.jzhao.xyz/programming/powershell/04-pipes</link>
-    <guid>https://quartz.jzhao.xyz/programming/powershell/04-pipes</guid>
-    <description><![CDATA[ Takes the stdout of the object and pass it as stdin for the next object, similar to Bash Get-Service MySQL | Stop-Service Pipes work on lists $services | Stop-Service # stop all services listed in the array. ]]></description>
-    <pubDate>Thu, 26 Mar 2026 04:47:06 GMT</pubDate>
+    <title>03-virtual-machine</title>
+    <link>https://quartz.jzhao.xyz/homeserver/proxmox/03-virtual-machine</link>
+    <guid>https://quartz.jzhao.xyz/homeserver/proxmox/03-virtual-machine</guid>
+    <description><![CDATA[ Proxmox VM Quick Info VMID: unique number between 100 and 999999999 (3-9 digits) this can be renamed in /etc/pve/qemu-server/&lt;VMID&gt;.conf Name: use hostname After creation tasks: see VM Todo VM Creation Checklist 1) System Enable QEMU Agent so guest actions (shutdown, snapshot) work more reliab... ]]></description>
+    <pubDate>Tue, 07 Apr 2026 22:00:57 GMT</pubDate>
   </item><item>
-    <title>03-hashtable</title>
-    <link>https://quartz.jzhao.xyz/programming/powershell/03-hashtable</link>
-    <guid>https://quartz.jzhao.xyz/programming/powershell/03-hashtable</guid>
-    <description><![CDATA[ learn.microsoft.com/en-us/powershell/scripting/learn/deep-dives/everything-about-hashtable $mydict = @{ k1=&quot;123&quot; k2=123 } $mydict = @{k1=&quot;123&quot;;k2=123} Key value $mydict.Keys $mydict.Values $mydict.ContainsKey(&quot;k1&quot;) # check if key exist Get/Set $mydict.keyName $mydict.ke... ]]></description>
-    <pubDate>Thu, 26 Mar 2026 04:39:20 GMT</pubDate>
+    <title>todo</title>
+    <link>https://quartz.jzhao.xyz/todo</link>
+    <guid>https://quartz.jzhao.xyz/todo</guid>
+    <description><![CDATA[  Excalidraw-Dash Yamtrack IPTV Learn Home Assistant in depth ha-fusion Traefik CLI subtitle tools SDHpysrtfuzzmatchuseful localsend/cli-send tools autouptimekuma ytdl-sub/MeTube Storyteller/AI audiobook DIUN docker update Lazytainer/ContainerNursery/dockerwakeup to sleep docker Minecraft discord bot... ]]></description>
+    <pubDate>Tue, 07 Apr 2026 18:59:45 GMT</pubDate>
   </item>
     </channel>
   </rss>
