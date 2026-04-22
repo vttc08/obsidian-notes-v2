@@ -125,3 +125,89 @@ Based on the limitation of this setup. Selective Global Proxying (Whitelist Mode
 - Finalize proxying by default. This ensures that sites targeted by all mechanism of DoS attacks are automatically handled, without manual intervention.
 - Whitelisting prominent and bandwidth intensive websites like Google, YouTube, Speedtest and BCIT. These sites would bypass the proxy and connect directly.
 This hybrid model minimizes the inconvenience of manually adding sites to a proxy list while still mitigating the impact of targeted attacks and reducing unnecessary proxy usage for high-bandwidth services. This could lead to a more seamless browsing experience and improved battery life compared to a full global proxy or selective direct proxy.
+
+## References
+Tree of `~/docker`
+```bash
+.
+├── compose.yml
+├── nginx
+│   ├── html
+│   ├── nginx.conf
+│   ├── sni-proxy-access.log
+│   └── sni-proxy-error.log
+└── proxy
+    └── compose.yml
+
+5 directories, 15 files
+```
+`~/docker/compose.yml`
+```yaml
+version: "3.9"
+
+services:
+  nginx:
+    image: nginx:latest
+    container_name: my-nginx
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    networks:
+      mynet:
+        ipv4_address: 208.91.112.55
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx/html:/usr/share/nginx/html:ro
+      - ./nginx/sni-proxy-access.log:/var/log/nginx/sni-proxy-access.log
+      - ./nginx/sni-proxy-error.log:/var/log/nginx/sni-proxy-error.log
+networks:
+  mynet:
+    external: true
+```
+`~/docker/proxy/compose.yml`
+```yaml
+services:
+  socks5:
+    container_name: socks5
+    image: serjs/go-socks5-proxy
+    network_mode: host
+    environment:
+      - REQUIRE_AUTH=false
+    restart: unless-stopped
+```
+`~/docker/nginx/nginx.conf`
+```nginx
+# /etc/nginx/nginx.conf
+
+worker_processes auto;
+events { worker_connections 1024; }
+
+stream {
+    resolver 1.1.1.1 8.8.8.8 valid=300s ipv6=off;
+    log_format basic '$remote_addr [$time_local] '
+                     '$protocol $status $bytes_sent $bytes_received '
+                     '$session_time "$ssl_preread_server_name" -> $upstream_addr';    
+	# Map SNI to dynamic destination (default to google.com if missing)
+    map $ssl_preread_server_name $target {
+        ""  10.10.120.12:443;   # fallback when no SNI
+        default  $ssl_preread_server_name:443;
+    }
+
+    server {
+        listen 443;
+        proxy_connect_timeout 5s;
+        proxy_timeout 60s;
+
+        # Enable SNI inspection
+        ssl_preread on;
+
+        # Forward raw TLS connection to real site
+        proxy_pass $target;
+
+        # Optional logging
+        access_log /var/log/nginx/sni-proxy-access.log basic;
+        error_log  /var/log/nginx/sni-proxy-error.log info;    }
+}
+
+```

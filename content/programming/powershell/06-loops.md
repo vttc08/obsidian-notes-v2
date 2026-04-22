@@ -1,4 +1,4 @@
-Iterate over an array (for i in arr)
+()Iterate over an array (for i in arr)
 ```powershell
 foreach($i in $mylist){ action $i }
 ```

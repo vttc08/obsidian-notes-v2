@@ -25,4 +25,3 @@ description: When the skill is triggered
 ```
 Skill allow bundle of different structures
 - e.g. a subfolder `./scripts` containing scripts to run when the skill is triggered
-`TEMPLATE.md` - how the AI respond with the information

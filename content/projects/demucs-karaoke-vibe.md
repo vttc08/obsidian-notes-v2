@@ -40,3 +40,24 @@ The song will be located in
 ```
 ./separated/htdemucs/<song>
 ```
+
+## WhisperX
+```
+pip install whisperx
+```
+
+Fix Hugging Face issues
+```powershell
+$env:HF_HOME="$HOME\.cache\huggingface"  
+$env:HF_TOKEN_PATH="$env:HF_HOME\token"  
+New-Item -ItemType Directory -Force -Path $env:HF_HOME | Out-Null
+```
+- make the required files for HF
+
+Available models
+tiny.en, tiny, base.en, base, small.en, small, medium.en, medium, large-v1, large-v2, large-v3, large, distil-large-v2, distil-medium.en, distil-small.en, distil-large-v3, distil-large-v3.5, large-v3-turbo, turbo
+
+![](assets/Pasted%20image%2020260414234258.png)
+CUDA (RTX 4070)
+- larger batch size results in faster speed (but likely more VRAM usage)
+- `large-v2` is the best balance between accuracy and speed

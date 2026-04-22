@@ -91,6 +91,13 @@ https://gitlab.com/virt-viewer/virt-viewer/-/releases/v11.0/downloads/virt-viewe
 >[!error] Frozen Display on Ubuntu 24.04
 >If SPICE display freezes, change Display to VirtIO-GPU.
 
+#### Guest VM (Windows)
+Download SPICE client: https://www.spice-space.org/download/windows/spice-guest-tools/spice-guest-tools-latest.exe
+
+>[!error] Fix Code 53 on Windows Server
+>https://askubuntu.com/questions/1508638/qemu-kvm-windows-11-code-52-error-with-display-driver
+>Download the third file.
+>In windows, uninstall the QXL driver (may need to switch to default display) and manually load the driver from folder.
 ## Cloud-Init Templates
 
 ### Prepare Linux Cloud-Init Template

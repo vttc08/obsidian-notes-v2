@@ -1,11 +1,9 @@
+- [ ] Excalidraw-Dash
+- [ ] Yamtrack
 - [ ] IPTV
-- [ ] Jellyfin AMD transcoding project
-- [ ] PVE Power Draw Project
-- [ ] CI/CD docs and digital garden
 - [ ] Learn Home Assistant in depth
 - [ ] ha-fusion
 - [ ] Traefik
-- [ ] mkvtoolnix automation
 - [ ] CLI subtitle tools [SDH](https://github.com/m-lyon/filter-subs)[pysrt](https://github.com/sorz/asstosrt/)[fuzzmatch](https://github.com/seatgeek/thefuzz)[useful](https://github.com/philiptn/mkv-auto)
 - [ ] localsend/cli-send tools
 - [ ] autouptimekuma
@@ -23,7 +21,6 @@
 - [ ] Apache Guacamole/Nexterm (sync it with ssh_config)
 - [ ] Meshcentral
 - [ ] Music server with deemix + popular songs using d-fi
-- [ ] git sync and selfhosted git
 - [ ] Mealie or Tandoor
 - [ ] Fixing tesla homepage
 - [ ] Photoprism Self-Built
@@ -45,10 +42,8 @@
 - [ ] Flowchart and documentation for syncthing
 - [ ] paperless ngx
 - [ ] rustdesk selfhost
-- [ ] subcleaner integration
 - [ ] changedetection
 - [ ] arr integration
-- [ ] LunaSea app
 - [ ] reiverr replacement for jellyseerr
 - [ ] ntfy/gotify notification system
 - [ ] jlesage apps (makemkv, jmkvprobe,czkawka)
@@ -56,15 +51,14 @@
 - [ ] Librum
 - [ ] multi-scrobbler/majola
 - [ ] yt-dlp
-- [ ] netmaker
 - [ ] Video/Image upscaling
-- [ ] Traefix
 - [ ] Authelia/lldap multi-server, 
 - [ ] Training sponsorblock
 - [ ] rathole/frp tunneling
+- [x] subcleaner integration
 - [x] [authelia-ldap](homeserver/authelia-ldap.md)
-- [x] GhostCMS VPS
 - [x] mailrise
+- [x] CollabMD
 - [x] VPS setup (document caddy, networks, tools, firewall, ddns)
 - [x] fireshare workflow
 - [x] ssh client config file
@@ -150,6 +144,10 @@
 
 Programming Projects Todo
 - [x] Mockup weebly portfolio
+- [x] Home Theatre Online Troubleshooter
+- [ ] Fireshare Go
+- [ ] Bash AI
+- [ ] Google Safe Browsing
 - [ ] Resume template
 - [ ] Ghost CMS Site
 - [ ] SponsorBlock AI Stack
@@ -157,7 +155,6 @@ Programming Projects Todo
 - [ ] subtitle merger
 - [ ] Powershell Windows Setup (similar to CTT)
 - [ ] Powershell App Installer/Configurator
-- [ ] Home Theatre Online Troubleshooter
 - [ ] Home Assistant Example Plugin
 - [ ] Home Assistant Dashboard
 - [ ] Python/Powershell cracked app support

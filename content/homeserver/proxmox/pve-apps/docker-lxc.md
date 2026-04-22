@@ -7,3 +7,5 @@ lxc.mount.entry: /dev/dri/renderD128 dev/dri/renderD128 none bind,optional,creat
 ```
 
 Install docker from documentation
+
+Or use community script

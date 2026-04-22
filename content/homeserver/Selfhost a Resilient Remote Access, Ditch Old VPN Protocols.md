@@ -71,3 +71,50 @@ sudo tailscale up --advertise-exit-node --accept-routes
 
 To verify, just ping a host in your LAN subnet from your VPS, if that works, you'll basically done, just follow the same steps in part 1 regarding Nginx Proxy Manager (or other reverse proxy) setup and everything should work. But there are some nuances and there are several ways you can approach the VPS setup all with different outcomes. To understand everything, I will use a network topology.
 
+## Tailscale Bypass
+Recently I've seen a tons of posts in this subreddit with the same topic, how can I connect to tailscale if network blocks it? I want to cut through the unhelpful noise and provide a simple, reputable guide and be the helping hand for beginners looking to selfhost and assist you with the ability to turn on your thermostat remotely (so you arrive home comfortable). So I and others no longer have to repeat my instruction for the 15th time and give them this Reddit post link.
+
+Note. I will try to focus on Tailscale ecosystem of tools rather than other tools. 
+
+Here's a reality check. Tailscale is not design for hostile regimes, it's trivial to get blocked within minutes. Which is why Amnezia or VLESS are preferred. I cannot guarantee connectivity in every network, you face the risks and consequences if you proceed.
+
+Also the post will be primarily be about Android (some iOS), if you have a PC, unlike restricted dumbed down phones, you possibilities are endless.
+
+What happens
+You authenticate with controlplane.tailscale.com via HTTPS to get keys and network info. Then you contact STUN and DERP server so they know your public IP and port to relay on your other hosts. You'll also connect via HTTPS to DERP, which temporarily relays your traffic while you and other try UDP hole punching until you can establish a direct connection, UDP via Wireguard.
+
+HTTPS is actually not entirely encrypted, you send SNI/ClientHello (typically the domain name) in plaintext. It's like a license plate on a box truck, camera can't see the cargo but it sees the plate in bold text, clearly. 
+
+And in most public Wi-Fi (grocery store), the controlplane SNI gets poisoned, and tailscale is useless. There are other blockages too like DERP and STUN but these are rare. So your objective, is likely just to un-brick the controlplane.
+
+Preparation 
+On your home Wi-Fi, if you can (not CG-NAT), enable UPnP, NAT-PMP. Or port forward UDP WAN 41641 -> Tailscale device 41641. This basically puts you in No NAT (directly on internet). Even in CG-NAT, if your ISP uses Full-Cone NAT, you can still get direct connectivity. If you want best connectivity, you should assume every network other than yours is Hard NAT (symmetric) and you change your network around it, and Hard NAT only works with No NAT. I can get direct full speed connectivity on places that explicitly blocks tailscale and STUN (allegedly), Jellyfin 4K, HA, SSH, Arrs never drop a beat. 
+
+Methods
+Mobile Data Switch (iOS and Android)
+Self explanatory. Connect to tailscale on your iPhone/Android via data. Then join the Wi-Fi, your tailscale connection will persist. And chances are even if you turn off mobile data, your connection still works. This is also why I emphasized port forwarding or having Full Cone. With FCN or No NAT, once a port is punched, anyone on the internet can send data. So your src switching between from data:12345 to regime:12345, your home internet will accept both. Whereas a traditional port-restricted cone, the IP is different hence new hole punching is required. And suppose the Wi-Fi blocks STUN or uses Hard NAT (common for firewalls), ggs. 
+
+This is probably the quickest and most reliable method, and there are even automations for it on iOS. In addition to being cross-platform. However, the glaring downside of this is that: you must have mobile data to begin with. Which is not possible if you don't have a phone plan, limited coverage, international travel or cruise ship, which is why other methods are needed.
+
+Other VPN (Android only)
+Unlike PC where multiple VPN, proxies, DNS services can be chained, only 1 VPN connection can be active for mobile OS. And this method ONLY works on Android, I was unable to replicate the same behavior with iOS Shadowrocket + Tailscale..
+
+You need to have another VPN ready. Based on my experience, I think most commercial VPNs like Proton, Nord, Surfshark, PIA etc.. are pre-much useless. The working one I tried is NekoBox. You'll need to self-host a V2Ray proxy (or ask your Chinese friend for an "airport"). The proxy simply need to connect to internet as we won't be using it for LAN access, so latency, location and speed won't matter. A free-tier Oracle Cloud, AWS, DigitalOcean will suffice. You can also try my project insta-v2ray which can use free tunnels like Cloudflare, Pinggy to host it.
+
+Connect to Nekobox. Then open the Tailscale app, it will be stuck, now immediately, switch back to NekoBox, reconnect then switch back to Tailscale. You'll find Tailscale can connect. But this is finnicky, you can try to force-stop Tailscale, ensure TS is at stopped state, click connect, immediately connect to NekoBox and switch back. Once again, the benefit of FCN and NN is here, a single IP/port anyone can connect to. It can take 3 or 5 tries and Android only which is why I don't recommend this. If you use other VPN, it may or may not work.
+
+ProxyT (Android and iOS)
+This is a community project which simply forward all HTTPS/WSS requests to controlplane, and let you use your own domains to bypass the Tailscale one. But Tailscale uses a non-standard WebSocket POST, so compared to V2Ray/WS, you have zero flexibility or CDN friendliness (I wish Tailscale changes the ts2021 protocol but I can only dream). Only specific reverse proxies like your own Nginx will work. CloudFront, Cloudflare Tunnels, Workers, Railway all fails. Since I use DDNS, I rely on Tailscale funnel, which also works. 
+
+To use it, you specify another coordination server and input your .ts.net domain there and watch Tailscale connects instantly. And it works on both Android and iOS. Also recommended you buy a dedicated domain (but domains can be blocked).
+
+Safety
+Now that you can turn off your thermostat (or turn it on) and you arrive home with AC on full tilt, now what. Here are some additional "stuff".
+
+Setup a DNS server and add it to Tailscale MagicDNS (Pihole, Adguard, Technitium). Add A records for your externally hosted domains (Split-DNS) to a LAN address. You might already be doing this at home to fix Hairpin NAT or bypass your router. But it's esp useful for Tailscale, because if your domain is blocked, your client won't know, since it resolves it to a Tailscale/Local IP and traffic towards your LAN are routed through Tailscale, no exit node needed. While you may argue exit node on public Wi-Fi is necessary for privacy, but having slow (rural internet) or DERP relay will affect internet browsing.
+
+If you don't use DNS, just IP. You can disable Tailscale DNS. settings > DNS settings. Now you'll use DNS server of your Wi-Fi. Terrible for privacy but helps you blend in more. One telltale sign of VPN is that DNS queries completely disappear. I am also exploring using DNS poisoning as a mechanism for automated split-tunneling rule.
+
+Tailscale may bug you about [network require captive portal](https://tailscale.com/docs/integrations/captive-portals#how-tailscale-detects-captive-portals), you can safely ignore as long as your ping works and you don't need to re-login. 
+
+The last tip is I encourage you to explore AI, especially when the adversaries may be adamant or against AI (not always true, but r/selfhosted seems to dislike AI/vibecoding). AI is extremely fast at processing, summarizing information. You can ask AI to generate one-shot CloudInit to deploy VPN server, run copy-pastable Python/Bash tester scripts you can run on your phone (Termux/iSH), or even dump entire public documentation of firewall configuration to figure out how it works. Overall, utilize AI to your advantage and move faster than the adversary, build a strong defense before they think about bullying you.

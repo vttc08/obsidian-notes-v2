@@ -1,25 +1,16 @@
 # Github Copilot
-Interacting with the chat
-- select specific lines
-- select entire file
 
-Slash commands
-`#codebase` - search the entire codebase
-`/tests` - generate unit test for selected code
-
-Select code block and copilot can review the code
 ## CLI
 For Linux, install NodeJS 22 first with NVM
 ```bash
 npm install -g @github/copilot
 ```
-- and `copilot` will be 
 Auto-approve on my default
 ```bash
 copilot --yolo
 ```
 `/models` to select a model
-`/init`
+`/init` initialize the repository for Copilot
 
 Modes (use `shift+tab` to switch)
 ```
@@ -39,4 +30,12 @@ Agent (prompt file with instructions)
 For detailed [project-setup](project-setup.md) regarding agents
 `/agent`  - select a agent
 
-Skills
+Context
+`/context` - check the current context window and how full is it
+`/clear` - clear the context and start new
+`/compact` - condense the context
+
+### Usage
+Each chat to the model consume a premium request
+- including the chat in github.com or code analysis
+Check usage https://github.com/settings/billing/premium_requests_usage

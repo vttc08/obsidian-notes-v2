@@ -3,6 +3,11 @@ Unprivileged vs Privileged container
 - Unprivileged container is mapped to unprivileged user outside the container and it's more secure
 Default username: root
 Pass: during setup
+Root autologin (snippets)
+https://raw.githubusercontent.com/community-scripts/ProxmoxVE/main/misc/install.func
+
+Running docker inside LXC requires nesting and keyctl
+NFS/SMB doesn't work in LXC without a privileged container
 
 To SSH into container need to add another user and set the password (or permit root login)
 `usermod -aG sudo user`
