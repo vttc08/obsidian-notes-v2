@@ -26,6 +26,10 @@ Set-Service -Name sshd -StartupType 'Automatic'
 Start-Service sshd
 ```
 ## SMB
+## NFS
+```powershell
+Enable-WindowsOptionalFeature -FeatureName ServicesForNFS-ClientOnly, ClientForNFS-Infrastructure -Online -NoRestart
+```
 ## Iperf3
 Iperf used for network testing, for instruction on how to use instead of installation refer to [iperf3](../../linux/iperf3.md)
 ```powershell

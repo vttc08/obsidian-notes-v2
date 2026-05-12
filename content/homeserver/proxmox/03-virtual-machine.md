@@ -91,6 +91,7 @@ https://gitlab.com/virt-viewer/virt-viewer/-/releases/v11.0/downloads/virt-viewe
 >[!error] Frozen Display on Ubuntu 24.04
 >If SPICE display freezes, change Display to VirtIO-GPU.
 
+For manual resizing (if the auto-resize is broken), refer to [spice-fix](spice-fix.md)
 #### Guest VM (Windows)
 Download SPICE client: https://www.spice-space.org/download/windows/spice-guest-tools/spice-guest-tools-latest.exe
 
@@ -99,7 +100,34 @@ Download SPICE client: https://www.spice-space.org/download/windows/spice-guest-
 >Download the third file.
 >In windows, uninstall the QXL driver (may need to switch to default display) and manually load the driver from folder.
 ## Cloud-Init Templates
+### Debian
+Reference: https://forum.proxmox.com/threads/pve9-create-a-vm-template-for-a-debian-trixie-server-with-cloud-init.170206/
 
+Download the cloud image (Debian 13) in Proxmox host
+```bash
+wget https://cloud.debian.org/images/cloud/trixie/latest/debian-13-genericcloud-amd64.raw #the current Trixie latest cloud image available
+```
+
+In the GUI, create a Debian VM (20000) with good enough settings. Do not use ISO or any disks.
+- make sure to add a Cloud-Init drive
+Import the disk
+```bash
+qm importdisk 20000 debian-13-genericcloud-amd64.raw local-lvm
+```
+
+Convert this into a template (20000). Set a reasonable CPU/RAM configuration.
+
+Now make a full clone (now become 21000). Optionally, expand the disk to install other software.
+- in the new full clone, install necessary software
+- ensure `cloud-init` is installed
+
+**Important:** in that machine, must run before converting it into a template
+```bash
+sudo cloud-init clean --machine-id
+```
+
+Convert (21000) into a template. And any VMs linked cloned or full clone will be created via Cloud-Init as well as inheriting software installation.
+- before VM first boot, go to Cloud-Init and click Regenerate
 ### Prepare Linux Cloud-Init Template
 1. Verify cloud-init is installed
 2. Edit /etc/cloud/cloud.cfg

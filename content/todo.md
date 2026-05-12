@@ -1,5 +1,3 @@
-- [ ] Excalidraw-Dash
-- [ ] Yamtrack
 - [ ] IPTV
 - [ ] Learn Home Assistant in depth
 - [ ] ha-fusion
@@ -7,7 +5,6 @@
 - [ ] CLI subtitle tools [SDH](https://github.com/m-lyon/filter-subs)[pysrt](https://github.com/sorz/asstosrt/)[fuzzmatch](https://github.com/seatgeek/thefuzz)[useful](https://github.com/philiptn/mkv-auto)
 - [ ] localsend/cli-send tools
 - [ ] autouptimekuma
-- [ ] ytdl-sub/MeTube
 - [ ] Storyteller/AI audiobook
 - [ ] DIUN docker update
 - [ ] Lazytainer/ContainerNursery/dockerwakeup to sleep docker
@@ -20,7 +17,6 @@
 - [ ] muer (CasaOS) music server and other CasaOS apps
 - [ ] Apache Guacamole/Nexterm (sync it with ssh_config)
 - [ ] Meshcentral
-- [ ] Music server with deemix + popular songs using d-fi
 - [ ] Mealie or Tandoor
 - [ ] Fixing tesla homepage
 - [ ] Photoprism Self-Built
@@ -30,7 +26,6 @@
 - [ ] Advanced Ghost CMS
 - [ ] Benhelp homepages for Oracle Cloud (nzbget, radarr)
 - [ ] Cloudflare Zero Trust
-- [ ] scrutiny hdd
 - [ ] ffilebrowser quantum
 - [ ] sftpgo
 - [ ] Promethesus, Grafana, InfluxDB
@@ -38,7 +33,6 @@
 - [ ] Python music add lyric
 - [ ] fail2ban/crowdwec 
 - [ ] Sponsorblock automation with podcasts
-- [ ] YouTube playlist WAN show
 - [ ] Flowchart and documentation for syncthing
 - [ ] paperless ngx
 - [ ] rustdesk selfhost
@@ -90,6 +84,8 @@
 - [x] WARPStack/MegaBasterd/Gluetun
 - [x] dozzle logs
 - [x] AVR/Android Box/adb/TV automation
+- [x] Excalidraw-Dash
+- [x] Yamtrack
 
 
 ~~[obsidian-mkdocs]~~
@@ -146,10 +142,12 @@ Programming Projects Todo
 - [x] Mockup weebly portfolio
 - [x] Home Theatre Online Troubleshooter
 - [ ] Fireshare Go
+- [ ] Workers reverse proxy
 - [ ] Bash AI
 - [ ] Google Safe Browsing
 - [ ] Resume template
 - [ ] Ghost CMS Site
+- [ ] Docker labels
 - [ ] SponsorBlock AI Stack
 - [ ] SponsorBlock/RYD server
 - [ ] subtitle merger
