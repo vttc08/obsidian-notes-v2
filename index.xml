@@ -10,61 +10,61 @@
     <link>https://quartz.jzhao.xyz/obsidian/docs-template</link>
     <guid>https://quartz.jzhao.xyz/obsidian/docs-template</guid>
     <description><![CDATA[  ]]></description>
-    <pubDate>Wed, 22 Apr 2026 07:44:00 GMT</pubDate>
+    <pubDate>Tue, 12 May 2026 03:44:45 GMT</pubDate>
   </item><item>
-    <title>3910</title>
-    <link>https://quartz.jzhao.xyz/projects/finished/3910</link>
-    <guid>https://quartz.jzhao.xyz/projects/finished/3910</guid>
-    <description><![CDATA[ What do I need to know? The differences between InnoDB vs MyISAM table storage engines OperationsInnoDBMyISAMTransactionsyesnoLockingRowTableSpeedwriteconcurrent readFull Text IndexingYes after 5.6YesForeign Keyyesno InnoDB is the new default engine used in MySQL, it’s ACID compliant with transactio... ]]></description>
-    <pubDate>Wed, 22 Apr 2026 07:43:38 GMT</pubDate>
+    <title>todo</title>
+    <link>https://quartz.jzhao.xyz/todo</link>
+    <guid>https://quartz.jzhao.xyz/todo</guid>
+    <description><![CDATA[  IPTV Learn Home Assistant in depth ha-fusion Traefik CLI subtitle tools SDHpysrtfuzzmatchuseful localsend/cli-send tools autouptimekuma Storyteller/AI audiobook DIUN docker update Lazytainer/ContainerNursery/dockerwakeup to sleep docker Minecraft discord bot Minecraft autoshutdown, lazymc Minecraft... ]]></description>
+    <pubDate>Tue, 12 May 2026 03:39:24 GMT</pubDate>
   </item><item>
-    <title>Selfhost a Resilient Remote Access, Ditch Old VPN Protocols</title>
-    <link>https://quartz.jzhao.xyz/homeserver/Selfhost-a-Resilient-Remote-Access,-Ditch-Old-VPN-Protocols</link>
-    <guid>https://quartz.jzhao.xyz/homeserver/Selfhost-a-Resilient-Remote-Access,-Ditch-Old-VPN-Protocols</guid>
-    <description><![CDATA[ First I apologize if the post is very long because it’s complex topic with many options. If your Wireguard/OpenVPN works great, you don’t need this. ]]></description>
-    <pubDate>Wed, 22 Apr 2026 01:49:52 GMT</pubDate>
+    <title>cft</title>
+    <link>https://quartz.jzhao.xyz/projects/cft</link>
+    <guid>https://quartz.jzhao.xyz/projects/cft</guid>
+    <description><![CDATA[ CloudFront Shell Tool Setup, ensure the ~/.aws exists and the files config and credential exist [default] region = us-west-1 the region will be used as default for future AWS commands although CloudFront regions are global on the WebUI only us-east-1 in AWS CLI return results, program should read fr... ]]></description>
+    <pubDate>Mon, 11 May 2026 00:55:22 GMT</pubDate>
   </item><item>
-    <title>pve-fix</title>
-    <link>https://quartz.jzhao.xyz/projects/pve-fix</link>
-    <guid>https://quartz.jzhao.xyz/projects/pve-fix</guid>
-    <description><![CDATA[  not working solution completed but untested future todos Todos gso tso off Disable C-state in grub intel_idle (fixed) intel_idle.max_cstates=2 # try 2 if 1 works Disable ASPM in grub wiki.pulsedmedia.com/wiki/BKHD-1264-NAS_Intel_N100_NAS_Motherboard pcie_aspm=off nvme_core.default_ps_max_latency_us... ]]></description>
-    <pubDate>Sun, 19 Apr 2026 03:42:05 GMT</pubDate>
+    <title>09-functions</title>
+    <link>https://quartz.jzhao.xyz/programming/powershell/09-functions</link>
+    <guid>https://quartz.jzhao.xyz/programming/powershell/09-functions</guid>
+    <description><![CDATA[ Powershell function syntax function name() { param( [Parameter(Mandatory)] [string]$one = &quot;default, [int]$num ) return $something } function parameters are defined in param comma separated values option to make a parameter mandatory Calling a function name $one $num name -one $one -num $num The... ]]></description>
+    <pubDate>Thu, 07 May 2026 22:10:48 GMT</pubDate>
   </item><item>
-    <title>DNS poisoning</title>
-    <link>https://quartz.jzhao.xyz/projects/DNS-poisoning</link>
-    <guid>https://quartz.jzhao.xyz/projects/DNS-poisoning</guid>
-    <description><![CDATA[ Tldr: the determinism of DNS poisoned address can be utilized to automatically create routing rules which are pre-defined by the adversary, with a combination of proxy and route hijacking to achieve selective on demand proxying to restore from a DoS (denial of service) attack from T&amp;T Supermarke... ]]></description>
-    <pubDate>Sun, 19 Apr 2026 03:40:46 GMT</pubDate>
+    <title>10-oop</title>
+    <link>https://quartz.jzhao.xyz/programming/powershell/10-oop</link>
+    <guid>https://quartz.jzhao.xyz/programming/powershell/10-oop</guid>
+    <description><![CDATA[  ]]></description>
+    <pubDate>Thu, 07 May 2026 22:06:21 GMT</pubDate>
   </item><item>
-    <title>copilot</title>
-    <link>https://quartz.jzhao.xyz/programming/vibecoding/copilot</link>
-    <guid>https://quartz.jzhao.xyz/programming/vibecoding/copilot</guid>
-    <description><![CDATA[ Github Copilot CLI For Linux, install NodeJS 22 first with NVM npm install -g @github/copilot Auto-approve on my default copilot --yolo /models to select a model /init initialize the repository for Copilot Modes (use shift+tab to switch) extra-keys = [[&#039;ESC&#039;,&#039;|&#039;,&#039;/&#039;,&#0... ]]></description>
-    <pubDate>Thu, 16 Apr 2026 22:50:09 GMT</pubDate>
+    <title>05-conditional-trycatch</title>
+    <link>https://quartz.jzhao.xyz/programming/powershell/05-conditional-trycatch</link>
+    <guid>https://quartz.jzhao.xyz/programming/powershell/05-conditional-trycatch</guid>
+    <description><![CDATA[ Math &amp; Comparison Supported +, -, *, /, % Powershell do not use == or !=, &lt;= (1 -eq 2) -ge/le/gt/lt - common comparison, greater/less than or equal to by adding c into eq will make the search case sensitive File based operation with `Test-Path Test-Path $filePath whether a folder or file exis... ]]></description>
+    <pubDate>Thu, 07 May 2026 22:06:04 GMT</pubDate>
   </item><item>
-    <title>demucs-karaoke-vibe</title>
-    <link>https://quartz.jzhao.xyz/projects/demucs-karaoke-vibe</link>
-    <guid>https://quartz.jzhao.xyz/projects/demucs-karaoke-vibe</guid>
-    <description><![CDATA[ Demucs Windows Because of that, a stable, reproducible path on Windows is: Python 3.10 PyTorch 2.8.0 + cu126 TorchAudio 2.8.0 + cu126 TorchVision 0.23.0 + cu126 Demucs 4.0.1 Create and activate a virtual environment py -3.10 -m venv .venv .\.venv\Scripts\Activate.ps1 python -m pip install --upgrade ... ]]></description>
-    <pubDate>Wed, 15 Apr 2026 06:44:47 GMT</pubDate>
-  </item><item>
-    <title>docker-lxc</title>
-    <link>https://quartz.jzhao.xyz/homeserver/proxmox/pve-apps/docker-lxc</link>
-    <guid>https://quartz.jzhao.xyz/homeserver/proxmox/pve-apps/docker-lxc</guid>
-    <description><![CDATA[ Using Docker in LXC iGPU in LXC lxc.cgroup2.devices.allow: c 226:0 rwm lxc.cgroup2.devices.allow: c 226:128 rwm lxc.mount.entry: /dev/dri/renderD128 dev/dri/renderD128 none bind,optional,create=file Install docker from documentation Or use community script. ]]></description>
-    <pubDate>Tue, 07 Apr 2026 22:04:33 GMT</pubDate>
+    <title>00-install</title>
+    <link>https://quartz.jzhao.xyz/homeserver/firewalls/00-install</link>
+    <guid>https://quartz.jzhao.xyz/homeserver/firewalls/00-install</guid>
+    <description><![CDATA[ Download the DVD ISO Opnsense: opnsense.org/download/ choose dvd For Proxmox VM, when installing the ISO do not choose pre enroll EFI key otherwise it might not work . ]]></description>
+    <pubDate>Tue, 05 May 2026 04:00:50 GMT</pubDate>
   </item><item>
     <title>03-virtual-machine</title>
     <link>https://quartz.jzhao.xyz/homeserver/proxmox/03-virtual-machine</link>
     <guid>https://quartz.jzhao.xyz/homeserver/proxmox/03-virtual-machine</guid>
     <description><![CDATA[ Proxmox VM Quick Info VMID: unique number between 100 and 999999999 (3-9 digits) this can be renamed in /etc/pve/qemu-server/&lt;VMID&gt;.conf Name: use hostname After creation tasks: see VM Todo VM Creation Checklist 1) System Enable QEMU Agent so guest actions (shutdown, snapshot) work more reliab... ]]></description>
-    <pubDate>Tue, 07 Apr 2026 22:00:57 GMT</pubDate>
+    <pubDate>Fri, 01 May 2026 05:11:59 GMT</pubDate>
   </item><item>
-    <title>todo</title>
-    <link>https://quartz.jzhao.xyz/todo</link>
-    <guid>https://quartz.jzhao.xyz/todo</guid>
-    <description><![CDATA[  Excalidraw-Dash Yamtrack IPTV Learn Home Assistant in depth ha-fusion Traefik CLI subtitle tools SDHpysrtfuzzmatchuseful localsend/cli-send tools autouptimekuma ytdl-sub/MeTube Storyteller/AI audiobook DIUN docker update Lazytainer/ContainerNursery/dockerwakeup to sleep docker Minecraft discord bot... ]]></description>
-    <pubDate>Tue, 07 Apr 2026 18:59:45 GMT</pubDate>
+    <title>net-connections</title>
+    <link>https://quartz.jzhao.xyz/windows/win-apps/net-connections</link>
+    <guid>https://quartz.jzhao.xyz/windows/win-apps/net-connections</guid>
+    <description><![CDATA[ For connecting to networked resources, eg. SMB, SSH, Wireguard SSH Remember to not use strict host checking for automating ssh login. ]]></description>
+    <pubDate>Fri, 01 May 2026 01:21:57 GMT</pubDate>
+  </item><item>
+    <title>Drawing 2025-12-05 22.08.52.excalidraw</title>
+    <link>https://quartz.jzhao.xyz/Excalidraw/Drawing-2025-12-05-22.08.52.excalidraw</link>
+    <guid>https://quartz.jzhao.xyz/Excalidraw/Drawing-2025-12-05-22.08.52.excalidraw</guid>
+    <description><![CDATA[ ⚠ Switch to EXCALIDRAW VIEW in the MORE OPTIONS menu of this document. ]]></description>
+    <pubDate>Wed, 29 Apr 2026 00:39:49 GMT</pubDate>
   </item>
     </channel>
   </rss>

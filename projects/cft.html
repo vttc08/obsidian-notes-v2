@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr"><head><title>cft</title><meta charset="utf-8"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted Grotesk:wght@400;700&amp;family=Inter:ital,wght@0,400;0,600;1,400;1,600&amp;family=Jetbrain Mono:wght@400;600&amp;display=swap"/><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin="anonymous"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="og:site_name" content="🌳 My Digital Garden"/><meta property="og:title" content="cft"/><meta property="og:type" content="website"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="cft"/><meta name="twitter:description" content="CloudFront Shell Tool Setup, ensure the ~/.aws exists and the files config and credential exist [default] region = us-west-1 the region will be used as default for future AWS commands although CloudFront regions are global on the WebUI only us-east-1 in AWS CLI return results, program should read fr..."/><meta property="og:description" content="CloudFront Shell Tool Setup, ensure the ~/.aws exists and the files config and credential exist [default] region = us-west-1 the region will be used as default for future AWS commands although CloudFront regions are global on the WebUI only us-east-1 in AWS CLI return results, program should read fr..."/><meta property="og:image:alt" content="CloudFront Shell Tool Setup, ensure the ~/.aws exists and the files config and credential exist [default] region = us-west-1 the region will be used as default for future AWS commands although CloudFront regions are global on the WebUI only us-east-1 in AWS CLI return results, program should read fr..."/><meta property="twitter:domain" content="quartz.jzhao.xyz"/><meta property="og:url" content="https://quartz.jzhao.xyz/projects/cft"/><meta property="twitter:url" content="https://quartz.jzhao.xyz/projects/cft"/><link rel="icon" href="../static/icon.png"/><meta name="description" content="CloudFront Shell Tool Setup, ensure the ~/.aws exists and the files config and credential exist [default] region = us-west-1 the region will be used as default for future AWS commands although CloudFront regions are global on the WebUI only us-east-1 in AWS CLI return results, program should read fr..."/><meta name="generator" content="Quartz"/><link href="../index.css" rel="stylesheet" type="text/css" data-persist="true"/><style>.expand-button {
+  position: absolute;
+  display: flex;
+  float: right;
+  padding: 0.4rem;
+  margin: 0.3rem;
+  right: 0;
+  color: var(--gray);
+  border-color: var(--dark);
+  background-color: var(--light);
+  border: 1px solid;
+  border-radius: 5px;
+  opacity: 0;
+  transition: 0.2s;
+}
+.expand-button > svg {
+  fill: var(--light);
+  filter: contrast(0.3);
+}
+.expand-button:hover {
+  cursor: pointer;
+  border-color: var(--secondary);
+}
+.expand-button:focus {
+  outline: 0;
+}
+
+pre:hover > .expand-button {
+  opacity: 1;
+  transition: 0.2s;
+}
+
+#mermaid-container {
+  position: fixed;
+  contain: layout;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: none;
+  backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.5);
+}
+#mermaid-container.active {
+  display: inline-block;
+}
+#mermaid-container > #mermaid-space {
+  border: 1px solid var(--lightgray);
+  background-color: var(--light);
+  border-radius: 5px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 80vh;
+  width: 80vw;
+  overflow: hidden;
+}
+#mermaid-container > #mermaid-space > .mermaid-content {
+  position: relative;
+  transform-origin: 0 0;
+  transition: transform 0.1s ease;
+  overflow: visible;
+  min-height: 200px;
+  min-width: 200px;
+}
+#mermaid-container > #mermaid-space > .mermaid-content pre {
+  margin: 0;
+  border: none;
+}
+#mermaid-container > #mermaid-space > .mermaid-content svg {
+  max-width: none;
+  height: auto;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+  background: var(--light);
+  border: 1px solid var(--lightgray);
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 1px solid var(--lightgray);
+  background: var(--light);
+  color: var(--dark);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: var(--bodyFont);
+  transition: all 0.2s ease;
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:hover {
+  background: var(--lightgray);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:active {
+  transform: translateY(1px);
+}
+#mermaid-container > #mermaid-space > .mermaid-controls .mermaid-control-button:nth-child(2) {
+  width: auto;
+  padding: 0 12px;
+  font-size: 14px;
+}
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VSb290IjoiL3Vzci9zcmMvYXBwL3F1YXJ0ei9jb21wb25lbnRzL3N0eWxlcyIsInNvdXJjZXMiOlsibWVybWFpZC5pbmxpbmUuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7RUFDQTs7QUFHRjtFQUNFO0VBQ0E7O0FBR0Y7RUFDRTs7O0FBS0Y7RUFDRTtFQUNBOzs7QUFJSjtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTs7QUFHRjtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7RUFDQTs7QUFHRjtFQUNFO0VBQ0E7O0FBSUo7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFOztBQUdGO0VBQ0U7O0FBSUY7RUFDRTtFQUNBO0VBQ0EiLCJzb3VyY2VzQ29udGVudCI6WyIuZXhwYW5kLWJ1dHRvbiB7XG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgZGlzcGxheTogZmxleDtcbiAgZmxvYXQ6IHJpZ2h0O1xuICBwYWRkaW5nOiAwLjRyZW07XG4gIG1hcmdpbjogMC4zcmVtO1xuICByaWdodDogMDsgLy8gTk9URTogcmlnaHQgd2lsbCBiZSBzZXQgaW4gbWVybWFpZC5pbmxpbmUudHNcbiAgY29sb3I6IHZhcigtLWdyYXkpO1xuICBib3JkZXItY29sb3I6IHZhcigtLWRhcmspO1xuICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1saWdodCk7XG4gIGJvcmRlcjogMXB4IHNvbGlkO1xuICBib3JkZXItcmFkaXVzOiA1cHg7XG4gIG9wYWNpdHk6IDA7XG4gIHRyYW5zaXRpb246IDAuMnM7XG5cbiAgJiA+IHN2ZyB7XG4gICAgZmlsbDogdmFyKC0tbGlnaHQpO1xuICAgIGZpbHRlcjogY29udHJhc3QoMC4zKTtcbiAgfVxuXG4gICY6aG92ZXIge1xuICAgIGN1cnNvcjogcG9pbnRlcjtcbiAgICBib3JkZXItY29sb3I6IHZhcigtLXNlY29uZGFyeSk7XG4gIH1cblxuICAmOmZvY3VzIHtcbiAgICBvdXRsaW5lOiAwO1xuICB9XG59XG5cbnByZSB7XG4gICY6aG92ZXIgPiAuZXhwYW5kLWJ1dHRvbiB7XG4gICAgb3BhY2l0eTogMTtcbiAgICB0cmFuc2l0aW9uOiAwLjJzO1xuICB9XG59XG5cbiNtZXJtYWlkLWNvbnRhaW5lciB7XG4gIHBvc2l0aW9uOiBmaXhlZDtcbiAgY29udGFpbjogbGF5b3V0O1xuICB6LWluZGV4OiA5OTk7XG4gIGxlZnQ6IDA7XG4gIHRvcDogMDtcbiAgd2lkdGg6IDEwMHZ3O1xuICBoZWlnaHQ6IDEwMHZoO1xuICBvdmVyZmxvdzogaGlkZGVuO1xuICBkaXNwbGF5OiBub25lO1xuICBiYWNrZHJvcC1maWx0ZXI6IGJsdXIoNHB4KTtcbiAgYmFja2dyb3VuZDogcmdiYSgwLCAwLCAwLCAwLjUpO1xuXG4gICYuYWN0aXZlIHtcbiAgICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XG4gIH1cblxuICAmID4gI21lcm1haWQtc3BhY2Uge1xuICAgIGJvcmRlcjogMXB4IHNvbGlkIHZhcigtLWxpZ2h0Z3JheSk7XG4gICAgYmFja2dyb3VuZC1jb2xvcjogdmFyKC0tbGlnaHQpO1xuICAgIGJvcmRlci1yYWRpdXM6IDVweDtcbiAgICBwb3NpdGlvbjogZml4ZWQ7XG4gICAgdG9wOiA1MCU7XG4gICAgbGVmdDogNTAlO1xuICAgIHRyYW5zZm9ybTogdHJhbnNsYXRlKC01MCUsIC01MCUpO1xuICAgIGhlaWdodDogODB2aDtcbiAgICB3aWR0aDogODB2dztcbiAgICBvdmVyZmxvdzogaGlkZGVuO1xuXG4gICAgJiA+IC5tZXJtYWlkLWNvbnRlbnQge1xuICAgICAgcG9zaXRpb246IHJlbGF0aXZlO1xuICAgICAgdHJhbnNmb3JtLW9yaWdpbjogMCAwO1xuICAgICAgdHJhbnNpdGlvbjogdHJhbnNmb3JtIDAuMXMgZWFzZTtcbiAgICAgIG92ZXJmbG93OiB2aXNpYmxlO1xuICAgICAgbWluLWhlaWdodDogMjAwcHg7XG4gICAgICBtaW4td2lkdGg6IDIwMHB4O1xuXG4gICAgICBwcmUge1xuICAgICAgICBtYXJnaW46IDA7XG4gICAgICAgIGJvcmRlcjogbm9uZTtcbiAgICAgIH1cblxuICAgICAgc3ZnIHtcbiAgICAgICAgbWF4LXdpZHRoOiBub25lO1xuICAgICAgICBoZWlnaHQ6IGF1dG87XG4gICAgICB9XG4gICAgfVxuXG4gICAgJiA+IC5tZXJtYWlkLWNvbnRyb2xzIHtcbiAgICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgICAgIGJvdHRvbTogMjBweDtcbiAgICAgIHJpZ2h0OiAyMHB4O1xuICAgICAgZGlzcGxheTogZmxleDtcbiAgICAgIGdhcDogOHB4O1xuICAgICAgcGFkZGluZzogOHB4O1xuICAgICAgYmFja2dyb3VuZDogdmFyKC0tbGlnaHQpO1xuICAgICAgYm9yZGVyOiAxcHggc29saWQgdmFyKC0tbGlnaHRncmF5KTtcbiAgICAgIGJvcmRlci1yYWRpdXM6IDZweDtcbiAgICAgIGJveC1zaGFkb3c6IDAgMnB4IDRweCByZ2JhKDAsIDAsIDAsIDAuMSk7XG4gICAgICB6LWluZGV4OiAyO1xuXG4gICAgICAubWVybWFpZC1jb250cm9sLWJ1dHRvbiB7XG4gICAgICAgIGRpc3BsYXk6IGZsZXg7XG4gICAgICAgIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG4gICAgICAgIGp1c3RpZnktY29udGVudDogY2VudGVyO1xuICAgICAgICB3aWR0aDogMzJweDtcbiAgICAgICAgaGVpZ2h0OiAzMnB4O1xuICAgICAgICBwYWRkaW5nOiAwO1xuICAgICAgICBib3JkZXI6IDFweCBzb2xpZCB2YXIoLS1saWdodGdyYXkpO1xuICAgICAgICBiYWNrZ3JvdW5kOiB2YXIoLS1saWdodCk7XG4gICAgICAgIGNvbG9yOiB2YXIoLS1kYXJrKTtcbiAgICAgICAgYm9yZGVyLXJhZGl1czogNHB4O1xuICAgICAgICBjdXJzb3I6IHBvaW50ZXI7XG4gICAgICAgIGZvbnQtc2l6ZTogMTZweDtcbiAgICAgICAgZm9udC1mYW1pbHk6IHZhcigtLWJvZHlGb250KTtcbiAgICAgICAgdHJhbnNpdGlvbjogYWxsIDAuMnMgZWFzZTtcblxuICAgICAgICAmOmhvdmVyIHtcbiAgICAgICAgICBiYWNrZ3JvdW5kOiB2YXIoLS1saWdodGdyYXkpO1xuICAgICAgICB9XG5cbiAgICAgICAgJjphY3RpdmUge1xuICAgICAgICAgIHRyYW5zZm9ybTogdHJhbnNsYXRlWSgxcHgpO1xuICAgICAgICB9XG5cbiAgICAgICAgLy8gU3R5bGUgdGhlIHJlc2V0IGJ1dHRvbiBkaWZmZXJlbnRseVxuICAgICAgICAmOm50aC1jaGlsZCgyKSB7XG4gICAgICAgICAgd2lkdGg6IGF1dG87XG4gICAgICAgICAgcGFkZGluZzogMCAxMnB4O1xuICAgICAgICAgIGZvbnQtc2l6ZTogMTRweDtcbiAgICAgICAgfVxuICAgICAgfVxuICAgIH1cbiAgfVxufVxuIl19 */</style><link href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" rel="stylesheet" type="text/css" data-persist="true"/><script src="../prescript.js" type="application/javascript" data-persist="true"></script><script type="application/javascript" data-persist="true">const fetchData = fetch("../static/contentIndex.json").then(data => data.json())</script><link rel="alternate" type="application/rss+xml" title="RSS Feed" href="https://quartz.jzhao.xyz/index.xml"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:image" content="https://quartz.jzhao.xyz/projects/cft-og-image.webp"/><meta property="og:image:url" content="https://quartz.jzhao.xyz/projects/cft-og-image.webp"/><meta name="twitter:image" content="https://quartz.jzhao.xyz/projects/cft-og-image.webp"/><meta property="og:image:type" content="image/.webp"/></head><body data-slug="projects/cft"><div id="quartz-root" class="page"><div id="quartz-body"><div class="left sidebar"><h2 class="page-title"><a href="..">🌳 My Digital Garden</a></h2><div class="spacer mobile-only"></div><div class="search"><button class="search-button"><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title>Search</title><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"></path><circle cx="8" cy="8" r="7"></circle></g></svg><p>Search</p></button><div class="search-container"><div class="search-space"><input autocomplete="off" class="search-bar" name="search" type="text" aria-label="Search for something" placeholder="Search for something"/><div class="search-layout" data-preview="true"></div></div></div></div><button class="darkmode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35" xml:space="preserve" aria-label="Dark mode"><title>Dark mode</title><path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100" xml:space="preserve" aria-label="Light mode"><title>Light mode</title><path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z"></path></svg></button><div class="explorer" data-behavior="collapse" data-collapsed="collapsed" data-savestate="false" data-data-fns="{&quot;order&quot;:[&quot;filter&quot;,&quot;map&quot;,&quot;sort&quot;],&quot;sortFn&quot;:&quot;(a,b)=>!a.isFolder&amp;&amp;!b.isFolder||a.isFolder&amp;&amp;b.isFolder?a.displayName.localeCompare(b.displayName,void 0,{numeric:!0,sensitivity:\&quot;base\&quot;}):!a.isFolder&amp;&amp;b.isFolder?1:-1&quot;,&quot;filterFn&quot;:&quot;node=>node.slugSegment!==\&quot;tags\&quot;&quot;,&quot;mapFn&quot;:&quot;node=>node&quot;}"><button type="button" class="explorer-toggle mobile-explorer hide-until-loaded" data-mobile="true" aria-controls="explorer-198"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide-menu"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg></button><button type="button" class="title-button explorer-toggle desktop-explorer" data-mobile="false" aria-expanded="true"><h2>Explorer</h2><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><div id="explorer-198" class="explorer-content" aria-expanded="false" role="group"><ul class="explorer-ul overflow" id="list-0"><li class="overflow-end"></li></ul></div><template id="template-file"><li><a href="#"></a></li></template><template id="template-folder"><li><div class="folder-container"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="folder-icon"><polyline points="6 9 12 15 18 9"></polyline></svg><div><button class="folder-button"><span class="folder-title"></span></button></div></div><div class="folder-outer"><ul class="content"></ul></div></li></template></div><div class="map mobile-only"><a href="/index" class="toggle" tabindex="-1"><label for="darkmode-toggle" tabindex="-1"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="nightIcon" x="0px" y="0px" viewBox="0 0 24 24" style="enable-background:new 0 0 100 100" xml:space="preserve"><title>Light mode</title><path d="M9 20L3 17V4L9 7M9 20L15 17M9 20V7M15 17L21 20V7L15 4M15 17V4M9 7L15 4" stroke="var(--darkgray)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></label></a></div></div><div class="center"><div class="page-header"><div class="popover-hint"><nav class="breadcrumb-container" aria-label="breadcrumbs"><div class="breadcrumb-element"><a href="../">Home</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../projects/">projects</a><p> ❯ </p></div><div class="breadcrumb-element"><a href>cft</a></div></nav><h1 class="article-title">cft</h1><p show-comma="true" class="content-meta"><time datetime="2026-05-11T00:55:22.495Z">May 11, 2026</time><span>17 min read</span></p></div></div><article class="popover-hint"><p>CloudFront Shell Tool</p>
+<p>Setup, ensure the <code>~/.aws</code> exists and the files <code>config</code> and <code>credential</code> exist</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="toml" data-theme="github-light github-dark"><code data-language="toml" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">[</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">default</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">]</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">region = u</span><span style="--shiki-light:#B31D28;--shiki-light-font-style:italic;--shiki-dark:#FDAEB7;--shiki-dark-font-style:italic;">s-west-1</span></span></code></pre></figure>
+<ul>
+<li>the region will be used as default for future AWS commands</li>
+<li>although CloudFront regions are global on the WebUI</li>
+<li>only <code>us-east-1</code> in AWS CLI return results, program should read from AWS config, default to <code>us-east-1</code> or a way to manually specify region</li>
+</ul>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="bash" data-theme="github-light github-dark"><code data-language="bash" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">aws</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> cloudfront</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> list-distributions</span></span></code></pre></figure>
+<ul>
+<li>the ID is the important piece</li>
+<li>the ETag is used for caching only</li>
+</ul>
+<div class="list-spacing" style="margin:0;padding:0;height:0.5em;"></div>
+<p>The <code>--query</code> is for giving structured output, for example selecting only specific fields</p>
+<ul>
+<li>uses <code>JMESPath</code> it’s similar to <code>jq</code></li>
+</ul>
+<div class="list-spacing" style="margin:0;padding:0;height:0.5em;"></div>
+<p>Check all distribution</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="json" data-theme="github-light github-dark"><code data-language="json" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">Distribution.Items[</span><span style="--shiki-light:#B31D28;--shiki-light-font-style:italic;--shiki-dark:#FDAEB7;--shiki-dark-font-style:italic;">*</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">]</span></span></code></pre></figure>
+<p>Get specific keys</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="json" data-theme="github-light github-dark"><code data-language="json" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">DistributionList.Items[</span><span style="--shiki-light:#B31D28;--shiki-light-font-style:italic;--shiki-dark:#FDAEB7;--shiki-dark-font-style:italic;">*</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">].{</span><span style="--shiki-light:#B31D28;--shiki-light-font-style:italic;--shiki-dark:#FDAEB7;--shiki-dark-font-style:italic;">Id</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">:</span><span style="--shiki-light:#B31D28;--shiki-light-font-style:italic;--shiki-dark:#FDAEB7;--shiki-dark-font-style:italic;">Id</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span><span style="--shiki-light:#B31D28;--shiki-light-font-style:italic;--shiki-dark:#FDAEB7;--shiki-dark-font-style:italic;">Comment</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">:</span><span style="--shiki-light:#B31D28;--shiki-light-font-style:italic;--shiki-dark:#FDAEB7;--shiki-dark-font-style:italic;">Comment</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">}</span></span></code></pre></figure>
+<ul>
+<li>use <code>{}</code> and add fields</li>
+<li>must provide both a key and the <code>JMESPath</code> to index for</li>
+</ul>
+<div class="list-spacing" style="margin:0;padding:0;height:0.5em;"></div>
+<p>Get specific distribution</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="bash" data-theme="github-light github-dark"><code data-language="bash" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">aws</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> cloudfront</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> get-distribution</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">|</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">-config</span></span></code></pre></figure>
+<p>distribution<br/>
+|- DistributionConfig</p>
+<ul>
+<li>the domain name is not included in <code>DistributionConfig</code></li>
+</ul>
+<div class="list-spacing" style="margin:0;padding:0;height:0.5em;"></div>
+<p>Getting tags</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="bash" data-theme="github-light github-dark"><code data-language="bash" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">aws</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> cloudfront</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> list-tags-for-resource</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;"> --resource</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> arn:aws:cloudfront::</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">&lt;</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">account-i</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">d</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">></span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">:distribution/</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">&lt;</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">distribution-i</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">d</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">></span></span></code></pre></figure>
+<ul>
+<li>the tags can be useful for an alternative to storing user-friendly names in tags intead of comments and also identify which distribution is created by this program</li>
+</ul>
+<div class="list-spacing" style="margin:0;padding:0;height:0.5em;"></div>
+<p>Getting account ID</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="bash" data-theme="github-light github-dark"><code data-language="bash" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">aws</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> sts</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> get-caller-identity</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;"> --query</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> Account</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;"> --output</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> text</span></span></code></pre></figure>
+<p>For usage limit, each CloudFront free plan come with 100GB free, totals to 300GB total (for all plans). However, the 1TB download for PAYG plan is pooled and per account.</p>
+<p>CloudWatch<br/>
+Getting Per-Distribution Data is difficult, especially the upload data (for websocket)<br/>
+However, for download, it’s possible to get data per distribution</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="bash" data-theme="github-light github-dark"><code data-language="bash" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">aws</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> cloudwatch</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> get-metric-statistics</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">  \</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">	--namespace</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> AWS/CloudFront</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;"> \</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">	--metric-name</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> BytesDownloaded</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;"> \</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">	--dimensions</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> Name=DistributionId,Value=</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">&lt;</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">DIST_ID_HER</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">E</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">></span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> Name=Region,Value=Global</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;"> \</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">	--start-time</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> 2026-04-01T00:00:00Z</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;"> --end-time</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> 2026-05-01T00:00:00Z</span></span>
+<span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">	--period</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;"> 86400</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;"> --statistics</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> Sum</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;"> --region</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> us-east-1</span></span></code></pre></figure>
+<ul>
+<li>other metrics include <code>Requests, BytesDownloaded, BytesUploaded, TotalErrorRate, 4xxErrorRate, 5xxErrorRate</code>, but only <code>BytesDownloaded</code> would be useful</li>
+<li>this example sets the time frame to monthly (same as AWS billing cycle)</li>
+<li><code>period</code> defined in second is how long each datapoints include, 86400 for daily, use 3000000 which can cover the entire month</li>
+</ul>
+<div class="list-spacing" style="margin:0;padding:0;height:0.5em;"></div>
+<p>Return type</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="json" data-theme="github-light github-dark"><code data-language="json" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">{</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">&quot;Label&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;BytesDownloaded&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">	&quot;Datapoints&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: [{</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">        &quot;Timestamp&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;2026-04-21T13:00:00-07:00&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">        &quot;Sum&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">983842689.0</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">, </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">&quot;Unit&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;None&quot;</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    },</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    {</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">        &quot;Timestamp&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;2026-04-14T14:20:00-07:00&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">        &quot;Sum&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">1513187916.0</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">, </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">&quot;Unit&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;None&quot;</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    },</span></span></code></pre></figure>
+<ul>
+<li>best option is to set the <code>period</code> high for monthly statistics, unless granular stats are needed, otherwise all values must be summed</li>
+</ul>
+<div class="list-spacing" style="margin:0;padding:0;height:0.5em;"></div>
+<p>It’s not possible to get <code>BytesUploaded</code> accurately for WebSocket endpoints, S3/CW logging is needed. This will be an optional feature and only if user configured standard</p>
+<p>As for free plan</p>
+<ul>
+<li>standard logging is not available</li>
+<li>only download seem to be tracked in the CLI</li>
+<li>however, the web dashboard doesn’t show the amount uploaded, same with billing</li>
+</ul>
+<div class="list-spacing" style="margin:0;padding:0;height:0.5em;"></div>
+<p>Two ways for logging</p>
+<ul>
+<li>S3</li>
+<li>CloudWatch</li>
+</ul>
+<div class="list-spacing" style="margin:0;padding:0;height:0.5em;"></div>
+<p>GET-COST-AND-USAGE API IN THE AWS CLI IS NOT FREE</p>
+<p>Alternative<br/>
+Data Export (Daily or Hourly) + S3 + <del>Athena</del></p>
+<ul>
+<li>uses list/diff/download + local parquet/DuckDB or similar for processing</li>
+</ul>
+<div class="list-spacing" style="margin:0;padding:0;height:0.5em;"></div>
+<p>The data export takes up to 24 hours to arrive</p>
+<p><img src="./assets/Pasted-image-20260506223320.png" alt/></p>
+<p>Cloudfront Data Export are stored in S3 as .parquet file which can be downloaded</p>
+<p>Required columns</p>
+<ul>
+<li><code>line_item_line_item_type</code> - nessecary to filter for usage only</li>
+<li><code>line_item_net_unblended_cost</code> - cost after discount</li>
+<li><code>line_item_usage_amount</code> - the amount of usage, e.g. GB data transfer</li>
+<li><code>line_item_usage_start/end_date</code> - for validating date-range</li>
+<li><code>line_item_usage_type</code> - better than map for distinguishing service types</li>
+<li><code>line_item_product_code</code> - NEW: can be used to distinguish between S3/CloudFront/CFTFree/CloudWatch, this will replace the <code>product</code> map</li>
+<li>these columns are more efficient to query compared to the <code>product</code> map, reduced each log size from 8KB to 6KB</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Ingested Time</th><th>Last Data Time</th><th>Delta</th></tr></thead><tbody><tr><td>2026-05-07 3:53PM PST</td><td>2026-05-07 10:00 AM PST</td><td>5 hours 53 minutes</td></tr><tr><td>2026-05-08 8:51AM PST</td><td>2026-05-07 6:00 PM PST</td><td>14 hours 51 minutes</td></tr><tr><td>2026-05-08 17:06PM PST</td><td>2026-05-08 3:00 AM PST</td><td>14 hours 6 minutes</td></tr><tr><td>2026-05-08 22:55PM PST</td><td>2026-05-08 5:00 PM PST</td><td>7 hours 5 minutes</td></tr></tbody></table></div>
+<ul>
+<li>logs could lag up to 14 hours (maybe faster if using AWS services continuously?)</li>
+</ul>
+<div class="list-spacing" style="margin:0;padding:0;height:0.5em;"></div>
+<p>Distinguish between PAYG vs Flat Rate CloudFront</p>
+<p>Another way to distinguish the data is to use <code>line_item_usage_type</code> with <code>line_item_product_code</code><br/>
+PAYG</p>
+<ul>
+<li><code>&lt;Region>-DataTransfer-Out-Bytes</code>, <code>&lt;Region>-DataTransfer-Out-OBytes</code>, <code>&lt;Region>-Requests-HTTP-Proxy</code></li>
+<li>produce code <code>AmazonCloudFront</code></li>
+</ul>
+<div class="list-spacing" style="margin:0;padding:0;height:0.5em;"></div>
+<p>Whereas for flat rate, it will be <code>Global-CloudFrontPlan-Free</code></p>
+<ul>
+<li>product code <code>CloudFrontPlans</code></li>
+<li>flat rate consumption is not tracked, it will simply display the number of free plan available in <code>line_item_usage_amount</code> and the cost will be 0</li>
+</ul>
+<div class="list-spacing" style="margin:0;padding:0;height:0.5em;"></div>
+<p>Other useful metrics S3/CloudWatch</p>
+<p>S3 <code>line_item_usage_type</code> includes</p>
+<ul>
+<li><code>*-In/Out-Bytes</code>
+<ul>
+<li>the <code>*</code> can be <code>DataTransfer</code> or <code>USE1-USE2</code> (region to region)</li>
+</ul>
+</li>
+<li><code>Global-Bucket-Hrs-FreeTier</code></li>
+<li><code>Requests-Tier1</code> (PUT, POST, COPY, LIST)</li>
+<li><code>Requests-Tier2</code> (GET, SELECT, all other requests)</li>
+<li><code>TimedStorage-ByteHrs</code> (storage usage)</li>
+</ul>
+<div class="list-spacing" style="margin:0;padding:0;height:0.5em;"></div>
+<p>CloudWatch <code>line_item_usage_type</code> includes</p>
+<ul>
+<li><code>&lt;regionaz>-VendedLogIA-Bytes-CFLogs</code></li>
+<li><code>*:Requests</code>
+<ul>
+<li>can be <code>CW</code> or <code>USW1-CW</code> (region specific)</li>
+</ul>
+</li>
+<li><code>&lt;regionaz>-DataScanned-Bytes</code></li>
+<li><code>&lt;regionaz>-TimedStorage-ByteHrs</code></li>
+</ul>
+<div class="list-spacing" style="margin:0;padding:0;height:0.5em;"></div>
+<p>Simple Aggregate Query</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="sql" data-theme="github-light github-dark"><code data-language="sql" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">select</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> </span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">product['product_name'] </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">AS</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> product_name,</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">line_item_usage_type, </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">sum</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">(line_item_net_unblended_cost), </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">sum</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">(line_item_usage_amount) </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">from</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;"> data</span></span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">where</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> </span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">line_item_line_item_type </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> 'Usage'</span></span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">group by</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> all</span></span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">order by</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> product_name </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">asc</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">;</span></span></code></pre></figure>
+<p>If using the parquet file extraction manually from S3. Two possible approaches<br/>
+Since AWS Data Export is delivered only few times a day, we can set a limit of a download every 4 hours (overridable but pointless), if that timeframe is not met, do nothing.<br/>
+If only 1 parquet file, and path is known or pre-computed</p>
+<ul>
+<li>do ls on that path, compare ETag with the cached ETag, if different, download and process</li>
+</ul>
+<div class="list-spacing" style="margin:0;padding:0;height:0.5em;"></div>
+<p>Assuming Data Export Name: test<br/>
+bucket: awsdataexport-301027534524-us-east-1-an<br/>
+bucket path: /export<br/>
+AWS for each export will create a <code>&lt;export_name>-Manifest.json</code> file in</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="bash" data-theme="github-light github-dark"><code data-language="bash" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">&lt;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">bucket</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">></span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">/</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">&lt;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">path</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">></span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">/</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">&lt;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">export_name</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">></span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">/BILLING_PERIOD</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=&lt;</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">yyyy</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">></span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">-MM/metadata/</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">&lt;</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">export_name</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">></span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">-Manifest.json</span></span></code></pre></figure>
+<p>In the <code>json</code> file, there’s a field <code>.dataFiles</code> which is an array of S3 path</p>
+<ul>
+<li>we can cache the ETag of the manifest file, and only download if it changes</li>
+</ul>
+<div class="list-spacing" style="margin:0;padding:0;height:0.5em;"></div>
+<p>Pseudocode</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="python" data-theme="github-light github-dark"><code data-language="python" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">manifest_head </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> s3.head_object(</span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">Bucket</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">bucket, </span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">Key</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">manifest_key)</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">if</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> cache.manifest_etag </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">==</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> manifest_head[</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;ETag&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">]:</span></span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">    return</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> &quot;no update&quot;</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">s3.download_file(bucket, manifest_key, local_manifest_path)</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">manifest </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> json.load(</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">open</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">(local_manifest_path))</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">for</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> file_key </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">in</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> manifest[</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;dataFiles&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">]:  </span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;"># exact key name may differ; inspect your JSON</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    obj </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> s3.head_object(</span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">Bucket</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">bucket, </span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">Key</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">file_key)</span></span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">    if</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> file_changed(obj, cache):</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">        s3.download_file(bucket, file_key, local_path)</span></span></code></pre></figure>
+<p>Processing CloudFront Cost from Data Export (only for PAYG plans)<br/>
+<strong>Important: For all the operations <code>line_item_line_item_type</code> must be <code>Usage</code> by using WHERE clause</strong></p>
+<ul>
+<li>validate the date range, select <code>line_item_usage_start/end_date</code> order by <code>end_date</code> desc limit 1 for the end date, and <code>start_date</code> asc limit 1
+<ul>
+<li>check the month is current month</li>
+<li>check the start date is at the beginning of the month</li>
+</ul>
+</li>
+<li>get current datetime, and calculate the delta with the end date and display it</li>
+</ul>
+<div class="list-spacing" style="margin:0;padding:0;height:0.5em;"></div>
+<p>The simple aggregate query above results in</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>product_name</th><th>line_item_usage_type</th><th>sum(line_item_net_unblended_cost)</th><th>sum(line_item_usage_amount)</th></tr></thead><tbody><tr><td>AmazonCloudFront</td><td>CA-DataTransfer-Out-Bytes</td><td>123.456</td><td>123.456</td></tr></tbody></table></div>
+<ul>
+<li>Note: the usage amount for PAYG unit is in GB</li>
+<li>for <code>line_item_usage_type</code>, there could be other regions, so <code>ILIKE</code> is likely needed</li>
+<li>Download: <code>*-DataTransfer-Out-Bytes</code></li>
+<li>Upload: <code>*-DataTransfer-Out-OBytes</code></li>
+<li>Requests: <code>*-Requests-HTTP-Proxy</code></li>
+</ul>
+<div class="list-spacing" style="margin:0;padding:0;height:0.5em;"></div>
+<p>CloudFront standard logging</p>
+<p>Fields</p>
+<ul>
+<li><code>DistributionId</code> - the distribution ID, for separation and grouping</li>
+<li><code>date</code>,<code>time</code> - for validation</li>
+<li><code>sc-bytes</code> - bytes downloaded from origin to client</li>
+<li><code>cs-bytes</code> - bytes uploaded from client to origin</li>
+<li><code>c-ip</code>, <code>c-port</code> - useful for analytics, client IP and port</li>
+<li><code>x-edge-location</code> - useful for analytics, which edge location</li>
+<li><code>x-edge-detailed-result-type</code> - maybe useful for analytics</li>
+</ul>
+<div class="list-spacing" style="margin:0;padding:0;height:0.5em;"></div>
+<p>CloudWatch (preferred for free tier)<br/>
+<del>For each log group, only 1 distribution can be linked. Could not delete this Delivery Destination as it is currently in use is a AWS bug.</del></p>
+<ul>
+<li>Uses infrequent access logs</li>
+<li>Retention setting set to expire 30 days.</li>
+</ul>
+<div class="list-spacing" style="margin:0;padding:0;height:0.5em;"></div>
+<p><code>date</code>,<code>time</code> can be omitted for CloudWatch logs since the timestamp is included in the log event metadata and will be used for filtering.<br/>
+If the goal is simply to track uploads, then using this Log Insight query for <code>cs_bytes</code> is sufficient.</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="sql" data-theme="github-light github-dark"><code data-language="sql" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">stats</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;"> sum</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">(</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">`cs-bytes`</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">) </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">by</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> DistributionId</span></span></code></pre></figure>
+<p>Which translate to AWS CLI</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="bash" data-theme="github-light github-dark"><code data-language="bash" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">aws</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> logs</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> start-query</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">     --log-group-name</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> &quot;cloudfrontlogs&quot;</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">     --start-time</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> $(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">date</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;"> -d</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> '-12 hour'</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> +%s</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">)     </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">--end-time</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> $(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">date</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> +%s</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">)     </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">--query-string</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> 'stats sum(`cs-bytes`) as uploads by DistributionId'</span></span></code></pre></figure>
+<ul>
+<li>the start and end time can be provided manually, <code>+%s</code> convert to unix timestamp</li>
+</ul>
+<div class="list-spacing" style="margin:0;padding:0;height:0.5em;"></div>
+<p>This returns a queryId</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="json" data-theme="github-light github-dark"><code data-language="json" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">{</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">&quot;queryId&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">}</span></span></code></pre></figure>
+<p>Then we can get the result with</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="bash" data-theme="github-light github-dark"><code data-language="bash" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">aws</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> logs</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> get-query-results</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;"> --query-id</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;"> &lt;</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">queryI</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">d</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">></span></span></code></pre></figure>
+<p>Return type</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="json" data-theme="github-light github-dark"><code data-language="json" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">{</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">&quot;results&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">:</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">   [[{</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">&quot;field&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">:</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;DistributionId&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">&quot;value&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">:</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;E1EXAMPLE123&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">},</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">      {</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">&quot;field&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">:</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;uploads&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">&quot;value&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">:</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;123456789&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">},</span><span style="--shiki-light:#B31D28;--shiki-light-font-style:italic;--shiki-dark:#FDAEB7;--shiki-dark-font-style:italic;">...</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">]],</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">   &quot;statistics&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">:{</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">&quot;bytesScanned&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">:</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">42264.0</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">},</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">&quot;status&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">:</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;Complete&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">}</span></span></code></pre></figure>
+<ul>
+<li>make sure <code>status</code> is <code>Complete</code>, otherwise wait and retry</li>
+<li><code>bytesScanned</code> is useful given AWS charges for bytes scanned</li>
+<li>the <code>results</code> is an array of array of key-value pair, each array is a row, and in that array it’s list of field value pair</li>
+<li>the <code>uploads</code> or sum of <code>cs-bytes</code> is in bytes, so it needs to be converted to GB</li>
+</ul>
+<div class="list-spacing" style="margin:0;padding:0;height:0.5em;"></div>
+<p>Given AWS charges for log storage and log processing. This is a good algorithm for caching</p>
+<ul>
+<li>Store a JSON cache keyed by CloudFront distribution ID.</li>
+</ul>
+<div class="list-spacing" style="margin:0;padding:0;height:0.5em;"></div>
+<p>For each distribution:</p>
+<ul>
+<li>Read cache entry: json[dist_id]. If no last_updated exists: Set start to start of current month. Query CloudWatch.</li>
+<li>If no cached uploads exists: set uploads to 0</li>
+<li>If last_updated is less than 1 hour ago: Return cached upload value.</li>
+<li>If last_updated is within the current month: Set start = last_updated.
+<ul>
+<li>Query CloudWatch from start to now.</li>
+<li>Add new upload value to cached upload.</li>
+</ul>
+</li>
+<li>If last_updated is from a previous month:
+<ul>
+<li>Set start to start of current month.</li>
+<li>Reset upload value to 0.</li>
+<li>Query CloudWatch from start to now.</li>
+</ul>
+</li>
+<li>After querying: Set last_updated = now. Update cached upload value. Return upload value.</li>
+</ul>
+<div class="list-spacing" style="margin:0;padding:0;height:0.5em;"></div>
+<p>Note: the same algorithm can also be applied for CloudWatch metrics <code>cloudwatch get-metric-statistics</code> for other metrics, with keys for each.</p>
+<p>S3 + Parquet<br/>
+Compared to CloudWatch, <code>time</code> and <code>date</code> fields are nessecary for S3, however, the <code>DistributionId</code> is optional since the logs are separated by it in S3.<br/>
+Parquet is preferred over CSV/plaintext since it’s compressed and use less space.<br/>
+S3 bucket should have a lifecycle rule of 30 days, then permanently delete.<br/>
+The logs are stored in the following format <code>s3://cloudfrontlogs-301027534524-us-east-1-an/AWSLogs/&lt;account-id>/CloudFront/</code></p>
+<ul>
+<li>each file are stored as <code>&lt;distribution_id>.yyyy-mm-dd.&lt;random_string>.parquet</code></li>
+</ul>
+<div class="list-spacing" style="margin:0;padding:0;height:0.5em;"></div>
+<p>Algorithm for recusring logs</p>
+<ul>
+<li>once the location has been computed and linked by the user, list all files</li>
+<li>similarly use a JSON cache keyed by distribution ID, and last updated timestamp, but for S3 cloudfront logs</li>
+<li>a single <code>ls</code> already list the last modified time, since CloudFront send logs in batches and each create/update will change the modified time</li>
+<li>download all files that are modified after the last updated timestamp (or start of month if no last updated or is last month), and update the cache
+<ul>
+<li>note: CloudWatch result is per distribution, while recursing S3 logs is account/profile level, if configured, will have logs for all distributions</li>
+</ul>
+</li>
+<li>optionally delete all the objects in that directory since we download all the nessecary files</li>
+<li>for local processing, use regex/python split to parse the distribution ID, month, and combine the parquet file as <code>&lt;distribution_id>.&lt;month>.parquet</code> for easier querying and archival</li>
+</ul>
+<div class="list-spacing" style="margin:0;padding:0;height:0.5em;"></div>
+<p>Parsing parquet file, also uses the CloudWatch algorithm for caching upload values</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>DistributionId</th><th>date</th><th>x-edge-location</th><th>sc-bytes</th><th>c-ip</th><th>cs-bytes</th><th>c-port</th><th>x-edge-detailed-result-type</th></tr></thead><tbody><tr><td>E1EXAMPLE123</td><td>2026-05-09</td><td>YVR52-P238</td><td>123456789</td><td>1.2.3.4</td><td>123456789</td><td>12345</td><td>example</td></tr></tbody></table></div>
+<ul>
+<li>use SQL query to aggregate the <code>cs-bytes</code> for upload value for the current month and cache it</li>
+</ul>
+<div class="list-spacing" style="margin:0;padding:0;height:0.5em;"></div>
+<p>Automating creation of required S3 buckets for data export and S3/Cloudwatch for CloudFront logs<br/>
+Creating CloudFront distribution</p>
+<ul>
+<li>todo later</li>
+</ul>
+<div class="list-spacing" style="margin:0;padding:0;height:0.5em;"></div>
+<h3 id="agent-notes">Agent Notes<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#agent-notes" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>The personal notetaking ends here. This part is used to guide the AI agent to build better AGENTS.md and redefine scope.</p>
+<p>Use MCP server provided for AWS documentation, and boto3 Python SDK references, do not make up random API calls or parameters</p>
+<p>Use cache strategy and only query AWS for updated results if cache is too old. Use incremental querying of date range or product combined with cache to minimize file downloads and bytes scanned.</p>
+<p>The notes taken above and in AGENTS.md are for researching AWS using the AWS CLI, you should use MCP, web search and AWS documentation to “translate” the AWS CLI commands and more importantly, the user stories and the tasks the user wants to accomplish into boto3 API calls. <code>boto3</code> is preferred over <code>subprocess</code> calls to AWS CLI since it may be difficult to install AWS CLI on Termux/Android.</p>
+<p>Objects/Classes<br/>
+User Account/Profiles<br/>
+Profile based CloudFront (optionally S3/CloudWatch) usage and cost<br/>
+CloudFront Distributions<br/>
+Per-distribution usage and cost and actions<br/>
+This architecture allows for future usage where multiple profiles can be added and gain visualization for all accounts.</p>
+<p>Application description<br/>
+<code>cft</code> is an interactive TUI application which displays various metrics about Cloudfront CDN usage. The interactive design enables navigating via tab, on mobile screen keyboard, touchscreen and arrow keys without the typos and long copy paste of cli switches and args. However, there should be switches for non interactive output to enable automated pipeline and JSON output. The application should run on any environment such as android termux, Linux, windows.</p>
+<p>The application should have data and config in <code>~/.cft</code>, the <code>$XDG_HOME</code> or windows PowerShell equivalent of home folder. This folder will also be used to store cache JSON files and parquet files for local analysis, also a .env or similar for persisting this apps settings. The AWS cli and credential are already stored to <code>~/.aws</code> and for different profiles, the app should make use of it, or raise error.</p>
+<p>Main interface<br/>
+For each profile, show these labels (can be large text) for the current month</p>
+<ul>
+<li>current date and time</li>
+<li>current billing usage (specific for CloudFront)</li>
+<li>download, upload, HTTP proxy requests</li>
+<li>last updated time</li>
+</ul>
+<div class="list-spacing" style="margin:0;padding:0;height:0.5em;"></div>
+<p>Some fields would be blank or <code>-</code> because user didn’t configure S3 data export yet<br/>
+Show a table of distributions for that account, it should adapt to screen width (mobile, desktop terminal) and truncate text <code>EXAMPLE...</code>, <code>os.get_terminal_size()</code> so all fields are visible</p>
+<ul>
+<li>Dist: distribution ID, truncatable, min 4-6 char</li>
+<li>Comment: likely the human readable name, truncatable min 7 char</li>
+<li>Type: either (Free|PAYG), user must specify</li>
+<li>URL: the CloudFront domain name, truncatable, min 4-6 char</li>
+<li>On: status, whether it’s enabled or not, could later show pending state, use colored char, dot, emoji or nerdfont</li>
+<li>Log: whether standard logging is enabled, <code>-</code> n/a for Free plan, colored char, dot, emoji or nf</li>
+<li>UL/DL: upload/download in GB, use 4 decimal place precision if space if plenty <code>1.234 GB</code>, minimum in decimal place precision without the GB <code>1.2</code>
+<ul>
+<li>for dist without standard logging, upload would be <code>-</code>, and for free plan, upload is always <code>-</code> since it don’t support logging</li>
+</ul>
+</li>
+<li>Req: number of requests, maximum 4 digits <code>1.234</code>, <code>1234</code>, prefix with <code>K,M</code>, <code>1.234K</code>,<code>1.2K</code></li>
+</ul>
+<div class="list-spacing" style="margin:0;padding:0;height:0.5em;"></div>
+<p>Typical Termux terminal is 60-120, while desktop terminal windows 45-225 width. The elements should display within reasonable terminal sizes.<br/>
+When clicking a distribution, more information will show, e.g. in an overlay, popup, screen that is dismissible by Esc</p>
+<ul>
+<li>the information displayed here would be distribution specific, and in better details. It can also expose various actions/methods such as disable, enable, delete distribution, or to enable standard logging, or link a S3 bucket, CloudWatch logs to a distribution</li>
+</ul>
+<div class="list-spacing" style="margin:0;padding:0;height:0.5em;"></div>
+<p>Build stages</p>
+<p>The first stage all user need is an AWS client ID and secret and AWS CLI setup in profile.<br/>
+Basic <code>cft</code> interactive CLI</p>
+<ul>
+<li>list distributions and their details (ID, comment, domain name)</li>
+</ul>
+<div class="list-spacing" style="margin:0;padding:0;height:0.5em;"></div>
+<p>CloudWatch per-distribution usage</p>
+<ul>
+<li>assume API calls are expensive, cache by default if last called less than x hours old, or update on user request (more monitoring and research is needed)</li>
+<li>metrics to get <code>Requests</code>, <code>BytesDownloaded</code>, <code>Requests</code> for the current month, other fields can be done but only if user enable</li>
+</ul>
+<div class="list-spacing" style="margin:0;padding:0;height:0.5em;"></div>
+<p>The following stage requires user to manually (for now) setup Data Export to S3<br/>
+Parquet log parsing capability for Cost Usage</p>
+<ul>
+<li>assume user setup Data Export to S3 at this stage, and provide customized documentation (static site or GitHub Wiki)</li>
+<li>link data export (created from console), it’s corresponding S3 bucket so the app knows</li>
+<li>grab useful metrics per profile for CloudFront PAYG plans, such as downloads, uploads, requests and cost usage</li>
+</ul>
+<div class="list-spacing" style="margin:0;padding:0;height:0.5em;"></div>
+<p>Parse cloudwatch logs and S3 parquet files for distribution specific upload information.</p>
+<ul>
+<li>link cloudwatch log group or s3 bucket to a distribution (assuming user already created)</li>
+<li>fill in the last gap of getting upload data for display</li>
+<li>use the cache and query step from above notes to retrieve the aggregate information</li>
+<li>provide documentation on how to setup for Cloudfront</li>
+</ul>
+<div class="list-spacing" style="margin:0;padding:0;height:0.5em;"></div>
+<p>Automate creation of s3 data export bucket, s3 Cloudfront logs or cloudwatch log groups</p>
+<ul>
+<li>use relevant AWS cli or SDK</li>
+<li>guided TUI with step by step flow where user choose what to select and create it</li>
+</ul>
+<div class="list-spacing" style="margin:0;padding:0;height:0.5em;"></div>
+<p>Programmatically create Cloudfront distribution (probably only PAYG supported) with user specified origins, predefined or custom settings. Returns the origin URL or custom object, or callback to another action.</p>
+<ul>
+<li>more research needed</li>
+</ul>
+<div class="list-spacing" style="margin:0;padding:0;height:0.5em;"></div>
+<p>CLI switches, JSON output. Useful for CRUD operations against distribution, example use case would be periodic monitoring, another API, shell script calls it to update a distribution.</p>
+<p>Multi profile support, combine multiple AWS account with combined free tier levels and pooled usage.</p>
+<p>Do not use AWS Cost Explorer API<br/>
+<strong>Important: when using unknown API, Python SDK, always check documentation or official references on whether the execution is costly</strong></p>
+<p>Development<br/>
+The <code>cft</code> should be aliased to development script and correct venv, e.g. <code>python cft/main.py --reload --debug</code>, and also utilize libraries auto-reload feature if needed for easy interaction on mobile. In production, the <code>cft</code> would likely be aliases to a production Pyinstalled or already setup script or in <code>$PATH</code></p>
+<p>Follow test driven development, be able to debug code that was written. Use proper git workflow, use branches and merge for major features, write meaningful commit messages. Do NOT commit secrets, AWS credentials into git.</p>
+<h3 id="deprecated-notes">Deprecated Notes<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#deprecated-notes" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<h4 id="product-map">Product Map<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#product-map" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p><del>The Product is being used as a map for detailed information</del><br/>
+<del>Example CloudFront Plan map</del></p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="js" data-theme="github-light github-dark"><code data-language="js" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">{planname</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">Free, planfamilycode</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">CloudFrontPlan, product_name</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">CloudFront Flat</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">-</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">Rate Plans, plancode</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">Free, region</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">global, servicename</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">CloudFront Flat</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">-</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">Rate Plans, planfamilyname</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">CloudFrontPlan}</span></span></code></pre></figure>
+<p><del>Unnested AWS Products keyname</del></p>
+<pre><code>plancode
+~~servicename~~ ? seems redundany as productname handles it
+product_name
+storage_class
+~~availability~~
+volume_type
+request_description
+request_type
+logs_destination
+group_description
+storage_media
+planname
+region -- not needed we want global
+group
+planfamilycode
+durability
+transfer_type
+version
+planfamilyname
+</code></pre>
+<p>~~Map store as an array of key,values ~~</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="sql" data-theme="github-light github-dark"><code data-language="sql" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">SELECT</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">  product['product_name'] </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">AS</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> product_name,</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">  product['planname'] </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">AS</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> plan_name,</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">  product['storage_class'] </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">AS</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> storage_class,</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">  product['logs_destination'] </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">AS</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> logs_destination,</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">  product['transfer_type'] </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">AS</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> transfer_type,</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">  product['request_type'] </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">AS</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> request_type,</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">  COUNT</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">(</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">*</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">) </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">AS</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> row_count,</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">  SUM</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">(line_item_net_unblended_cost) </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">AS</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> total_cost,</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">  SUM</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">(line_item_usage_amount) </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">AS</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> total_usage</span></span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">FROM</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;"> data</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">  WHERE</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> line_item_line_item_type </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> 'Usage'</span></span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">GROUP BY</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> ALL</span></span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">ORDER BY</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> product_name;</span></span></code></pre></figure>
+<p><del>Distinguish between PAYG vs Flat Rate CloudFront old</del><br/>
+<del>PAYG</del><br/>
+<del>- <code>product_name</code> - “Amazon CloudFront”</del><br/>
+<del>- <code>transfer_type</code> - “CloudFront Outbound”, “CloudFront to Origin”</del><br/>
+<del>- <code>request_type</code> - “CloudFront-Request-HTTP-Proxy”</del></p>
+<ul>
+<li><code>notes</code> - request and transfer are useful for analytics</li>
+</ul>
+<div class="list-spacing" style="margin:0;padding:0;height:0.5em;"></div>
+<p><del>Flat Rate</del><br/>
+<del>- <code>product_name</code> - “CloudFront Flat-Rate Plans”</del><br/>
+<del>- <code>plan_name</code> - “Free”</del><br/>
+<del>- <code>notes</code> - other columns like <code>plan_code</code> and <code>plan_family</code> seem redundant</del></p>
+<p><del>S3</del><br/>
+<del>- <code>product_name</code> - “Amazon Simple Storage Service”</del><br/>
+<del>- <code>transfer_type</code> - “AWS Inbound”, “AWS Outbound”, “InterRegion Outbound”</del><br/>
+<del>- <code>storage_class</code> - “General Purpose”</del></p>
+<p><del>CloudWatch</del><br/>
+<del>- <code>product_name</code> - “AmazonCloudWatch”</del><br/>
+<del>- <code>log_destination</code> - “Amazon CloudWatch Logs”</del><br/>
+<del>- <code>notes</code> - it’s likely just <code>product_name</code> is enough for observability</del></p>
+<h4 id="cost-explorer-api">Cost Explorer API<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#cost-explorer-api" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p><del>Get Billing and Cost</del><br/>
+<del>It uses a different API <code>ce get-cost-and-usage</code></del></p>
+<p><del>The most basic usage requires <code>--time-period</code> <code>--granularity</code> and <code>--metrics</code></del></p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="bash" data-theme="github-light github-dark"><code data-language="bash" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">aws</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> ce</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> get-cost-and-usage</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">   --time-period</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> Start=2026-04-01,End=2026-04-24</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">   --granularity</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> MONTHLY</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;"> --metrics</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> UnblendedCost</span></span></code></pre></figure>
+<p><del>- the <code>UnblendedCost</code> is the metric that would be shown on the console and billed</del><br/>
+<del>- the <code>UsageQuantity</code> is the amount billed (which will be useful for calculating based on metrics)</del></p>
+<p><del>For free credits, must apply the <code>--filter</code></del></p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="json" data-theme="github-light github-dark"><code data-language="json" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">{</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">&quot;Not&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: {</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">&quot;Dimensions&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: {</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">&quot;Key&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;RECORD_TYPE&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">&quot;Values&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: [</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;Credit&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;Refund&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">]}}}</span></span></code></pre></figure>
+<p><del>For CloudFront specifically, use <code>AND</code> filter</del></p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="json" data-theme="github-light github-dark"><code data-language="json" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">{</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">&quot;And&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: [{</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">&quot;Not&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: {</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">&quot;Dimensions&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: {</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">&quot;Key&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;RECORD_TYPE&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">&quot;Values&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: [</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;Credit&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;Refund&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">]}}},{</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">&quot;Dimensions&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">:{</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">&quot;Key&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">:</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;SERVICE&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">&quot;Values&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">:[</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;Amazon CloudFront&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">]}}]}</span></span></code></pre></figure>
+<p><del>Return Format</del></p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="json" data-theme="github-light github-dark"><code data-language="json" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">{</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">   &quot;ResultsByTime&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: [</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">      {</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">         &quot;Estimated&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">true</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">         &quot;Groups&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: [],</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">         &quot;TimePeriod&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: {</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">            &quot;End&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;2026-04-02&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">&quot;Start&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;2026-04-01&quot;</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">         },</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">         &quot;Total&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: {</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">            &quot;UnblendedCost&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: {</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">               &quot;Amount&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;0&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">               &quot;Unit&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;USD&quot;</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">            }</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">         }</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">      },</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">      {</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">&quot;TimePeriod&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">:{},</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">&quot;Total&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">:{}}</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">   ]</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">}</span></span></code></pre></figure>
+<p><del>Group the cost by usage type (e.g. requests, to origin)</del></p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="bash" data-theme="github-light github-dark"><code data-language="bash" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">--group-by</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> Type=DIMENSION,Key=USAGE_TYPE</span></span></code></pre></figure>
+<p><del>- also use query to get the information that is relevant (keys and metrics)</del></p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="json" data-theme="github-light github-dark"><code data-language="json" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">ResultsByTime[</span><span style="--shiki-light:#B31D28;--shiki-light-font-style:italic;--shiki-dark:#FDAEB7;--shiki-dark-font-style:italic;">*</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">].Groups[</span><span style="--shiki-light:#B31D28;--shiki-light-font-style:italic;--shiki-dark:#FDAEB7;--shiki-dark-font-style:italic;">*</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">].{</span><span style="--shiki-light:#B31D28;--shiki-light-font-style:italic;--shiki-dark:#FDAEB7;--shiki-dark-font-style:italic;">Keys</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">:</span><span style="--shiki-light:#B31D28;--shiki-light-font-style:italic;--shiki-dark:#FDAEB7;--shiki-dark-font-style:italic;">Keys</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span><span style="--shiki-light:#B31D28;--shiki-light-font-style:italic;--shiki-dark:#FDAEB7;--shiki-dark-font-style:italic;">Metrics</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">:</span><span style="--shiki-light:#B31D28;--shiki-light-font-style:italic;--shiki-dark:#FDAEB7;--shiki-dark-font-style:italic;">Metrics</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">}</span></span></code></pre></figure>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="js" data-theme="github-light github-dark"><code data-language="js" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">result.ResultsByTime.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">map</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">(</span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">result</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;"> =></span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> result.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">map</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">(</span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">group</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;"> =></span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> {group.Keys,group.Metrics}))</span></span></code></pre></figure>
+<p><del>Return Format</del></p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="json" data-theme="github-light github-dark"><code data-language="json" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">[[</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">	{</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">	    &quot;Keys&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: [</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;CA-DataTransfer-Out-Bytes&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">],</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">		&quot;Metrics&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: {</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">	        &quot;UnblendedCost&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: {</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">		        &quot;Amount&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;0&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">&quot;Unit&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;USD&quot;</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">		        },</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">		    &quot;UsageQuantity&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: {</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">				&quot;Amount&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;2.7805886967&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">				&quot;Unit&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;GB&quot;</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">                }</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">	        }</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">	},</span></span></code></pre></figure>
+<p><del>- for actual implementation, need to include the <code>TimePeriod</code> which is within <code>ResultsByTime[*]</code></del><br/>
+<del>The Keys that are relevant (these are prefixed by country code <code>CA,US</code>)</del><br/>
+<del>- <code>CA-DataTransfer-Out-Bytes</code> - from AWS to internet (download)</del><br/>
+<del>- included in PAYG 1TB</del><br/>
+<del>- <code>CA-DataTransfer-Out-OBytes</code> - from AWS to origin (upload)</del><br/>
+<del>- not included, $0.02/GB</del><br/>
+<del>- <code>Region-Requests-HTTP-Proxy</code> or functions, KV store may also be useful</del></p>
+<p><del>Putting it together</del></p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="bash" data-theme="github-light github-dark"><code data-language="bash" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">aws</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> ce</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> get-cost-and-usage</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">   --time-period</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> Start=2026-04-01,End=2026-05-01</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">   --granularity</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> MONTHLY</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;"> --metrics</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> UnblendedCost</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> UsageQuantity</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;"> --filter</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> '{&quot;And&quot;: [{&quot;Not&quot;: {&quot;Dimensions&quot;: {&quot;Key&quot;: &quot;RECORD_TYPE&quot;,&quot;Values&quot;: [&quot;Credit&quot;, &quot;Refund&quot;]}}},{&quot;Dimensions&quot;:{&quot;Key&quot;:&quot;SERVICE&quot;,&quot;Values&quot;:[&quot;Amazon CloudFront&quot;]}}]}'</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;"> --group-by</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> Type=DIMENSION,Key=USAGE_TYPE</span></span></code></pre></figure>
+<p>S3<br/>
+<del>By default CloudFront upload logs in Standard ($0.023/GB storage fee)</del></p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="bash" data-theme="github-light github-dark"><code data-language="bash" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">aws</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> ce</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> get-cost-and-usage</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">   --time-period</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> Start=2026-05-01,End=2026-06-01</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">   --granularity</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> MONTHLY</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;"> --metrics</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> UnblendedCost</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> UsageQuantity</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;"> --filter</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> '{&quot;And&quot;: [{&quot;Not&quot;: {&quot;Dimensions&quot;: {&quot;Key&quot;: &quot;RECORD_TYPE&quot;,&quot;Values&quot;: [&quot;Credit&quot;, &quot;Refund&quot;]}}},{&quot;Dimensions&quot;:{&quot;Key&quot;:&quot;SERVICE&quot;,&quot;Values&quot;:[&quot;Amazon Simple Storage Service&quot;]}}]}'</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;"> --group-by</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> Type=DIMENSION,Key=USAGE_TYPE</span></span></code></pre></figure>
+<p><del>The output format is the same as prior CloudFront command</del><br/>
+<del>The Keys that are relevant (these are prefixed by country code <code>CA,US</code>)</del><br/>
+<del>- <code>DataTransfer-Out-Bytes</code> - from AWS S3 to internet (download)</del><br/>
+<del>- <code>Global-Bucket-Hrs-FreeTier</code> - number of GP buckets in account-level free-tier</del><br/>
+<del>- <code>Requests-Tier1</code> - POST, PUT requests, each time update or upload to S3</del></p></article><hr/><div class="page-footer"></div></div><div class="right sidebar"><div class="graph"><h3>Graph View</h3><div class="graph-outer"><div class="graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:1,&quot;scale&quot;:1.1,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.3,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:false,&quot;enableRadial&quot;:false}"></div><button class="global-graph-icon" aria-label="Global Graph"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 55 55" fill="currentColor" xml:space="preserve"><path d="M49,0c-3.309,0-6,2.691-6,6c0,1.035,0.263,2.009,0.726,2.86l-9.829,9.829C32.542,17.634,30.846,17,29,17
+                s-3.542,0.634-4.898,1.688l-7.669-7.669C16.785,10.424,17,9.74,17,9c0-2.206-1.794-4-4-4S9,6.794,9,9s1.794,4,4,4
+                c0.74,0,1.424-0.215,2.019-0.567l7.669,7.669C21.634,21.458,21,23.154,21,25s0.634,3.542,1.688,4.897L10.024,42.562
+                C8.958,41.595,7.549,41,6,41c-3.309,0-6,2.691-6,6s2.691,6,6,6s6-2.691,6-6c0-1.035-0.263-2.009-0.726-2.86l12.829-12.829
+                c1.106,0.86,2.44,1.436,3.898,1.619v10.16c-2.833,0.478-5,2.942-5,5.91c0,3.309,2.691,6,6,6s6-2.691,6-6c0-2.967-2.167-5.431-5-5.91
+                v-10.16c1.458-0.183,2.792-0.759,3.898-1.619l7.669,7.669C41.215,39.576,41,40.26,41,41c0,2.206,1.794,4,4,4s4-1.794,4-4
+                s-1.794-4-4-4c-0.74,0-1.424,0.215-2.019,0.567l-7.669-7.669C36.366,28.542,37,26.846,37,25s-0.634-3.542-1.688-4.897l9.665-9.665
+                C46.042,11.405,47.451,12,49,12c3.309,0,6-2.691,6-6S52.309,0,49,0z M11,9c0-1.103,0.897-2,2-2s2,0.897,2,2s-0.897,2-2,2
+                S11,10.103,11,9z M6,51c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S8.206,51,6,51z M33,49c0,2.206-1.794,4-4,4s-4-1.794-4-4
+                s1.794-4,4-4S33,46.794,33,49z M29,31c-3.309,0-6-2.691-6-6s2.691-6,6-6s6,2.691,6,6S32.309,31,29,31z M47,41c0,1.103-0.897,2-2,2
+                s-2-0.897-2-2s0.897-2,2-2S47,39.897,47,41z M49,10c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S51.206,10,49,10z"></path></svg></button></div><div class="global-graph-outer"><div class="global-graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:-1,&quot;scale&quot;:0.9,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.2,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:true,&quot;enableRadial&quot;:true}"></div></div></div><div class="toc desktop-only"><button type="button" class="toc-header" aria-controls="toc-56" aria-expanded="true"><h3>Table of Contents</h3><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><ul id="list-1" class="toc-content overflow"><li class="depth-0"><a href="#agent-notes" data-for="agent-notes">Agent Notes</a></li><li class="depth-0"><a href="#deprecated-notes" data-for="deprecated-notes">Deprecated Notes</a></li><li class="depth-1"><a href="#product-map" data-for="product-map">Product Map</a></li><li class="depth-1"><a href="#cost-explorer-api" data-for="cost-explorer-api">Cost Explorer API</a></li><li class="overflow-end"></li></ul></div><div class="recent-notes"><h3>Recent Notes</h3><ul class="recent-ul"><li class="recent-li"><div class="section"><div class="desc"><h3><a href="../obsidian/docs-template" class="internal">docs-template</a></h3></div><p class="meta"><time datetime="2026-05-12T03:44:45.814Z">May 12, 2026</time></p><ul class="tags"></ul></div></li><li class="recent-li"><div class="section"><div class="desc"><h3><a href="../todo" class="internal">todo</a></h3></div><p class="meta"><time datetime="2026-05-12T03:39:24.816Z">May 12, 2026</time></p><ul class="tags"></ul></div></li><li class="recent-li"><div class="section"><div class="desc"><h3><a href="../projects/cft" class="internal">cft</a></h3></div><p class="meta"><time datetime="2026-05-11T00:55:22.495Z">May 11, 2026</time></p><ul class="tags"></ul></div></li></ul></div></div><footer class><p>Created with <a href="https://quartz.jzhao.xyz/">Quartz v4.5.2</a> © 2026</p><ul><li><a href="https://github.com/jackyzha0/quartz">GitHub</a></li><li><a href="https://discord.gg/cRFFHYye7t">Discord Community</a></li></ul></footer></div></div></body><script type="application/javascript" data-persist="true">function n(){let t=this.parentElement;t.classList.toggle("is-collapsed");let e=t.getElementsByClassName("callout-content")[0];if(!e)return;let l=t.classList.contains("is-collapsed");e.style.gridTemplateRows=l?"0fr":"1fr"}function c(){let t=document.getElementsByClassName("callout is-collapsible");for(let e of t){let l=e.getElementsByClassName("callout-title")[0],s=e.getElementsByClassName("callout-content")[0];if(!l||!s)continue;l.addEventListener("click",n),window.addCleanup(()=>l.removeEventListener("click",n));let o=e.classList.contains("is-collapsed");s.style.gridTemplateRows=o?"0fr":"1fr"}}document.addEventListener("nav",c);
+</script><script type="module" data-persist="true">function E(a,e){if(!a)return;function t(o){o.target===this&&(o.preventDefault(),o.stopPropagation(),e())}function n(o){o.key.startsWith("Esc")&&(o.preventDefault(),e())}a?.addEventListener("click",t),window.addCleanup(()=>a?.removeEventListener("click",t)),document.addEventListener("keydown",n),window.addCleanup(()=>document.removeEventListener("keydown",n))}function f(a){for(;a.firstChild;)a.removeChild(a.firstChild)}var m=class{constructor(e,t){this.container=e;this.content=t;this.setupEventListeners(),this.setupNavigationControls(),this.resetTransform()}isDragging=!1;startPan={x:0,y:0};currentPan={x:0,y:0};scale=1;MIN_SCALE=.5;MAX_SCALE=3;cleanups=[];setupEventListeners(){let e=this.onMouseDown.bind(this),t=this.onMouseMove.bind(this),n=this.onMouseUp.bind(this),o=this.onTouchStart.bind(this),r=this.onTouchMove.bind(this),i=this.onTouchEnd.bind(this),s=this.resetTransform.bind(this);this.container.addEventListener("mousedown",e),document.addEventListener("mousemove",t),document.addEventListener("mouseup",n),this.container.addEventListener("touchstart",o,{passive:!1}),document.addEventListener("touchmove",r,{passive:!1}),document.addEventListener("touchend",i),window.addEventListener("resize",s),this.cleanups.push(()=>this.container.removeEventListener("mousedown",e),()=>document.removeEventListener("mousemove",t),()=>document.removeEventListener("mouseup",n),()=>this.container.removeEventListener("touchstart",o),()=>document.removeEventListener("touchmove",r),()=>document.removeEventListener("touchend",i),()=>window.removeEventListener("resize",s))}cleanup(){for(let e of this.cleanups)e()}setupNavigationControls(){let e=document.createElement("div");e.className="mermaid-controls";let t=this.createButton("+",()=>this.zoom(.1)),n=this.createButton("-",()=>this.zoom(-.1)),o=this.createButton("Reset",()=>this.resetTransform());e.appendChild(n),e.appendChild(o),e.appendChild(t),this.container.appendChild(e)}createButton(e,t){let n=document.createElement("button");return n.textContent=e,n.className="mermaid-control-button",n.addEventListener("click",t),window.addCleanup(()=>n.removeEventListener("click",t)),n}onMouseDown(e){e.button===0&&(this.isDragging=!0,this.startPan={x:e.clientX-this.currentPan.x,y:e.clientY-this.currentPan.y},this.container.style.cursor="grabbing")}onMouseMove(e){this.isDragging&&(e.preventDefault(),this.currentPan={x:e.clientX-this.startPan.x,y:e.clientY-this.startPan.y},this.updateTransform())}onMouseUp(){this.isDragging=!1,this.container.style.cursor="grab"}onTouchStart(e){if(e.touches.length!==1)return;this.isDragging=!0;let t=e.touches[0];this.startPan={x:t.clientX-this.currentPan.x,y:t.clientY-this.currentPan.y}}onTouchMove(e){if(!this.isDragging||e.touches.length!==1)return;e.preventDefault();let t=e.touches[0];this.currentPan={x:t.clientX-this.startPan.x,y:t.clientY-this.startPan.y},this.updateTransform()}onTouchEnd(){this.isDragging=!1}zoom(e){let t=Math.min(Math.max(this.scale+e,this.MIN_SCALE),this.MAX_SCALE),n=this.content.getBoundingClientRect(),o=n.width/2,r=n.height/2,i=t-this.scale;this.currentPan.x-=o*i,this.currentPan.y-=r*i,this.scale=t,this.updateTransform()}updateTransform(){this.content.style.transform=`translate(${this.currentPan.x}px, ${this.currentPan.y}px) scale(${this.scale})`}resetTransform(){let t=this.content.querySelector("svg").getBoundingClientRect(),n=t.width/this.scale,o=t.height/this.scale;this.scale=1,this.currentPan={x:(this.container.clientWidth-n)/2,y:(this.container.clientHeight-o)/2},this.updateTransform()}},T=["--secondary","--tertiary","--gray","--light","--lightgray","--highlight","--dark","--darkgray","--codeFont"],y;document.addEventListener("nav",async()=>{let e=document.querySelector(".center").querySelectorAll("code.mermaid");if(e.length===0)return;y||=await import("https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.4.0/mermaid.esm.min.mjs");let t=y.default,n=new WeakMap;for(let r of e)n.set(r,r.innerText);async function o(){for(let s of e){s.removeAttribute("data-processed");let c=n.get(s);c&&(s.innerHTML=c)}let r=T.reduce((s,c)=>(s[c]=window.getComputedStyle(document.documentElement).getPropertyValue(c),s),{}),i=document.documentElement.getAttribute("saved-theme")==="dark";t.initialize({startOnLoad:!1,securityLevel:"loose",theme:i?"dark":"base",themeVariables:{fontFamily:r["--codeFont"],primaryColor:r["--light"],primaryTextColor:r["--darkgray"],primaryBorderColor:r["--tertiary"],lineColor:r["--darkgray"],secondaryColor:r["--secondary"],tertiaryColor:r["--tertiary"],clusterBkg:r["--light"],edgeLabelBackground:r["--highlight"]}}),await t.run({nodes:e})}await o(),document.addEventListener("themechange",o),window.addCleanup(()=>document.removeEventListener("themechange",o));for(let r=0;r<e.length;r++){let v=function(){let g=l.querySelector("#mermaid-space"),h=l.querySelector(".mermaid-content");if(!h)return;f(h);let w=i.querySelector("svg").cloneNode(!0);h.appendChild(w),l.classList.add("active"),g.style.cursor="grab",u=new m(g,h)},M=function(){l.classList.remove("active"),u?.cleanup(),u=null},i=e[r],s=i.parentElement,c=s.querySelector(".clipboard-button"),d=s.querySelector(".expand-button"),p=window.getComputedStyle(c),L=c.offsetWidth+parseFloat(p.marginLeft||"0")+parseFloat(p.marginRight||"0");d.style.right=`calc(${L}px + 0.3rem)`,s.prepend(d);let l=s.querySelector("#mermaid-container");if(!l)return;let u=null;d.addEventListener("click",v),E(l,M),window.addCleanup(()=>{u?.cleanup(),d.removeEventListener("click",v)})}});
+</script><script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/copy-tex.min.js" type="application/javascript" data-persist="true"></script><script src="../postscript.js" type="module" data-persist="true"></script></html>

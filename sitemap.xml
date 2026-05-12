@@ -6,7 +6,7 @@
     <lastmod>2025-11-07T04:51:41.876Z</lastmod>
   </url><url>
     <loc>https://quartz.jzhao.xyz/Excalidraw/Drawing-2025-12-05-22.08.52.excalidraw</loc>
-    <lastmod>2025-12-06T06:08:52.381Z</lastmod>
+    <lastmod>2026-04-29T00:39:49.530Z</lastmod>
   </url><url>
     <loc>https://quartz.jzhao.xyz/bash/1.-Basic-Tutorial</loc>
     <lastmod>2024-03-25T07:39:48.203Z</lastmod>
@@ -120,7 +120,7 @@
     <lastmod>2025-10-20T02:22:58.669Z</lastmod>
   </url><url>
     <loc>https://quartz.jzhao.xyz/homeserver/Selfhost-a-Resilient-Remote-Access,-Ditch-Old-VPN-Protocols</loc>
-    <lastmod>2026-04-22T01:49:52.277Z</lastmod>
+    <lastmod>2026-04-27T21:26:46.684Z</lastmod>
   </url><url>
     <loc>https://quartz.jzhao.xyz/homeserver/applications/Paperless-ngx</loc>
     <lastmod>2024-05-30T05:26:34.201Z</lastmod>
@@ -130,6 +130,9 @@
   </url><url>
     <loc>https://quartz.jzhao.xyz/homeserver/bios-flashing</loc>
     <lastmod>2024-04-15T00:42:15.082Z</lastmod>
+  </url><url>
+    <loc>https://quartz.jzhao.xyz/homeserver/firewalls/00-install</loc>
+    <lastmod>2026-05-05T04:00:50.899Z</lastmod>
   </url><url>
     <loc>https://quartz.jzhao.xyz/homeserver/hdd-and-filesystem</loc>
     <lastmod>2024-05-24T06:03:15.485Z</lastmod>
@@ -150,18 +153,18 @@
     <lastmod>2026-04-01T21:55:48.009Z</lastmod>
   </url><url>
     <loc>https://quartz.jzhao.xyz/homeserver/proxmox/03-virtual-machine</loc>
-    <lastmod>2026-04-07T22:00:57.579Z</lastmod>
+    <lastmod>2026-05-01T05:11:59.241Z</lastmod>
   </url><url>
     <loc>https://quartz.jzhao.xyz/homeserver/proxmox/04-storage</loc>
     <lastmod>2026-03-25T18:44:00.355Z</lastmod>
+  </url><url>
+    <loc>https://quartz.jzhao.xyz/homeserver/proxmox/05-networking</loc>
+    <lastmod>2026-04-28T21:56:32.098Z</lastmod>
   </url><url>
     <loc>https://quartz.jzhao.xyz/homeserver/proxmox/backup-snapshot</loc>
     <lastmod>2026-03-23T19:12:57.360Z</lastmod>
   </url><url>
     <loc>https://quartz.jzhao.xyz/homeserver/proxmox/hvse-pve-hackintosh</loc>
-    <lastmod>2023-09-03T23:59:05.281Z</lastmod>
-  </url><url>
-    <loc>https://quartz.jzhao.xyz/homeserver/proxmox/networking</loc>
     <lastmod>2023-09-03T23:59:05.281Z</lastmod>
   </url><url>
     <loc>https://quartz.jzhao.xyz/homeserver/proxmox/pve-apps/docker-lxc</loc>
@@ -175,6 +178,9 @@
   </url><url>
     <loc>https://quartz.jzhao.xyz/homeserver/proxmox/pve-passthrough</loc>
     <lastmod>2023-09-03T23:59:05.289Z</lastmod>
+  </url><url>
+    <loc>https://quartz.jzhao.xyz/homeserver/proxmox/spice-fix</loc>
+    <lastmod>2026-04-23T04:49:48.802Z</lastmod>
   </url><url>
     <loc>https://quartz.jzhao.xyz/homeserver/proxmox/spoto-pve-aio</loc>
     <lastmod>2024-09-17T20:30:40.029Z</lastmod>
@@ -243,7 +249,7 @@
     <lastmod>2024-10-24T20:01:38.497Z</lastmod>
   </url><url>
     <loc>https://quartz.jzhao.xyz/obsidian/docs-template</loc>
-    <lastmod>2026-04-22T07:44:00.714Z</lastmod>
+    <lastmod>2026-05-12T03:44:45.814Z</lastmod>
   </url><url>
     <loc>https://quartz.jzhao.xyz/obsidian/obsidian-basics</loc>
     <lastmod>2024-07-20T01:34:52.967Z</lastmod>
@@ -422,20 +428,20 @@
     <loc>https://quartz.jzhao.xyz/programming/powershell/04-pipes</loc>
     <lastmod>2026-03-26T04:47:06.341Z</lastmod>
   </url><url>
-    <loc>https://quartz.jzhao.xyz/programming/powershell/05-conditional</loc>
-    <lastmod>2026-03-26T05:15:08.263Z</lastmod>
+    <loc>https://quartz.jzhao.xyz/programming/powershell/05-conditional-trycatch</loc>
+    <lastmod>2026-05-07T22:06:04.914Z</lastmod>
   </url><url>
     <loc>https://quartz.jzhao.xyz/programming/powershell/06-loops</loc>
     <lastmod>2026-04-02T05:50:37.261Z</lastmod>
-  </url><url>
-    <loc>https://quartz.jzhao.xyz/programming/powershell/07-trycatch</loc>
-    <lastmod>2026-03-27T03:26:22.132Z</lastmod>
   </url><url>
     <loc>https://quartz.jzhao.xyz/programming/powershell/08-modules</loc>
     <lastmod>2026-03-27T03:54:43.975Z</lastmod>
   </url><url>
     <loc>https://quartz.jzhao.xyz/programming/powershell/09-functions</loc>
-    <lastmod>2026-03-27T06:27:28.647Z</lastmod>
+    <lastmod>2026-05-07T22:10:48.347Z</lastmod>
+  </url><url>
+    <loc>https://quartz.jzhao.xyz/programming/powershell/10-oop</loc>
+    <lastmod>2026-05-07T22:06:21.959Z</lastmod>
   </url><url>
     <loc>https://quartz.jzhao.xyz/programming/react/01-basic</loc>
     <lastmod>2025-05-04T04:27:55.321Z</lastmod>
@@ -458,6 +464,9 @@
     <loc>https://quartz.jzhao.xyz/programming/react/07-hooks</loc>
     <lastmod>2025-04-30T04:54:22.230Z</lastmod>
   </url><url>
+    <loc>https://quartz.jzhao.xyz/programming/vibecoding/Codex</loc>
+    <lastmod>2026-04-22T23:47:45.495Z</lastmod>
+  </url><url>
     <loc>https://quartz.jzhao.xyz/programming/vibecoding/copilot</loc>
     <lastmod>2026-04-16T22:50:09.716Z</lastmod>
   </url><url>
@@ -465,7 +474,7 @@
     <lastmod>2026-04-07T04:51:43.807Z</lastmod>
   </url><url>
     <loc>https://quartz.jzhao.xyz/projects/DNS-poisoning</loc>
-    <lastmod>2026-04-19T03:40:46.184Z</lastmod>
+    <lastmod>2026-04-25T04:14:17.386Z</lastmod>
   </url><url>
     <loc>https://quartz.jzhao.xyz/projects/adguard-home</loc>
     <lastmod>2026-02-13T02:45:53.489Z</lastmod>
@@ -476,11 +485,17 @@
     <loc>https://quartz.jzhao.xyz/projects/ai/sponsorblock-ai</loc>
     <lastmod>2024-11-12T18:14:43.590Z</lastmod>
   </url><url>
+    <loc>https://quartz.jzhao.xyz/projects/cft</loc>
+    <lastmod>2026-05-11T00:55:22.495Z</lastmod>
+  </url><url>
     <loc>https://quartz.jzhao.xyz/projects/demucs-karaoke-vibe</loc>
     <lastmod>2026-04-15T06:44:47.300Z</lastmod>
   </url><url>
     <loc>https://quartz.jzhao.xyz/projects/finished/3910</loc>
     <lastmod>2026-04-22T07:43:38.696Z</lastmod>
+  </url><url>
+    <loc>https://quartz.jzhao.xyz/projects/finished/DNS-Poisoning-Tailscale</loc>
+    <lastmod>2026-04-25T05:50:06.969Z</lastmod>
   </url><url>
     <loc>https://quartz.jzhao.xyz/projects/finished/GPU-Passthrough</loc>
     <lastmod>2024-08-05T17:39:11.601Z</lastmod>
@@ -543,7 +558,7 @@
     <lastmod>2025-09-26T04:26:35.068Z</lastmod>
   </url><url>
     <loc>https://quartz.jzhao.xyz/todo</loc>
-    <lastmod>2026-04-07T18:59:45.479Z</lastmod>
+    <lastmod>2026-05-12T03:39:24.816Z</lastmod>
   </url><url>
     <loc>https://quartz.jzhao.xyz/windows/SetUserFTA--and--Browser</loc>
     <lastmod>2025-01-15T05:16:14.930Z</lastmod>
@@ -582,7 +597,7 @@
     <lastmod>2025-01-16T01:15:49.924Z</lastmod>
   </url><url>
     <loc>https://quartz.jzhao.xyz/windows/win-apps/net-connections</loc>
-    <lastmod>2026-03-25T07:17:38.468Z</lastmod>
+    <lastmod>2026-05-01T01:21:57.479Z</lastmod>
   </url><url>
     <loc>https://quartz.jzhao.xyz/windows/win-apps/powershell</loc>
     <lastmod>2025-12-17T02:05:52.114Z</lastmod>
