@@ -125,3 +125,53 @@ Run a DNS server (Pi-hole, AdGuard, or Technitium) and plug it into Tailscale Ma
 
 If you prefer IP-only access, disable Tailscale DNS (Settings > DNS). You’ll then use the Wi-Fi network DNS, which blends in better but is worse for privacy. A telltale sign of VPN usage is DNS traffic suddenly disappearing. I'm also exploring utilizing DNS poisoning to automate proxy rule creation (which was a success) by disabling MagicDNS.
 
+## Tailscale Part 2
+You may have seen my previous guide on how to use Tailscale when the network blocks it. I wanted the follow-up to be about utilizing DNS poisoning from hostile networks to automate split tunneling, but there are still some rough edges, and it's already September. So instead, I'll provide some optional enhancements and updates to my previous post.
+
+Given even popular YouTuber TechQuickie LTT mentioned Tailscale, it is the "default" solution for easy remote access, but it's also important to highlights its limitations and workarounds to ensure reliability. And since not everyone search Reddit and many response are unhelpful, users will continue to ask the same, and I will provide updated information.
+
+Disclaimer: I'm only making this post because I want to help others and provide the right resources, I might not be actually using/maintaining these setups, given my network situation differs from yours, I cannot help everyone.
+
+iOS Automations
+After re-reading my previous post, the post I linked to iOS automation was deleted. So I created my own automation to Wi-Fi cycle. I've also added captive portal detection and optional sleep, since iOS do not wait for Wi-Fi or Tailscale to connect successfully before next step.
+
+To use it, you can create an automation, trigger: when your iPad joins a list of Wi-Fi network, action: run the shortcut Tailscale. I daily an Android phone so I'm not familiar with iOS stuff, feel free to tweak and reshare it.
+
+Controlplane and DERP
+Last time I mentioned the controlplane gets blocked by SNI poisoning, but there are other moving pieces such as DERP (relaying traffic), STUN (getting your IP/port) and the individual Wireguard connections. My method focuses on the controlplane only as that's the only problem I faced in my situation. Suggestions like "just use Headscale" might be exactly what you need, or useless. Headscale is just the controlplane, you'll still be using Tailscale's DERP/STUN servers. I didn't need to selfhost Headscale or DERP but I found [this excellent tutorial](https://pcmike.net/oci_ts) about DERP. There is also [tailscale-awg](https://github.com/LiuTangLei/AwgScale) which uses AmneziaWG obfuscation with Tailscale controlplane, however, only possible on Android.
+
+Ports and Port Forwarding
+It's common knowledge Tailscale runs on port 41641 by default, but you can change by editing the file `/etc/default/tailscaled` and restarting the `tailscaled` service.
+
+I mentioned port forward instead of using NAT-PMP (NP), but in my case with Telus, it seems NP rules takes higher precedence than manual port forwards, if I set Tailscale on a UDP port that I already use, the router would invalidate my port forward and break my existing service until Tailscale is stopped. So my advice to port forward is useless and my setup is held together by NP duct tapes. But if you have a **real** router, port forwarding is the way. 
+
+I haven't verified whether port forwarding or DMZ helps behind CG-NAT since I'm not behind one. A friend was recently placed behind CG-NAT, so maybe I can test it. My knowledge comes from this video where Bulianglin was able to host web service behind CG-NAT, granted his ISP uses full-cone NAT. If you're on mobile/5G home internet, this wouldn't work as they usually use the symmetric/hard NAT.
+
+ProxyT Deployment
+I've used Tailscale funnel to deploy ProxyT last time. Since the controlplane uses non-standard POST WebSocket which eliminates many CDN options. Proxyt developer recommended Railway which stopped working, a user found render.com works, I've tried it and successfully deployed it. So this could be a free option.
+
+But cold start is real, taking around 15-20s, higher than Railway. So you could be waiting for long time even in normal network. You might have to consider some keepalive solution, like Uptime Kuma with scheduled maintenance window, keep in mind render.com only give 750 free hours a month. 
+
+NekoBox
+Last time I mentioned on Android, you can use 3rd party VPN to rescue Tailscale controlplane.
+
+[NekoBox](https://github.com/MatsuriDayo/NekoBoxForAndroid[NekoBox](https://github.com/MatsuriDayo/NekoBoxForAndroid) is an Android client using the sing-box core. You need to sideload the APK from GitHub, so it might not be suitable for Chromebooks. Technically NekoBox uses an older sing-box core and isn't updated, but **it works** and provides a GUI. All you need is any V2Ray node even random free ones you found on internet. I'm using my old project insta-v2ray, the node does not need access to your home network (it probably shouldn't) or fast with low latency, it's sole purpose is to access the Tailscale controlplane.
+
+For Nekobox related configuration, requirements and a screencast of the flow, I'm posting it on a separate Gist.
+
+Sing-box alternative Tailscale client
+One of the changes in proxy tool landscape after I posted the last guide is sing-box now supports Tailscale, allowing you to scientifically access internet and your homelab simultaneously, bypassing mobile limitation of one active VPN. In addition, offering detour for Tailscale, which connects to the controlplane via a proxy, it's like sing-box devs know exactly what we need.
+
+Sing-box app is available for both iOS and Android, but it's configuration is entirely JSON, the GUI is only for adding the configuration, either a local file or remote URL. The configuration is long so I'm posting it in a separate Gist.
+
+I've configured it everything do not go through the proxy except for tailscale related domains and DNS is intentionally not proxied, you can adjust your routing/DNS rules. Sing-box rules are powerful and complex, I cannot cover everything.
+
+Sing-box is far from flawless, there are many bugs and complex documentation which changes quickly. Some issues like randomly unable to connect to Tailscale or failing to establish direct connection is just there with no fixes. I wouldn't count this as production-ready, but at least sing-box+TS works when TS itself doesn't.
+
+Shadowrocket on iOS also added Tailscale support. Unfortunately, it doesn't support proxying the control plane, so it fails. If the developer adds control-plane detouring in the future, it could be a good GUI alternative.
+
+Suggestion for Tailscale
+Tailscale doesn't need to maintain/rotate controlplane domains or obfuscate the Wireguard connection (DERP sort of do by encapsulating WG over TLS). Community projects like sing-box or tailscale-awg helps in some way. But if the `/ts2021` protocol use standard GET instead of POST for WS upgrade, this makes it possible for users to deploy on many free CDNs, serverless/PaaS platforms rather than specific ones or a paid VPS.
+
+Similarly if DERP (or selfhosted DERP) can run over WebSocket, this makes it CDN friendly as well, decreasing the barrier to hosting. 
+

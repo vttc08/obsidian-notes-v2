@@ -41,7 +41,7 @@ switch($variable){
 
 Try catch will only catch terminating error
 ```powershell
-try{ failed } catch { echo failed }
+try{ failed } catch { echo failed } finally {}
 ```
 To adjust error types of some commands
 ```powershell
@@ -66,4 +66,5 @@ Change default error action (similar to `set -e)
 $ErrorActionPreference = "Stop"
 ```
 Errors are stored in a variable `$Error`
-- the latest error is stored in the first index `$Error[0]
+- the latest error is stored in the first index `$Error[0]`
+Using `try/catch` with `finally`, even if there are error thrown, code in finally will always run

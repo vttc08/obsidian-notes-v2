@@ -12,3 +12,8 @@ https://sing-box.sagernet.org/installation/package-manager/#repository-installat
 ```
 
 Windows sing-box is only CLI
+
+Singbox has 4 modules
+- DNS
+- inbound/outbound
+- route

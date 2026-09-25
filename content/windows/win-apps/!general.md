@@ -1,19 +1,26 @@
-### General Windows Apps
+## General Windows Apps
 There will be notes to specific apps setup.
 
-Setup [powershell](powershell.md) first
-#### Obsidian
+Setup [powershell](powershell/powershell.md) first
+### Obsidian
 The vault specific settings are handled via syncthing. For application data (eg. what vaults are loaded into obsidian), it's stored in a separate folder at `%appdata%/obsidian`
-#### Google Chrome
-#### Extensions
-**[Wayback Machine](https://chromewebstore.google.com/detail/wayback-machine/fpnmgdkabkmnadcjpehmlllkndpkmiak)**
-Setting: General -> "Auto Save Page" if not archived "previously"
-
-#### Firefox
+If copying with different users, this is not sufficient.
+```powershell
+$obsidian=(cat -Raw .\obsidian.json | ConvertFrom-Json)
+$obsidian.vaults.psobject.properties | foreach {
+   $path = $_.value.path
+   $_.value.path = $path -replace "C:\\Users\\[^\\]+", "C:\Users\$env:USERNAME"
+  }
+$obsidian | ConvertTo-Json -depth 10 | Out-File .\obsidian.json
+```
+- this replace the username with the current computer user
+- run this in the current folder of Obsidian
+### Firefox
 **Backup profile [link](https://support.mozilla.org/en-US/kb/back-and-restore-information-firefox-profiles#w_locate-your-profile-folder)**
 The profile location, go to `about:support`. It is under `Application Basics` and `Profile Folder`
 `%APPDATA%\Mozilla\Firefox\Profiles`
 Make sure to close Firefox before backup.
+Before backing up, head to `about:preferences#privacy` and `Browsing Data` and clear data for specific sites to condense space
 **Restore**
 Copy the profile from the old machine to the new machine in the same location.
 Go to the root folder and edit the file `profiles.ini`
@@ -52,7 +59,7 @@ Once the new profile is created and setup. Go to `about:config` and change these
 To create a desktop shortcut use the flag `--no-remote -P "Profile Name"`
 - the icon can be changed, the `.ico` file is located in each of the profile folder
 - there is a `Firefox Master.psd` located at the root profile folder
-#### Microsoft Edge
+### Microsoft Edge
 **Fix your browser managed by organization**
 ```powershell
 taskkill /im msedge.exe /f
@@ -60,20 +67,7 @@ reg delete "HKCU\Software\Policies\Microsoft\Edge" /f
 reg delete "HKLM\Software\Policies\Microsoft\Edge" /f
 ```
 
-#### VSCode
-Most of the configuration will be synced if logging in via Microsoft account with exception of SSH settings.
-SSH settings on stored in Windows at `C:\Users\hubcc\.ssh\config`, these settings are global
-Once syncthing is setup, run the powershell script located in `Documents\ssh\ssh_config\configure.ps1` to restore SSH configs
-
 #### Internet Download Manager
-~~Make registry edit to prevent auto-update~~
-```powershell
-Windows Registry Editor Version 5.00
-
-[HKEY_CURRENT_USER\Software\DownloadManager]
-"LstCheck"="01/08/99"
-```
-~~May need to do it every login~~
 Doesn't work, alternative method. When update popup, use `kidm` to force and process of opening and closing and minimizing the app. The `kidm` script is located in `$HOME\scripts\kidm.ps1`
 IDM may place incomplete and uncancelled downloads in this folder
 ```c
@@ -85,8 +79,18 @@ Download https://github.com/ThioJoe/AHK-Scripts/releases the exe file.
 Place the exe file into `C:\Program Files` or any privileged dir.
 Add the app to startup
 
-**ShareX**
+#### ShareX
 ```powershell
 winget install sharex.sharex
 ```
-For all settings and configurations, ShareX
+For all settings and configurations, ShareX stores it in 
+```powershell
+~/Documents/ShareX
+```
+- close ShareX
+- copy the configs over and restart and it will work
+
+### Lossless Cut
+```powershell
+gsudo choco install lossless-cut --confirm
+```

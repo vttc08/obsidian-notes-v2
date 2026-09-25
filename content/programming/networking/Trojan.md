@@ -42,43 +42,7 @@ Require `config.json` in the same path of binary
 
 ## ACME
 ACME install (for requesting certs)
-We need the `fullchain` which contains the CA certs information
-申请证书： 安装acme：
-```bash
-curl get.acme.sh | sh 
-```
-添加软链接：
-```bash
-ln -s /root/.acme.sh/acme.sh /usr/local/bin/acme.sh
-``` 
-- allow the app to be run by simply using `acme.sh`
-注册账号：
-```bash
-acme.sh --register-account -m email@gmail.com 
-```
-申请证书：
-```sh
-acme.sh --issue -d your.valid.domain.com --standalone -k ec-256
-``` 
-- this by default will store the certificates in `/root/.acme/sh/tls.domain.name`
-安装证书：
-```sh
-acme.sh --installcert -d your.domain.com --ecc --key-file /root/trojan/server.key --fullchain-file /root/trojan/server.crt
-```
-
-```
-[Sat Apr 12 06:52:38 UTC 2025] Your cert is in: /root/.acme.sh/tls.calgaryab.ooguy.com_ecc/tls.calgaryab.ooguy.com.cer                  
-
-[Sat Apr 12 06:52:38 UTC 2025] Your cert key is in: /root/.acme.sh/tls.calgaryab.ooguy.com_ecc/tls.calgaryab.ooguy.com.key                    
-[Sat Apr 12 06:52:38 UTC 2025] The intermediate CA cert is in: /root/.acme.sh/tls.calgaryab.ooguy.com_ecc/ca.cer                              
-
-[Sat Apr 12 06:52:38 UTC 2025] And the full-chain cert is in: /root/.acme.sh/tls.calgaryab.ooguy.com_ecc/fullchain.cer
-```
-
-Switch CA
-```bash
-acme.sh -set-default-ca -server letsencrypt/zerossl
-```
+Moved to [domain-certs](../../homeserver/domain-certs.md)
 
 Domain-less
 [ssl-certificates_writeup](../../homeserver/ssl-certificates_writeup.md)

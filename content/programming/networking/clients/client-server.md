@@ -28,6 +28,16 @@ Different compared to VPN, does not encapsulate network level traffic
 DNS
 DNS leak occurs in system proxy mode
 - need DNS resolution to decide direct or proxy
+TUN mode leak
+- due to windows DNS sending DNS request via multiple network cards
+
+In proxy mode, if the app sends the hostname to the proxy server, then on the remote side, the proxy will resolve it accordingly.
+
+FakeIP and FakeDNS is essentially the same thing. Where it returns a fake address during DNS resolution.
+- some application like windows when they encounter a fake IP will think it's poisoned and think there's no internet connection
+- add MSFTconnect into FakeIP filter
+- UDP protocol must require real IP
+
 
 V2Ray Windows
 Routing -> bypass mainland
@@ -55,3 +65,14 @@ IPIfNonMatch
 
 With AsIs or IPOnDemand, will use the inbound
 Every DNS rule it's for routing only, the real domain is managed via inbounds
+
+UDP
+require local proxy tool config and remote node config to both support UDP
+UoT (UDP over TCP)
+- sending UDP traffic for TCP proxy protocols (VLESS/VMess/Trojan)
+- in the payload it would indicate it's UDP and send it to the remote node over TCP
+UoT vs UDP
+- even for protocols supporting UDP (SS), some ISP will QoS UDP traffic
+
+QUIC
+- if a web browser has SOCKS5 proxy configured, UDP/QUIC will not work

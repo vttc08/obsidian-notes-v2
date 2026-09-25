@@ -54,6 +54,10 @@ On windows natively
 set clipboard=unnamedplus
 ```
 - select a line, click `"+y`
+On some VPS and Powershell it doesn't support bracketed paste, therefore a good way to solve it is using paste toggle
+```bash
+set pastetoggle=<F2>
+```
 On WSL
 ```bash
 if system('uname -r') =~ "Microsoft"
@@ -64,6 +68,12 @@ if system('uname -r') =~ "Microsoft"
 endif
 ```
 - use `y` is enough
+Powershell Windows
+```bash
+set clipboard=unnamed
+```
+- the `unnamedplus` won't work with Powershell clipboard but `unnamed` does
+
 ZSH
 Install using package manager
 Plugin manager
@@ -153,11 +163,10 @@ set -g allow-passthrough on
  SSH auto attach tmux
  ```bash
 if [[ -n "$SSH_CONNECTION" && -z "$TMUX" && $- == *i* && -z $NOTMUX ]]; then
-	tmux attach -t main || tmux new -s main
+	tmux attach || tmux new -s main
 fi
  ```
 
-Nano
 
 Chezmoi
 not available in apt, need manual install

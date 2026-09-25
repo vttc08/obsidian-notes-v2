@@ -61,3 +61,15 @@ tiny.en, tiny, base.en, base, small.en, small, medium.en, medium, large-v1, larg
 CUDA (RTX 4070)
 - larger batch size results in faster speed (but likely more VRAM usage)
 - `large-v2` is the best balance between accuracy and speed
+
+Publishing
+- push have a tag for triggering Github actions image publishing
+```bash
+git tag v0.0.0-dev
+git push -u origin v0.0.0-dev
+```
+large savings when using static ffmpeg buid
+```
+karaoke:debian-ffmpeg                      79853236c0d9       1.19GB          317MB
+karaoke:static-ffmpeg                      052d0be9f885        615MB          158MB
+```

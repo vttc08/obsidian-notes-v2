@@ -10,12 +10,10 @@ Powershell
 - these allow Powershell execution and Winget
 ```powershell
 Set-ExecutionPolicy Unrestricted -Force
-echo Y | winget search anything
+echo Y | wintet install gsudo
 ```
 First install gsudo
-```powershell
-winget install gsudo
-```
+- the `echo Y` is required for non-interactive install to agree to ToS
 
 Uninstall McAfee and other bloatware
 Uninstall OneDrive (require agree ToS)
@@ -60,7 +58,7 @@ Windows Registry Editor Version 5.00
 
 Disable UAC (Win 10 Only)
 > [!danger]+ Windows 11 Drag and Drop
-> If `EnableLUA` is enabled, then everything runs as admin and drag and drop does not work on Windows 11. The same effect is not observed when disabling UAC manually. The effect on Windows 10 is unknown.
+> If `EnableLUA` is enabled, then everything runs as admin and drag and drop does not work on Windows 11. The same effect is not observed when disabling UAC manually. The effect on Windows 10 is unknown. DO NOT USE
 ```powershell
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System]
 "EnableLUA"=dword:00000000
@@ -116,7 +114,7 @@ wget https://gist.githubusercontent.com/MuhammadSaim/de84d1ca59952cf1efaa8c061aa
 ```
 
 HEVC
-https://store.rg-adguard.net/ and enter https://www.microsoft.com/store/productId/9nmzlz57r3t7 and select `Retail`, alternatively use an existing appx. To install it
+https://store.rg-adguard.net/ and enter [https://www.microsoft.com/store/productId/9nmzlz57r3t7 ](https://apps.microsoft.com/detail/9nmzlz57r3t7)and select `Retail`, alternatively use an existing appx. To install it
 ```powershell
 add-appxpackage $path_to_hevc
 ```

@@ -4,7 +4,7 @@ https://learn.microsoft.com/en-us/powershell/scripting/learn/deep-dives/everythi
 Array stores the references, not the values, so when modifying items in a nested array, it will change everything
 Basic syntax
 ```powershell
-$mylist=@()
+$mylist=@("1",2,"three") # string must be quoted
 $mylist = 1,2,3,4,5
 $mylist = echo 1 2 3 4 5
 ```
@@ -62,7 +62,7 @@ Add
 $mylist.Add(1) # return the index
 $mylist.AddRange(@()) # add a range from an array, similar to extend
 ```
-- add will always echo into the termina, use void to 
+- add will always echo into the terminal, use void to 
 ```powershell
 [void]$mylist.Add(1)
 ```
@@ -75,3 +75,8 @@ $mylist.RemoveRange(index, deleteCount)
 - remove is not the same as pop
 - it remove one instance where it matches the value **from the beginning**
 - `RemoveRange` is similar to [JavaScript splice](../nodejs/array.md) 
+## Array Condition
+```powershell
+@(1,2,3,4,5) | where {$_ -gt 3}
+```
+- use `where` to filter based on a condition

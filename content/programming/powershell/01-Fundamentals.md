@@ -11,6 +11,11 @@ Get-Alias
 Get-Command
 ```
 - check command or alias
+
+Inspect Property and Methods
+```powershell
+command | Get-Member
+```
 ## Variables
 ```powershell
 $variable="string"

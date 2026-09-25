@@ -57,6 +57,25 @@ Create the certificate
 openssl x509 -req -sha256 -days 365 -in cert.csr -CA ca.pem -CAkey ca-key.pem -out cert.pem -extfile extfile.cnf -CAcreateserial
 ```
 
+## Gathering All Files
+`ca-key.pem` - Root CA private key (DO NOT LEAK)
+`ca.pem` - Root CA public key
+`cert-key.pem` - Webserver private key
+`cert.pem` - Webserver public key 
+
+| Software | Private Key         | Public Key               |
+| -------- | ------------------- | ------------------------ |
+| File     | cert-key.pem        | cert.pem (fullchain.pem) |
+| Mkcert   | domain-key.pem      | domain.pem               |
+| Other    | privkey.pem         | server.crt root.crt      |
+| ID       | BEGIN PRIVATE KEY   | BEGIN CERTIFICATE        |
+| NPM      | Certificate key     | Certificate              |
+| Xray     | keyFile             | certificateFile          |
+| Hysteria | key                 | cert                     |
+| Nginx    | ssl_certificate_key | ssl_certificate          |
+| Caddy    | second directive    | first directive          |
+
+Usually there's a `fullchain.pem` which merges CA key with the webserver key. But sometimes, this step may not be needed. 
 ## Certificate Formats
 
 X.509 Certificates exist in Base64 Formats **PEM (.pem, .crt, .ca-bundle)**, **PKCS#7 (.p7b, p7s)** and Binary Formats **DER (.der, .cer)**, **PKCS#12 (.pfx, p12)**.

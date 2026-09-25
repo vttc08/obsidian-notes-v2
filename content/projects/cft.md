@@ -50,6 +50,21 @@ aws sts get-caller-identity --query Account --output text
 
 For usage limit, each CloudFront free plan come with 100GB free, totals to 300GB total (for all plans). However, the 1TB download for PAYG plan is pooled and per account.
 
+Check CloudFront standard logs
+```bash
+aws logs describe-deliveries
+```
+- this command list out all the log deliveries for AWS
+Return type
+```json
+{"deliveries":[
+	{"id"...,"deliverySourceName":"CreatedByCloudFront-E1RVQW8AQD53F9-ACCESS_LOGS"}
+]}
+```
+- if the logs is created by CloudFront, the `deliverySourceName` would contain `CreatedByCloudFront` and the distribution ID would be present
+- it can be used to check if/which distribution has standard logging enabled
+- the `deliveryDestinationType` can be useful to determine whether the log is CloudWatch `CWL` or S3
+
 CloudWatch
 Getting Per-Distribution Data is difficult, especially the upload data (for websocket)
 However, for download, it's possible to get data per distribution
@@ -295,8 +310,55 @@ Parsing parquet file, also uses the CloudWatch algorithm for caching upload valu
 
 Automating creation of required S3 buckets for data export and S3/Cloudwatch for CloudFront logs
 Creating CloudFront distribution
-- todo later
+- distribution name
+- type: single website or app
+origin: other
+- domain name: website name
+- customize origin settings
+	- origin IP address type: IPv4 only, IPv6 or dual-stack
+- customize cache settings
+	- viewer protocol policy: redirect HTTP to HTTPS
+	- allowed HTTP methods: select the one with all
+	- allow gRPC requests over HTTP/2
+- cache policy - CachingDisabled
+- origin request policy: AllViewerExceptHostHeader
+WAF: not free, do not enable
 
+Edit a distribution
+Origins: choose an origin and click edit
+- edit protocol (HTTP/HTTPS)
+- HTTPS port
+- origin IP address type
+Adding an origin brings up the same page as edit
+Behavior
+- use legacy cache settings (if available)
+- headers, query strings, cookies -> None
+
+To create a distribution (use a default template and change as needed)
+```bash
+aws cloudfront create-distribution   --distribution-config file://dist-config.json
+```
+- the data would be piped to stdout in CLI
+Cloning is also possible, do these actions
+- create a new `CallerReference`
+- 
+
+Polling CloudFront distribution given an ID
+```bash
+ aws cloudfront get-distribution   --id E11F6I6S113H0O   --query 'Distribution.{Status:Status,DomainName:DomainName}'
+```
+- status should be deployed when it's ready
+
+Changing a distribution
+- to change it, the ETag `.ETag` is needed in `--if-match`
+- only the `.DistributionConfig` is needed from `get-distribution-config`
+```bash
+aws cloudfront get-distribution-config --id E11F6I6S113H0O > raw.json
+jq .DistributionConfig > dist-config.json 
+# edit the file and make changes
+aws cloudfront update-distribution   --id E11F6I6S113H0O   --if-match $(jq -r .ETag raw.json) --distribution-config file://dist-config.json
+```
+- poll the distribution until deployed
 ### Agent Notes
 The personal notetaking ends here. This part is used to guide the AI agent to build better AGENTS.md and redefine scope.
 

@@ -1,4 +1,4 @@
-[shadowsocks](shadowsocks.md)
+[~~shadowsocks~~](shadowsocks.md)
 ~~Hysteria~~
 StreisandVPN
 Outline VPN
@@ -16,6 +16,7 @@ STUN server
 WG over shadowsocks 
 Hiddify
 Reality
+XHTTP
 Easytier
 Cloak
 Intestellar and similar proxy

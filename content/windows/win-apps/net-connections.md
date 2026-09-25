@@ -1,31 +1,75 @@
-For connecting to networked resources, eg. SMB, SSH, Wireguard
+For connecting to and from networked resources, eg. SMB, SSH, Wireguard
 ## SSH
 Remember to not use strict host checking for automating ssh login.
 ```powershell
 ssh -o StrictHostKeyChecking=no $target
 ```
 - every subsequent logins will be immediate
-### Tabby Terminal
-```powershell
-winget install eugeny.tabby
-```
-By default it will import SSH config are `config` file.. But for complete configuration and settings, it stores config file at
-```
-%appdata%/tabby/config.yaml
-```
-Copying all the content to the computer will restore operation.
 ### SSH Server
 https://learn.microsoft.com/en-us/windows-server/administration/openssh/openssh_install_firstuse?tabs=gui&pivots=windows-11
 Install 
 ```powershell
 Add-WindowsCapability -Online -Name OpenSSH.Server
 ```
+- this takes a very long time
 Enable --now
 ```powershell
 Set-Service -Name sshd -StartupType 'Automatic'
 Start-Service sshd
 ```
+SSH Authorized Keys
+```powershell
+gsudo vim 'C:\ProgramData\ssh\sshd_config'
+```
+Ensure these lines are deleted
+```powershell
+Match Group administrators
+    AuthorizedKeysFile **PROGRAMDATA**/ssh/administrators_authorized_keys
+```
+Use PowerShell as default shell (must run everything as admin)
+https://learn.microsoft.com/en-us/windows-server/administration/openssh/openssh-server-configuration
+```powershell
+$NewItemPropertyParams = @{
+    Path         = "HKLM:\SOFTWARE\OpenSSH"
+    Name         = "DefaultShell"
+    Value        = "C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe"
+    PropertyType = "String"
+    Force        = $true
+}
+New-ItemProperty @NewItemPropertyParams
+```
 ## SMB
+### Server
+```powershell
+New-SmbShare -Name Exports -Path "C:\Users\hubcc\Desktop\Exports" -FullAccess "hubcc"
+```
+- Name
+- Path (preferably absolute path or resolved path)
+- FullAccess can provide the username of the computer (or use `$(whoami)`)
+```powershell
+Remove-SmbShare -Name ""
+```
+### Client
+Must run this on non-admin.
+```powershell
+New-PSDrive -Name "R" -Root \\10.10.120.16\data_share -Persist -Scope Global -PSProvider FileSystem
+```
+- `Name`: the drive letter
+- `Root`: the IP address and path of SMB share
+- `Persist`: required to make it show up in Windows Explorer
+- `-Scope Global -PSProvider Filesystem`
+You may need to use `cmdkey` to add SMB credential into Windows Credential
+```powershell
+cmdkey /add:"10.10.120.67" /user:"username" /pass:'passw0rd'
+```
+- the `/add` puts it into Windows Credential
+Remove
+```powershell
+Remove-PSDrive -Name ""
+```
+```powershell
+cmdkey /delete:"10.10.120.67"
+```
 ## NFS
 ```powershell
 Enable-WindowsOptionalFeature -FeatureName ServicesForNFS-ClientOnly, ClientForNFS-Infrastructure -Online -NoRestart
@@ -76,4 +120,29 @@ $shortcut.WorkingDirectory = "C:\Windows\System32"
 $shortcut.Save()
 
 Write-Host "Shortcut updated and saved."
+```
+## RustDesk (Incoming)
+https://github.com/auchavez/Rust-Desk-Client-Deployment
+Specific script https://raw.githubusercontent.com/auchavez/Rust-Desk-Client-Deployment/refs/heads/main/Client-Deployment.ps1
+
+Changes is required for the it to work
+Remove these lines
+```powershell
+# === Custom Configuration ===
+$rendezvousAddress = "your.domain.com"
+$relayPort         = "21116"
+$publicKey         = "REPLACE_ME_PUBLIC_KEY"
+===
+$tomlContent = @"
+rendezvous_server = '$rendezvousAddress:$relayPort'
+nat_type = 1
+serial = 0
+===
+custom-rendezvous-server = '$rendezvousAddress'
+key = '$publicKey'
+whitelist = '192.168.1.1,10.0.0.1,172.16.0.0/16'
+```
+Change the password
+```powershell
+$passwordPlain     = "REPLACE_ME_PASSWORD"
 ```
