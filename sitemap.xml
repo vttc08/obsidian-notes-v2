@@ -45,7 +45,7 @@
     <lastmod>2026-02-07T06:05:04.017Z</lastmod>
   </url><url>
     <loc>https://quartz.jzhao.xyz/docker/docker-socket</loc>
-    <lastmod>2024-09-16T20:50:03.180Z</lastmod>
+    <lastmod>2026-06-09T03:09:47.500Z</lastmod>
   </url><url>
     <loc>https://quartz.jzhao.xyz/docker/docker-volumes</loc>
     <lastmod>2025-06-10T23:31:49.455Z</lastmod>
@@ -82,6 +82,9 @@
   </url><url>
     <loc>https://quartz.jzhao.xyz/git/git-submodule</loc>
     <lastmod>2024-11-03T06:00:19.896Z</lastmod>
+  </url><url>
+    <loc>https://quartz.jzhao.xyz/git/git-worktree</loc>
+    <lastmod>2026-09-16T03:50:21.075Z</lastmod>
   </url><url>
     <loc>https://quartz.jzhao.xyz/homeassistant/Sonoff-S31</loc>
     <lastmod>2026-03-16T05:47:47.150Z</lastmod>
@@ -120,7 +123,7 @@
     <lastmod>2025-10-20T02:22:58.669Z</lastmod>
   </url><url>
     <loc>https://quartz.jzhao.xyz/homeserver/Selfhost-a-Resilient-Remote-Access,-Ditch-Old-VPN-Protocols</loc>
-    <lastmod>2026-04-27T21:26:46.684Z</lastmod>
+    <lastmod>2026-09-01T19:15:30.178Z</lastmod>
   </url><url>
     <loc>https://quartz.jzhao.xyz/homeserver/applications/Paperless-ngx</loc>
     <lastmod>2024-05-30T05:26:34.201Z</lastmod>
@@ -130,6 +133,9 @@
   </url><url>
     <loc>https://quartz.jzhao.xyz/homeserver/bios-flashing</loc>
     <lastmod>2024-04-15T00:42:15.082Z</lastmod>
+  </url><url>
+    <loc>https://quartz.jzhao.xyz/homeserver/domain-certs</loc>
+    <lastmod>2026-06-10T21:13:09.045Z</lastmod>
   </url><url>
     <loc>https://quartz.jzhao.xyz/homeserver/firewalls/00-install</loc>
     <lastmod>2026-05-05T04:00:50.899Z</lastmod>
@@ -150,7 +156,7 @@
     <lastmod>2026-03-17T23:53:10.199Z</lastmod>
   </url><url>
     <loc>https://quartz.jzhao.xyz/homeserver/proxmox/02-lxc-containers</loc>
-    <lastmod>2026-04-01T21:55:48.009Z</lastmod>
+    <lastmod>2026-08-18T04:38:19.703Z</lastmod>
   </url><url>
     <loc>https://quartz.jzhao.xyz/homeserver/proxmox/03-virtual-machine</loc>
     <lastmod>2026-05-01T05:11:59.241Z</lastmod>
@@ -195,7 +201,7 @@
     <lastmod>2025-10-15T03:40:35.934Z</lastmod>
   </url><url>
     <loc>https://quartz.jzhao.xyz/homeserver/ssl-certificates_writeup</loc>
-    <lastmod>2025-03-23T04:15:35.205Z</lastmod>
+    <lastmod>2026-06-19T06:57:48.180Z</lastmod>
   </url><url>
     <loc>https://quartz.jzhao.xyz/homeserver/wolfgang-cicd-github-actions</loc>
     <lastmod>2024-05-18T21:38:36.986Z</lastmod>
@@ -249,7 +255,7 @@
     <lastmod>2024-10-24T20:01:38.497Z</lastmod>
   </url><url>
     <loc>https://quartz.jzhao.xyz/obsidian/docs-template</loc>
-    <lastmod>2026-05-12T03:44:45.814Z</lastmod>
+    <lastmod>2026-09-25T16:36:01.352Z</lastmod>
   </url><url>
     <loc>https://quartz.jzhao.xyz/obsidian/obsidian-basics</loc>
     <lastmod>2024-07-20T01:34:52.967Z</lastmod>
@@ -357,7 +363,7 @@
     <lastmod>2025-12-16T08:17:00.951Z</lastmod>
   </url><url>
     <loc>https://quartz.jzhao.xyz/programming/networking/Trojan</loc>
-    <lastmod>2025-04-12T06:53:42.557Z</lastmod>
+    <lastmod>2026-06-10T21:18:24.182Z</lastmod>
   </url><url>
     <loc>https://quartz.jzhao.xyz/programming/networking/VLAN</loc>
     <lastmod>2026-03-23T07:05:08.215Z</lastmod>
@@ -372,10 +378,10 @@
     <lastmod>2025-09-17T19:25:32.250Z</lastmod>
   </url><url>
     <loc>https://quartz.jzhao.xyz/programming/networking/censorship-todo</loc>
-    <lastmod>2025-11-20T00:38:02.895Z</lastmod>
+    <lastmod>2026-05-14T00:14:56.223Z</lastmod>
   </url><url>
     <loc>https://quartz.jzhao.xyz/programming/networking/clients/client-server</loc>
-    <lastmod>2025-04-27T06:28:30.494Z</lastmod>
+    <lastmod>2026-07-20T04:09:37.602Z</lastmod>
   </url><url>
     <loc>https://quartz.jzhao.xyz/programming/networking/clients/shadowrocket</loc>
     <lastmod>2025-09-10T05:36:24.679Z</lastmod>
@@ -399,7 +405,7 @@
     <lastmod>2025-04-06T21:00:03.122Z</lastmod>
   </url><url>
     <loc>https://quartz.jzhao.xyz/programming/networking/sing-box</loc>
-    <lastmod>2025-05-24T01:35:18.454Z</lastmod>
+    <lastmod>2026-07-16T05:59:05.357Z</lastmod>
   </url><url>
     <loc>https://quartz.jzhao.xyz/programming/networking/v2ray-sub</loc>
     <lastmod>2026-03-01T05:59:24.213Z</lastmod>
@@ -417,10 +423,10 @@
     <lastmod>2025-12-12T05:37:33.279Z</lastmod>
   </url><url>
     <loc>https://quartz.jzhao.xyz/programming/powershell/01-Fundamentals</loc>
-    <lastmod>2026-03-27T06:58:43.894Z</lastmod>
+    <lastmod>2026-07-06T03:06:44.831Z</lastmod>
   </url><url>
     <loc>https://quartz.jzhao.xyz/programming/powershell/02-array</loc>
-    <lastmod>2026-03-27T06:23:30.703Z</lastmod>
+    <lastmod>2026-07-08T23:13:04.365Z</lastmod>
   </url><url>
     <loc>https://quartz.jzhao.xyz/programming/powershell/03-hashtable</loc>
     <lastmod>2026-03-26T04:39:20.798Z</lastmod>
@@ -429,7 +435,7 @@
     <lastmod>2026-03-26T04:47:06.341Z</lastmod>
   </url><url>
     <loc>https://quartz.jzhao.xyz/programming/powershell/05-conditional-trycatch</loc>
-    <lastmod>2026-05-07T22:06:04.914Z</lastmod>
+    <lastmod>2026-05-14T00:14:03.914Z</lastmod>
   </url><url>
     <loc>https://quartz.jzhao.xyz/programming/powershell/06-loops</loc>
     <lastmod>2026-04-02T05:50:37.261Z</lastmod>
@@ -464,14 +470,17 @@
     <loc>https://quartz.jzhao.xyz/programming/react/07-hooks</loc>
     <lastmod>2025-04-30T04:54:22.230Z</lastmod>
   </url><url>
-    <loc>https://quartz.jzhao.xyz/programming/vibecoding/Codex</loc>
-    <lastmod>2026-04-22T23:47:45.495Z</lastmod>
+    <loc>https://quartz.jzhao.xyz/programming/vibecoding/codex</loc>
+    <lastmod>2026-06-06T15:30:06.267Z</lastmod>
   </url><url>
     <loc>https://quartz.jzhao.xyz/programming/vibecoding/copilot</loc>
     <lastmod>2026-04-16T22:50:09.716Z</lastmod>
   </url><url>
+    <loc>https://quartz.jzhao.xyz/programming/vibecoding/gemini</loc>
+    <lastmod>2026-05-20T07:03:42.509Z</lastmod>
+  </url><url>
     <loc>https://quartz.jzhao.xyz/programming/vibecoding/project-setup</loc>
-    <lastmod>2026-04-07T04:51:43.807Z</lastmod>
+    <lastmod>2026-09-15T05:40:27.746Z</lastmod>
   </url><url>
     <loc>https://quartz.jzhao.xyz/projects/DNS-poisoning</loc>
     <lastmod>2026-04-25T04:14:17.386Z</lastmod>
@@ -486,10 +495,13 @@
     <lastmod>2024-11-12T18:14:43.590Z</lastmod>
   </url><url>
     <loc>https://quartz.jzhao.xyz/projects/cft</loc>
-    <lastmod>2026-05-11T00:55:22.495Z</lastmod>
+    <lastmod>2026-06-07T00:38:41.459Z</lastmod>
+  </url><url>
+    <loc>https://quartz.jzhao.xyz/projects/demucs-karaoke-app-docs/Index</loc>
+    <lastmod>2026-09-10T05:40:07.290Z</lastmod>
   </url><url>
     <loc>https://quartz.jzhao.xyz/projects/demucs-karaoke-vibe</loc>
-    <lastmod>2026-04-15T06:44:47.300Z</lastmod>
+    <lastmod>2026-09-02T06:01:15.650Z</lastmod>
   </url><url>
     <loc>https://quartz.jzhao.xyz/projects/finished/3910</loc>
     <lastmod>2026-04-22T07:43:38.696Z</lastmod>
@@ -513,7 +525,7 @@
     <lastmod>2026-01-18T05:31:56.142Z</lastmod>
   </url><url>
     <loc>https://quartz.jzhao.xyz/projects/finished/dotfiles</loc>
-    <lastmod>2025-12-31T18:37:31.540Z</lastmod>
+    <lastmod>2026-05-18T06:15:07.649Z</lastmod>
   </url><url>
     <loc>https://quartz.jzhao.xyz/projects/finished/htpc-troubleshooter</loc>
     <lastmod>2025-05-26T02:05:40.352Z</lastmod>
@@ -527,6 +539,9 @@
     <loc>https://quartz.jzhao.xyz/projects/finished/mkvtoolnix</loc>
     <lastmod>2025-10-23T04:22:17.718Z</lastmod>
   </url><url>
+    <loc>https://quartz.jzhao.xyz/projects/finished/movie-renamer</loc>
+    <lastmod>2026-02-20T21:29:43.130Z</lastmod>
+  </url><url>
     <loc>https://quartz.jzhao.xyz/projects/finished/newpipe-sponsorblock</loc>
     <lastmod>2025-01-22T04:33:30.420Z</lastmod>
   </url><url>
@@ -539,17 +554,11 @@
     <loc>https://quartz.jzhao.xyz/projects/jellyfin-AMD-transcoding</loc>
     <lastmod>2024-11-20T00:28:41.821Z</lastmod>
   </url><url>
-    <loc>https://quartz.jzhao.xyz/projects/movie-renamer</loc>
-    <lastmod>2026-02-20T21:29:43.130Z</lastmod>
-  </url><url>
     <loc>https://quartz.jzhao.xyz/projects/npmplus</loc>
     <lastmod>2025-09-15T03:31:52.597Z</lastmod>
   </url><url>
     <loc>https://quartz.jzhao.xyz/projects/pve-fix</loc>
     <lastmod>2026-04-19T03:42:05.324Z</lastmod>
-  </url><url>
-    <loc>https://quartz.jzhao.xyz/projects/pve-power-draw</loc>
-    <lastmod>2026-02-26T06:57:36.713Z</lastmod>
   </url><url>
     <loc>https://quartz.jzhao.xyz/projects/urserversfine</loc>
     <lastmod>2025-11-21T21:55:05.900Z</lastmod>
@@ -557,26 +566,32 @@
     <loc>https://quartz.jzhao.xyz/projects/v2ray-subscription</loc>
     <lastmod>2025-09-26T04:26:35.068Z</lastmod>
   </url><url>
+    <loc>https://quartz.jzhao.xyz/projects/vbox-wifi-gateway</loc>
+    <lastmod>2026-07-24T05:46:46.031Z</lastmod>
+  </url><url>
     <loc>https://quartz.jzhao.xyz/todo</loc>
-    <lastmod>2026-05-12T03:39:24.816Z</lastmod>
+    <lastmod>2026-08-19T02:26:48.026Z</lastmod>
   </url><url>
     <loc>https://quartz.jzhao.xyz/windows/SetUserFTA--and--Browser</loc>
     <lastmod>2025-01-15T05:16:14.930Z</lastmod>
   </url><url>
     <loc>https://quartz.jzhao.xyz/windows/win-10-11-from-scratch</loc>
-    <lastmod>2025-01-16T06:26:49.836Z</lastmod>
+    <lastmod>2026-08-23T00:17:29.785Z</lastmod>
   </url><url>
     <loc>https://quartz.jzhao.xyz/windows/win-10-11-from-transfer</loc>
     <lastmod>2025-01-16T01:44:23.297Z</lastmod>
   </url><url>
     <loc>https://quartz.jzhao.xyz/windows/win-apps/!general</loc>
-    <lastmod>2025-12-17T02:04:07.941Z</lastmod>
+    <lastmod>2026-07-09T06:20:30.483Z</lastmod>
   </url><url>
     <loc>https://quartz.jzhao.xyz/windows/win-apps/WSL</loc>
-    <lastmod>2025-11-20T05:40:46.389Z</lastmod>
+    <lastmod>2026-05-17T06:46:13.860Z</lastmod>
   </url><url>
     <loc>https://quartz.jzhao.xyz/windows/win-apps/context-menu</loc>
     <lastmod>2024-08-27T07:08:32.056Z</lastmod>
+  </url><url>
+    <loc>https://quartz.jzhao.xyz/windows/win-apps/development</loc>
+    <lastmod>2026-07-09T06:10:19.163Z</lastmod>
   </url><url>
     <loc>https://quartz.jzhao.xyz/windows/win-apps/docker-desktop</loc>
     <lastmod>2025-11-10T06:54:36.267Z</lastmod>
@@ -597,8 +612,11 @@
     <lastmod>2025-01-16T01:15:49.924Z</lastmod>
   </url><url>
     <loc>https://quartz.jzhao.xyz/windows/win-apps/net-connections</loc>
-    <lastmod>2026-05-01T01:21:57.479Z</lastmod>
+    <lastmod>2026-07-19T21:24:04.408Z</lastmod>
   </url><url>
-    <loc>https://quartz.jzhao.xyz/windows/win-apps/powershell</loc>
-    <lastmod>2025-12-17T02:05:52.114Z</lastmod>
+    <loc>https://quartz.jzhao.xyz/windows/win-apps/powershell/powershell</loc>
+    <lastmod>2026-07-09T06:09:43.894Z</lastmod>
+  </url><url>
+    <loc>https://quartz.jzhao.xyz/windows/win-apps/powershell/winrm</loc>
+    <lastmod>2026-07-06T02:48:04.017Z</lastmod>
   </url></urlset>

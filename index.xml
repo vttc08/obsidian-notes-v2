@@ -10,61 +10,61 @@
     <link>https://quartz.jzhao.xyz/obsidian/docs-template</link>
     <guid>https://quartz.jzhao.xyz/obsidian/docs-template</guid>
     <description><![CDATA[  ]]></description>
-    <pubDate>Tue, 12 May 2026 03:44:45 GMT</pubDate>
+    <pubDate>Fri, 25 Sep 2026 16:36:01 GMT</pubDate>
+  </item><item>
+    <title>git-worktree</title>
+    <link>https://quartz.jzhao.xyz/git/git-worktree</link>
+    <guid>https://quartz.jzhao.xyz/git/git-worktree</guid>
+    <description><![CDATA[ Checkout another branch in a different directory git worktree . ]]></description>
+    <pubDate>Wed, 16 Sep 2026 03:50:21 GMT</pubDate>
+  </item><item>
+    <title>project-setup</title>
+    <link>https://quartz.jzhao.xyz/programming/vibecoding/project-setup</link>
+    <guid>https://quartz.jzhao.xyz/programming/vibecoding/project-setup</guid>
+    <description><![CDATA[ copilot codex AGENTS.MD AGENTS.md - general instructions for Codex/Copilot/OpenCode AGENTS.md in other subfolder with granular rules show examples (bad vs good) project structure set boundaries e.g. ]]></description>
+    <pubDate>Tue, 15 Sep 2026 05:40:27 GMT</pubDate>
+  </item><item>
+    <title>Index</title>
+    <link>https://quartz.jzhao.xyz/projects/demucs-karaoke-app-docs/Index</link>
+    <guid>https://quartz.jzhao.xyz/projects/demucs-karaoke-app-docs/Index</guid>
+    <description><![CDATA[ Home Getting started Overview Docker (recommended) Linux Windows Demucs Microservice (optional) Client configuration Backup/Restore and Upgrade Features Queue page Media page Stage display Media Editing Configuration Environment Configuration Settings Page include most recommended user configuration... ]]></description>
+    <pubDate>Thu, 10 Sep 2026 05:40:07 GMT</pubDate>
+  </item><item>
+    <title>demucs-karaoke-vibe</title>
+    <link>https://quartz.jzhao.xyz/projects/demucs-karaoke-vibe</link>
+    <guid>https://quartz.jzhao.xyz/projects/demucs-karaoke-vibe</guid>
+    <description><![CDATA[ Demucs Windows Because of that, a stable, reproducible path on Windows is: Python 3.10 PyTorch 2.8.0 + cu126 TorchAudio 2.8.0 + cu126 TorchVision 0.23.0 + cu126 Demucs 4.0.1 Create and activate a virtual environment py -3.10 -m venv .venv .\.venv\Scripts\Activate.ps1 python -m pip install --upgrade ... ]]></description>
+    <pubDate>Wed, 02 Sep 2026 06:01:15 GMT</pubDate>
+  </item><item>
+    <title>Selfhost a Resilient Remote Access, Ditch Old VPN Protocols</title>
+    <link>https://quartz.jzhao.xyz/homeserver/Selfhost-a-Resilient-Remote-Access,-Ditch-Old-VPN-Protocols</link>
+    <guid>https://quartz.jzhao.xyz/homeserver/Selfhost-a-Resilient-Remote-Access,-Ditch-Old-VPN-Protocols</guid>
+    <description><![CDATA[ First I apologize if the post is very long because it’s complex topic with many options. If your Wireguard/OpenVPN works great, you don’t need this. ]]></description>
+    <pubDate>Tue, 01 Sep 2026 19:15:30 GMT</pubDate>
+  </item><item>
+    <title>win-10-11-from-scratch</title>
+    <link>https://quartz.jzhao.xyz/windows/win-10-11-from-scratch</link>
+    <guid>https://quartz.jzhao.xyz/windows/win-10-11-from-scratch</guid>
+    <description><![CDATA[ In the Windows installer, choose Language “English (world)”, this disable all the bloatware and MS Store to re-enable, search for region in the settings, change back from world to US/Canada Win 11 Only Bypass network and account requirement, Shift-F10 for command prompt oobe\BypassNRO Powershell the... ]]></description>
+    <pubDate>Sun, 23 Aug 2026 00:17:29 GMT</pubDate>
   </item><item>
     <title>todo</title>
     <link>https://quartz.jzhao.xyz/todo</link>
     <guid>https://quartz.jzhao.xyz/todo</guid>
-    <description><![CDATA[  IPTV Learn Home Assistant in depth ha-fusion Traefik CLI subtitle tools SDHpysrtfuzzmatchuseful localsend/cli-send tools autouptimekuma Storyteller/AI audiobook DIUN docker update Lazytainer/ContainerNursery/dockerwakeup to sleep docker Minecraft discord bot Minecraft autoshutdown, lazymc Minecraft... ]]></description>
-    <pubDate>Tue, 12 May 2026 03:39:24 GMT</pubDate>
+    <description><![CDATA[  IPTV Learn Home Assistant in depth ha-fusion localsend/cli-send tools autouptimekuma Storyteller/AI audiobook DIUN docker update Lazytainer/ContainerNursery/dockerwakeup to sleep docker Minecraft discord bot Minecraft autoshutdown, lazymc Minecraft auto update plugin Minecraft management method (pr... ]]></description>
+    <pubDate>Wed, 19 Aug 2026 02:26:48 GMT</pubDate>
   </item><item>
-    <title>cft</title>
-    <link>https://quartz.jzhao.xyz/projects/cft</link>
-    <guid>https://quartz.jzhao.xyz/projects/cft</guid>
-    <description><![CDATA[ CloudFront Shell Tool Setup, ensure the ~/.aws exists and the files config and credential exist [default] region = us-west-1 the region will be used as default for future AWS commands although CloudFront regions are global on the WebUI only us-east-1 in AWS CLI return results, program should read fr... ]]></description>
-    <pubDate>Mon, 11 May 2026 00:55:22 GMT</pubDate>
+    <title>02-lxc-containers</title>
+    <link>https://quartz.jzhao.xyz/homeserver/proxmox/02-lxc-containers</link>
+    <guid>https://quartz.jzhao.xyz/homeserver/proxmox/02-lxc-containers</guid>
+    <description><![CDATA[ LXC container are more like VM (state is preserved and files are still present) Unprivileged vs Privileged container Unprivileged container is mapped to unprivileged user outside the container and it’s more secure Default username: root Pass: during setup if not provided, it’s not possible to login ... ]]></description>
+    <pubDate>Tue, 18 Aug 2026 04:38:19 GMT</pubDate>
   </item><item>
-    <title>09-functions</title>
-    <link>https://quartz.jzhao.xyz/programming/powershell/09-functions</link>
-    <guid>https://quartz.jzhao.xyz/programming/powershell/09-functions</guid>
-    <description><![CDATA[ Powershell function syntax function name() { param( [Parameter(Mandatory)] [string]$one = &quot;default, [int]$num ) return $something } function parameters are defined in param comma separated values option to make a parameter mandatory Calling a function name $one $num name -one $one -num $num The... ]]></description>
-    <pubDate>Thu, 07 May 2026 22:10:48 GMT</pubDate>
-  </item><item>
-    <title>10-oop</title>
-    <link>https://quartz.jzhao.xyz/programming/powershell/10-oop</link>
-    <guid>https://quartz.jzhao.xyz/programming/powershell/10-oop</guid>
-    <description><![CDATA[  ]]></description>
-    <pubDate>Thu, 07 May 2026 22:06:21 GMT</pubDate>
-  </item><item>
-    <title>05-conditional-trycatch</title>
-    <link>https://quartz.jzhao.xyz/programming/powershell/05-conditional-trycatch</link>
-    <guid>https://quartz.jzhao.xyz/programming/powershell/05-conditional-trycatch</guid>
-    <description><![CDATA[ Math &amp; Comparison Supported +, -, *, /, % Powershell do not use == or !=, &lt;= (1 -eq 2) -ge/le/gt/lt - common comparison, greater/less than or equal to by adding c into eq will make the search case sensitive File based operation with `Test-Path Test-Path $filePath whether a folder or file exis... ]]></description>
-    <pubDate>Thu, 07 May 2026 22:06:04 GMT</pubDate>
-  </item><item>
-    <title>00-install</title>
-    <link>https://quartz.jzhao.xyz/homeserver/firewalls/00-install</link>
-    <guid>https://quartz.jzhao.xyz/homeserver/firewalls/00-install</guid>
-    <description><![CDATA[ Download the DVD ISO Opnsense: opnsense.org/download/ choose dvd For Proxmox VM, when installing the ISO do not choose pre enroll EFI key otherwise it might not work . ]]></description>
-    <pubDate>Tue, 05 May 2026 04:00:50 GMT</pubDate>
-  </item><item>
-    <title>03-virtual-machine</title>
-    <link>https://quartz.jzhao.xyz/homeserver/proxmox/03-virtual-machine</link>
-    <guid>https://quartz.jzhao.xyz/homeserver/proxmox/03-virtual-machine</guid>
-    <description><![CDATA[ Proxmox VM Quick Info VMID: unique number between 100 and 999999999 (3-9 digits) this can be renamed in /etc/pve/qemu-server/&lt;VMID&gt;.conf Name: use hostname After creation tasks: see VM Todo VM Creation Checklist 1) System Enable QEMU Agent so guest actions (shutdown, snapshot) work more reliab... ]]></description>
-    <pubDate>Fri, 01 May 2026 05:11:59 GMT</pubDate>
-  </item><item>
-    <title>net-connections</title>
-    <link>https://quartz.jzhao.xyz/windows/win-apps/net-connections</link>
-    <guid>https://quartz.jzhao.xyz/windows/win-apps/net-connections</guid>
-    <description><![CDATA[ For connecting to networked resources, eg. SMB, SSH, Wireguard SSH Remember to not use strict host checking for automating ssh login. ]]></description>
-    <pubDate>Fri, 01 May 2026 01:21:57 GMT</pubDate>
-  </item><item>
-    <title>Drawing 2025-12-05 22.08.52.excalidraw</title>
-    <link>https://quartz.jzhao.xyz/Excalidraw/Drawing-2025-12-05-22.08.52.excalidraw</link>
-    <guid>https://quartz.jzhao.xyz/Excalidraw/Drawing-2025-12-05-22.08.52.excalidraw</guid>
-    <description><![CDATA[ ⚠ Switch to EXCALIDRAW VIEW in the MORE OPTIONS menu of this document. ]]></description>
-    <pubDate>Wed, 29 Apr 2026 00:39:49 GMT</pubDate>
+    <title>vbox-wifi-gateway</title>
+    <link>https://quartz.jzhao.xyz/projects/vbox-wifi-gateway</link>
+    <guid>https://quartz.jzhao.xyz/projects/vbox-wifi-gateway</guid>
+    <description><![CDATA[ Synopsis: hotspot sharing from a MT7921 Wi-Fi card (generic Wi-Fi 6 AX1800 Dual Band USB Adapter) to provide scientific network access to multiple devices without NAT or TTL decrement or specialized travel router hardware like GL-iNet. ]]></description>
+    <pubDate>Fri, 24 Jul 2026 05:46:46 GMT</pubDate>
   </item>
     </channel>
   </rss>
